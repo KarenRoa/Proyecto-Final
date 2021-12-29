@@ -2,6 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
+
 class Cuidador(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(120), unique=False, nullable=False)
@@ -40,6 +42,7 @@ class Cliente(db.Model):
     telefono = db.Column(db.String(80), unique=False, nullable=False)
     comuna = db.Column(db.String(80), unique=False, nullable=False)
     descripcion = db.Column(db.String, unique=False, nullable=False)
+
     
     # def __repr__(self):
     #     return '<User %r>' % self.username
@@ -59,34 +62,35 @@ class Cliente(db.Model):
 
 class Favoritos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cliente_id = db.Column(db.Integer, db.ForeingKey('cliente.id'))
-    cuidador_id = db.Column(db.Integer, db.ForeingKey('cuidador.id'))
+    cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.id'))
+    cuidador_id = db.Column(db.Integer, db.ForeignKey('cuidador.id'))
     cliente = db.relationship(Cliente)
-    cuidador_id = db.relationship(Cuidador)
+    cuidador = db.relationship(Cuidador)
+    
 
     
     def serialize(self):
         return {
             "id": self.id,
-            "cliente_id":self.user_id,
+            "cliente_id":self.cliente_id,
             "cuidador_id": self.cuidador_id,
         }
 
-class Contrato(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    cliente_id = db.Column(db.Integer, db.ForeingKey('cliente.id'))
-    cuidador_id = db.Column(db.Integer, db.ForeingKey('cuidador.id'))
-    fecha = db.Column(db.Date, unique=False, nullable=False)
-    servicio = db.Column(db.String, unique=False, nullable=False)
-    cliente = db.relationship(Cliente)
-    cuidador_id = db.relationship(Cuidador)
+# class Contrato(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.id'))
+#     cuidador_id = db.Column(db.Integer, db.ForeignKey('cuidador.id'))
+#     fecha = db.Column(db.Date, unique=False, nullable=False)
+#     servicio = db.Column(db.String, unique=False, nullable=False)
+#     cliente = db.relationship(Cliente)
+#     cuidador_id = db.relationship(Cuidador)
 
     
-    def serialize(self):
-        return {
-            "id": self.id,
-            "cliente_id":self.user_id,
-            "cuidador_id": self.cuidador_id,
-            "fecha": self.fecha,
-            "servicio": self.servicio,
-        }
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "cliente_id":self.user_id,
+#             "cuidador_id": self.cuidador_id,
+#             "fecha": self.fecha,
+#             "servicio": self.servicio,
+#         }
