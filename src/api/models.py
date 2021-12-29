@@ -69,5 +69,24 @@ class Favoritos(db.Model):
         return {
             "id": self.id,
             "cliente_id":self.user_id,
-            "cuidador_id": self.cuidador_id
+            "cuidador_id": self.cuidador_id,
+        }
+
+class Contrato(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cliente_id = db.Column(db.Integer, db.ForeingKey('cliente.id'))
+    cuidador_id = db.Column(db.Integer, db.ForeingKey('cuidador.id'))
+    fecha = db.Column(db.Date, unique=False, nullable=False)
+    servicio = db.Column(db.String, unique=False, nullable=False)
+    cliente = db.relationship(Cliente)
+    cuidador_id = db.relationship(Cuidador)
+
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "cliente_id":self.user_id,
+            "cuidador_id": self.cuidador_id,
+            "fecha": self.fecha,
+            "servicio": self.servicio,
         }
