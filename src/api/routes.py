@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db,Cuidador
+from api.models import db,Cuidador,Cliente
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -46,5 +46,40 @@ def set_cuidador():
                                   descripcion = datos['descripcion'],
                                  )
         db.session.add(nuevo_cuidador)
+        db.session.commit()
+        return 'Usuario Registrado'
+
+
+
+
+#Ruta para ver todos los Clientes
+@api.route('/clientes', methods=['GET'])
+def get_clientes():
+    Clientes=Cliente.query.all()
+    Clientes = list(map(lambda x: x.serialize(),Clientes))
+
+    return jsonify(Clientes), 200
+
+#Ruta para crear un Cliente
+@api.route('/cliente',  methods=['POST'])
+def set_cliente():
+    datos = request.get_json()
+    if (datos is None):
+        return 'Falta información'
+    if ('email' not in datos):
+        return 'Falta email'
+    if ('password' not in datos):
+        return 'Falta Password'
+    nuevo_cliente = Cliente.query.filter_by(email = datos['email']).first()
+    if (nuevo_cliente is None):
+        nuevo_cliente = Cliente(nombre = datos['nombre'], 
+                                  apellido = datos['apellido'],
+                                  email = datos['email'], 
+                                  password = datos['password'], 
+                                  telefono = datos['telefono'], 
+                                  comuna = datos['comuna'],
+                                  descripcion = datos['descripcion'],
+                                 )
+        db.session.add(nuevo_cliente)
         db.session.commit()
         return 'Usuario Registrado'
