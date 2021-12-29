@@ -44,8 +44,6 @@ class Cliente(db.Model):
     descripcion = db.Column(db.String, unique=False, nullable=False)
 
     
-    # def __repr__(self):
-    #     return '<User %r>' % self.username
 
     def serialize(self):
         return {
@@ -67,8 +65,6 @@ class Favoritos(db.Model):
     cliente = db.relationship(Cliente)
     cuidador = db.relationship(Cuidador)
     
-
-    
     def serialize(self):
         return {
             "id": self.id,
@@ -76,21 +72,21 @@ class Favoritos(db.Model):
             "cuidador_id": self.cuidador_id,
         }
 
-# class Contrato(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.id'))
-#     cuidador_id = db.Column(db.Integer, db.ForeignKey('cuidador.id'))
-#     fecha = db.Column(db.Date, unique=False, nullable=False)
-#     servicio = db.Column(db.String, unique=False, nullable=False)
-#     cliente = db.relationship(Cliente)
-#     cuidador_id = db.relationship(Cuidador)
+class Contrato(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.id'))
+    cuidador_id = db.Column(db.Integer, db.ForeignKey('cuidador.id'))
+    fecha = db.Column(db.Date, unique=False, nullable=False)
+    servicio = db.Column(db.String, unique=False, nullable=False)
+    cliente = db.relationship(Cliente)
+    cuidador = db.relationship(Cuidador)
 
     
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "cliente_id":self.user_id,
-#             "cuidador_id": self.cuidador_id,
-#             "fecha": self.fecha,
-#             "servicio": self.servicio,
-#         }
+    def serialize(self):
+        return {
+            "id": self.id,
+            "cliente_id":self.user_id,
+            "cuidador_id": self.cuidador_id,
+            "fecha": self.fecha,
+            "servicio": self.servicio,
+        }
