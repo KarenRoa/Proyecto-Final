@@ -31,7 +31,7 @@ class Cuidador(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Clien(db.Model):
+class Cliente(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(120), unique=False, nullable=False)
     apellido = db.Column(db.String(120), unique=False, nullable=False)
@@ -39,7 +39,6 @@ class Clien(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     telefono = db.Column(db.String(80), unique=False, nullable=False)
     comuna = db.Column(db.String(80), unique=False, nullable=False)
-    rrss = db.Column(db.String(80), unique=False, nullable=True)
     descripcion = db.Column(db.String, unique=False, nullable=False)
     
     # def __repr__(self):
@@ -54,8 +53,21 @@ class Clien(db.Model):
             "password": self.password,
             "telefono": self.telefono,
             "comuna": self.comuna,
-            "rrss": self.rrss,
             "descripcion": self.descripcion,
 
-            # do not serialize the password, its a security breach
+        }
+
+class Favoritos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cliente_id = db.Column(db.Integer, db.ForeingKey('cliente.id'))
+    cuidador_id = db.Column(db.Integer, db.ForeingKey('cuidador.id'))
+    cliente = db.relationship(Cliente)
+    cuidador_id = db.relationship(Cuidador)
+
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "cliente_id":self.user_id,
+            "cuidador_id": self.cuidador_id
         }
