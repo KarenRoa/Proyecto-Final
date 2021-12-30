@@ -43,7 +43,6 @@ class Cliente(db.Model):
     comuna = db.Column(db.String(80), unique=False, nullable=False)
     descripcion = db.Column(db.String, unique=False, nullable=False)
 
-    
 
     def serialize(self):
         return {

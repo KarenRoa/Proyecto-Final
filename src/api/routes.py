@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db,Cuidador,Cliente
+from api.models import db,Cuidador,Cliente, Favoritos
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -17,7 +17,7 @@ def get_cuidadores():
     return jsonify(Cuidadores), 200
 
 #Ruta para ver un cuidador
-@api.route('/un_cuidador/<int:id>', methods=['GET'])
+@api.route('/cuidador/<int:id>', methods=['GET'])
 def get_cuidador(id):
     Cuidador_id = Cuidador.query.get(id)
 
@@ -83,3 +83,12 @@ def set_cliente():
         db.session.add(nuevo_cliente)
         db.session.commit()
         return 'Usuario Registrado'
+
+
+#Ruta para ver los favoritos de un cliente
+@api.route('/favorito', methods=['GET'])
+def get_favoritos():
+    Favorito=Favoritos.query.filter_by(cliente_id = 1)
+    Favorito = list(map(lambda x: x.serialize(),Favorito))
+
+    return jsonify(Favorito), 200
