@@ -1,3 +1,78 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#contenedor {
+  height: 100%;
+}
+
+#logo {
+  margin-left: 15px;
+}
+
+#titulo {
+  color: white;
+}
+
+#titulo:hover {
+  color: #eb7d46;
+}
+
+#navbarNav {
+  margin-left: 340px;
+}
+
+#f-r {
+  margin-right: 15px;
+}
+
+#main-box {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+
+  background: rgba(230, 230, 230, 0.5);
+  width: 750px;
+  height: 450px;
+
+  border-radius: 25px;
+}
+
+.log-title{
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+
+.form-body{
+  text-align: left;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.pass-recovery{
+  left: 42%;
+  position: absolute;
+}
+
+#btn-login{
+  left: 45%;
+  position: absolute;
+}
+
+#password-text{
+  margin-top: 35px;
+}
+
+.subrayado{
+  text-decoration: none;
+}
+
+#navb{
+  color: rgba(0, 0, 0, 0.363);
+}
