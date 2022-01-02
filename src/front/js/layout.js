@@ -10,6 +10,8 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import RegistroCuidador from "./pages/registroCuidador";
+import RegistroCliente from "./pages/registroCliente";
+import { PerfilPrivado } from "./pages/perfilPrivado";
 
 //create your first component
 const Layout = () => {
@@ -32,8 +34,14 @@ const Layout = () => {
             <Route exact path="/registroCuidador">
               <RegistroCuidador />
             </Route>
+            <Route exact path="/registroCliente">
+              <RegistroCliente />
+            </Route>
             <Route exact path="/single/:theid">
               <Single />
+            </Route>
+            <Route exact path="/perfilPrivado/:theid">
+              <PerfilPrivado />
             </Route>
             <Route>
               <h1>Not found!</h1>

@@ -4,12 +4,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			demo: [
 				{
-					title: "FIRST",
+					nombre:"Carolina",
+					apellido: "Araya",
+					email: "caro@gmail.com",
+					initial: "white"
+				},
+				{
+					nombre:"Binka",
+					apellido: "Marina",
 					background: "white",
 					initial: "white"
 				},
 				{
-					title: "SECOND",
+					nombre:"Umai",
+					apellido: "Chhascona",
 					background: "white",
 					initial: "white"
 				}

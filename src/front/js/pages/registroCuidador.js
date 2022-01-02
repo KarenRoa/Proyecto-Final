@@ -59,11 +59,12 @@ const RegistroCuidador = () => {
   //FORMULARIO DE CUIDADOR
 
   return (
-    <div>
-      <form className="form" onSubmit={handleSubmit}>
-        <h1>Registrate</h1>
-        <div className="nombre">
-          <label htmlFor="">Nombre</label>
+    <div className="container d-flex justify-content-center bg-dark w-50 text-light mt-5 ">
+      
+      <form className="form d-flex justify-content-center flex-column" onSubmit={handleSubmit}>
+      <h1 className="text-center my-2">Registro Cuidador</h1>
+        <div className="nombre d-flex flex-column m-auto">
+          <label htmlFor="">Nombre *</label>
           <input
             type="text"
             value={datosCuidador.nombre}
@@ -76,8 +77,8 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="apellido">
-          <label htmlFor="">Apellido</label>
+        <div className="apellido d-flex flex-column m-auto">
+          <label htmlFor="">Apellido *</label>
           <input
             type="text"
             value={datosCuidador.apellido}
@@ -90,8 +91,8 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="email">
-          <label htmlFor="">Email</label>
+        <div className="email d-flex flex-column">
+          <label htmlFor="">Email *</label>
           <input
             type="email"
             value={datosCuidador.email}
@@ -104,8 +105,8 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="password1">
-          <label htmlFor="">Contraseña</label>
+        <div className="password1 d-flex flex-column">
+          <label htmlFor="">Contraseña *</label>
           <input
             type="password"
             value={datosCuidador.password1}
@@ -118,8 +119,8 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="password2">
-          <label htmlFor="">Repetir Contraseña</label>
+        <div className="password2 d-flex flex-column">
+          <label htmlFor="">Repetir Contraseña *</label>
           <input
             type="password"
             value={datosCuidador.password2}
@@ -132,7 +133,7 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="comuna">
+        <div className="comuna d-flex flex-column">
           <label htmlFor="">Comuna</label>
           <input
             type="text"
@@ -141,7 +142,7 @@ const RegistroCuidador = () => {
             onChange={handleForm}
           ></input>
         </div>
-        <div className="telefono">
+        <div className="telefono d-flex flex-column">
           <label htmlFor="">Teléfono</label>
           <input
             type="tel"
@@ -151,7 +152,7 @@ const RegistroCuidador = () => {
           ></input>
         </div>
 
-        <div className="rrss">
+        <div className="rrss d-flex flex-column">
           <label htmlFor="">Red Social</label>
           <input
             type="text"
@@ -160,7 +161,7 @@ const RegistroCuidador = () => {
             onChange={handleForm}
           ></input>
         </div>
-        <div className="descripcion">
+        <div className="descripcion d-flex flex-column">
           <label htmlFor="">Algo sobre ti</label>
           <input
             type="text"
@@ -169,7 +170,7 @@ const RegistroCuidador = () => {
             onChange={handleForm}
           ></input>
         </div>
-        <button className="enviar">Enviar</button>
+        <button className="enviar my-2">Enviar</button>
       </form>
     </div>
   );
