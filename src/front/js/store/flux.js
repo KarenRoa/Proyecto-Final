@@ -4,12 +4,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			demo: [
 				{
-					title: "FIRST",
+					nombre:"Carolina",
+					apellido: "Araya",
+					email: "caro@gmail.com",
+					initial: "white"
+				},
+				{
+					nombre:"Binka",
+					apellido: "Marina",
 					background: "white",
 					initial: "white"
 				},
 				{
-					title: "SECOND",
+					nombre:"Umai",
+					apellido: "Chhascona",
 					background: "white",
 					initial: "white"
 				}
@@ -28,20 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			
 		}
 	};
 };
