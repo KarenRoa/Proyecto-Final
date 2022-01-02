@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			detalleCuidador:{},
 			message: null,
 			demo: [
 				{
@@ -41,7 +42,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+
+			detalleCuidador: async id => {
+				const store = getStore();
+				await fetch(`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador/${id}`)
+					.then(response => response.json())
+					//.then(data => console.log(data))
+					.then(data => {
+						setStore({ detalleCuidador: data });
+					})
+					.catch(error => console.log("error", error));
+			},
 		}
 	};
 };

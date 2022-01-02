@@ -4,6 +4,7 @@ import perro from "../../img/perro2.png";
 
 export const Navbar = () => {
   return (
+    <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id="navb">
       <a className="navbar-brand" id="logo">
         <Link to="/" className="subrayado">
@@ -14,7 +15,7 @@ export const Navbar = () => {
             className="d-inline-block align-top"
             alt=""
           />
-          <strong href="#" id="titulo">
+          <strong  id="titulo">
             WALK-DOGS
           </strong>
         </Link>
@@ -41,14 +42,14 @@ export const Navbar = () => {
       </div>
 
       <div id="f-r">
-        <Link to="/SignUp">
+        <Link to="/login">
           <button type="button" className="btn btn-outline-light">
             INGRESAR
           </button>
         </Link>
       </div>
     </nav>
-
+</>
     /*<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<Link to="/">
@@ -61,5 +62,7 @@ export const Navbar = () => {
 				</div>
 			</div>
 		</nav>*/
+
+
   );
 };
