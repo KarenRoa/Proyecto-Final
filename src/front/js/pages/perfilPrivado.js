@@ -6,7 +6,7 @@ import fotoPerfil from "../../img/fotoPerfil.jpg";
 export const PerfilPrivado = () => {
   const { store, actions } = useContext(Context);
   
-  const [editar, setEditar] = useState(false);
+  
   const { id } = useParams();
 
   
@@ -23,7 +23,7 @@ export const PerfilPrivado = () => {
           <h2 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h2>
         </div>
         <div className="col-12 col-md-4">
-          <Link to={`/`} 
+          <Link to={`/editarCuidador/${id}`} 
                 className="text-white">
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
