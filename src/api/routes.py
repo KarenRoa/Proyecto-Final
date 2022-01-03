@@ -52,7 +52,22 @@ def set_cuidador():
         return 'Usuario Registrado'
 
 
-
+#Ruta para editar un cuidador
+@api.route('/editarCuidador/<id>', methods=['PUT'])
+def update_cuidador(id):
+    cuidador = Cuidador.query.get(id)
+    datos = request.get_json()
+    print(datos)
+    cuidador.nombre = datos['nombre'],
+    cuidador.apellido = datos['apellido'],
+    cuidador.email = datos['email'], 
+    cuidador.telefono = datos['telefono'], 
+    cuidador.comuna = datos['comuna'],
+    cuidador.rrss = datos['rrss'],
+    cuidador.descripcion = datos['descripcion']
+                                 
+    db.session.commit()
+    return 'Usuario Registrado'
 
 #Ruta para ver todos los Clientes
 @api.route('/clientes', methods=['GET'])
@@ -80,7 +95,6 @@ def set_cliente():
                                   password = datos['password'], 
                                   telefono = datos['telefono'], 
                                   comuna = datos['comuna'],
-                                  descripcion = datos['descripcion'],
                                  )
         db.session.add(nuevo_cliente)
         db.session.commit()

@@ -40,7 +40,7 @@ class Cliente(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     telefono = db.Column(db.String(80), unique=False, nullable=False)
     comuna = db.Column(db.String(80), unique=False, nullable=False)
-    descripcion = db.Column(db.String, unique=False, nullable=False)
+    
 
 
     def serialize(self):
@@ -51,7 +51,7 @@ class Cliente(db.Model):
             "email": self.email,
             "telefono": self.telefono,
             "comuna": self.comuna,
-            "descripcion": self.descripcion,
+            
 
         }
 
