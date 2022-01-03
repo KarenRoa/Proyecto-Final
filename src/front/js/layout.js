@@ -11,6 +11,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import RegistroCuidador from "./pages/registroCuidador";
+import EditarCuidador from "./pages/editarCuidador";
 import RegistroCliente from "./pages/registroCliente";
 import { PerfilPrivado } from "./pages/perfilPrivado";
 
@@ -23,44 +24,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-<<<<<<< HEAD
-    <div>
-      <BrowserRouter basename={basename}>
-        <ScrollToTop>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/demo">
-              <Demo />
-            </Route>
-            <Route exact path="/registroCuidador">
-              <RegistroCuidador />
-            </Route>
-            <Route exact path="/registroCliente">
-              <RegistroCliente />
-            </Route>
-            <Route exact path="/single/:theid">
-              <Single />
-            </Route>
-            <Route exact path="/perfilPrivado/:theid">
-              <PerfilPrivado />
-            </Route>
-            <Route>
-              <h1>Not found!</h1>
-            </Route>
-          </Switch>
-          <Footer />
-        </ScrollToTop>
-      </BrowserRouter>
-=======
-    <div
-      id="contenedor"
-      style={{
-        backgroundImage: `url(${fondo})`,
-      }}
-    >
+    
       <div>
         <BrowserRouter basename={basename}>
           <ScrollToTop>
@@ -78,6 +42,19 @@ const Layout = () => {
               <Route exact path="/login">
                 <Login />
               </Route>
+              <Route exact path="/registroCuidador">
+                <RegistroCuidador />
+              </Route>
+              <Route exact path="/editarCuidador/:id">
+                <EditarCuidador />
+              </Route>
+              <Route exact path="/registroCliente">
+                <RegistroCliente />
+              </Route>
+              <Route exact path="/perfilPrivado/:id">
+                <PerfilPrivado />
+              </Route>
+              
               <Route>
                 <h1>Not found!</h1>
               </Route>
@@ -86,8 +63,7 @@ const Layout = () => {
           </ScrollToTop>
         </BrowserRouter>
       </div>
->>>>>>> 078cbf69ba670703942c4a12418db26ded10fbfb
-    </div>
+    
   );
 };
 

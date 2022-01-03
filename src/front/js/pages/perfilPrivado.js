@@ -1,37 +1,60 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fotoPerfil from "../../img/fotoPerfil.jpg";
 
 export const PerfilPrivado = () => {
   const { store, actions } = useContext(Context);
-  const params = useParams();
+  
+  
+  const { id } = useParams();
 
-  const [editar, setEditar] = useState(false);
-
+  
+  
+  useEffect(() => {
+    actions.detalleCuidador(id);
+  }, []);
+  
   return (
-    <div className="container bg-dark text-light text-center w-50 mt-5 p-4">
-      <div className="row">
-        <div className="h1 col-sm-12 col-md-12">
-          {store.demo[params.theid].nombre} {store.demo[params.theid].apellido}
+    
+    <div className="container bg-dark text-light text-center w-50 my-4 p-4">
+      <div className="row d-flex justify-content-between align-items-center">
+        <div className=" col-12 col-md-8">
+          <h2 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h2>
+        </div>
+        <div className="col-12 col-md-4">
+          <Link to={`/editarCuidador/${id}`} 
+                className="text-white">
+                <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
+          </Link>
+          <span className="fs-5"><i className="fas fa-trash-alt"></i></span>
+        </div>
+      </div>
+      <div className="row d-flex align-items-center">
+        <div className="col-12 col-md-4">
+          <img src={fotoPerfil} className="rounded-circle p-2 img-fluid"/>
+        </div>
+        <div className="col-12 col-md-8">
+          <p>"{store.detalleCuidador.descripcion}"</p>
         </div>
       </div>
       <div className="row">
-        <div className="col-sm-6">
-          <img src={fotoPerfil} className="card-img-top p-2" />
-        </div>
-        <div className="col-sm-6">
-          <p>"Aqui va una descripcion del cuidado"</p>
-        </div>
+        <div><h3>Contacto</h3></div>
       </div>
       <div className="row">
-        <div className="h4 col-sm-12 col-md-12">Contacto</div>
-      </div>
-      <div className="row">
-        <div className="col-sm-4"><i class="fas fa-map-marker-alt"></i> Ubicacion</div>
-        <div className="col-sm-4"><i class="fab fa-instagram"></i> Instagram</div>
-        <div className="col-sm-4"><i class="fab fa-whatsapp"></i> Whatsapp</div>
+        <div className="col-sm-4">
+          <span><i className="fas fa-map-marker-alt"></i> Zona de Atención</span>
+          <p>{store.detalleCuidador.comuna}</p>
+        
+        </div>
+        <div className="col-sm-4">
+          <span><i className="fab fa-instagram"></i> Instagram</span>
+          <p>{store.detalleCuidador.rrss}</p>
+        </div>
+        <div className="col-sm-4">
+          <span><i className="fab fa-whatsapp"></i> WhatsApp</span>
+          <p>{store.detalleCuidador.telefono}</p>
+        </div>
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ const RegistroCuidador = () => {
   //MANEJADORES
   const handleForm = (event) => {
     const { name, value } = event.target;
+    
     setDatosCuidador((prevDatosCuidador) => ({
       ...prevDatosCuidador,
       [name]: value,
