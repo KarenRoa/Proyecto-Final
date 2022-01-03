@@ -28,12 +28,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			//Ruta para ver el detalle de un cuidador
 			detalleCuidador: async id => {
-				const store = getStore();
 				await fetch(`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador/${id}`)
 					.then(response => response.json())
-					
-					.then(data => { console.log(data)
-						setStore({ detalleCuidador: data });
+					.then(data => {
+						setStore({ detalleCuidador: data })
 					})
 					.catch(error => console.log("error", error));
 			},

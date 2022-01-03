@@ -9,11 +9,12 @@ export const PerfilPrivado = () => {
   const [editar, setEditar] = useState(false);
   const { id } = useParams();
 
-
+  
+  
   useEffect(() => {
     actions.detalleCuidador(id);
   }, []);
-
+  
   return (
     
     <div className="container bg-dark text-light text-center w-50 my-4 p-4">
@@ -22,7 +23,10 @@ export const PerfilPrivado = () => {
           <h2 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h2>
         </div>
         <div className="col-12 col-md-4">
-          <Link to="/editarCuidador" className="text-white"><span className="fs-5"><i className="fas fa-edit me-4"></i></span></Link>
+          <Link to={`/`} 
+                className="text-white">
+                <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
+          </Link>
           <span className="fs-5"><i className="fas fa-trash-alt"></i></span>
         </div>
       </div>
