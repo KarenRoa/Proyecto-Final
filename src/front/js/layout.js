@@ -14,7 +14,9 @@ import RegistroCuidador from "./pages/registroCuidador";
 import RegistroCliente from "./pages/registroCliente";
 import { PerfilPrivado } from "./pages/perfilPrivado";
 
-import fondo from "../img/bg.jpg";
+
+
+
 
 //create your first component
 const Layout = () => {
@@ -23,7 +25,6 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-<<<<<<< HEAD
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
@@ -41,6 +42,11 @@ const Layout = () => {
             <Route exact path="/registroCliente">
               <RegistroCliente />
             </Route>
+           
+           
+            <Route exact path="/login">
+              <Login />
+            </Route>
             <Route exact path="/single/:theid">
               <Single />
             </Route>
@@ -54,39 +60,6 @@ const Layout = () => {
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
-=======
-    <div
-      id="contenedor"
-      style={{
-        backgroundImage: `url(${fondo})`,
-      }}
-    >
-      <div>
-        <BrowserRouter basename={basename}>
-          <ScrollToTop>
-            <Navbar />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/demo">
-                <Demo />
-              </Route>
-              <Route exact path="/single/:theid">
-                <Single />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route>
-                <h1>Not found!</h1>
-              </Route>
-            </Switch>
-            <Footer />
-          </ScrollToTop>
-        </BrowserRouter>
-      </div>
->>>>>>> 078cbf69ba670703942c4a12418db26ded10fbfb
     </div>
   );
 };
