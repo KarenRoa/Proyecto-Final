@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 const EditarCuidador = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
+  const history = useHistory()
 
   
   //VARIABLES DE ESTADOS
@@ -24,6 +25,7 @@ const EditarCuidador = () => {
   
   //Variables de estados
   const [dataToEdit, setDataToEdit] = useState(datos)
+  const [validacion, setValidacion] = useState(false)
   const [error, setError] = useState("");
   
   useEffect(() => {
@@ -43,11 +45,11 @@ const EditarCuidador = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(dataToEdit)
     if (
-      !datosCuidador.nombre ||
-      !datosCuidador.apellido ||
-      !datosCuidador.email
+      !dataToEdit.nombre ||
+      !dataToEdit.apellido ||
+      !dataToEdit.email
     ) {
       setValidacion(true);
       setError("campo obligatorio");
@@ -56,6 +58,11 @@ const EditarCuidador = () => {
 
     setValidacion(false);
 
+    actions.updateCuidador(dataToEdit, id)
+
+    alert("Datos modificados con Éxito")
+    history.push(`/perfilPrivado/${id}`)
+
   };
 
   //FORMULARIO DE CUIDADOR
@@ -63,7 +70,7 @@ const EditarCuidador = () => {
   return (
 
     <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto rounded-2">
+      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto mb-4 rounded-2">
         <div className="row">
           <h1 className="col-12 text-center my-4">Editar Mi Perfil</h1>
         </div>
@@ -84,7 +91,7 @@ const EditarCuidador = () => {
                     name="nombre"
                     onChange={handleForm}
                   ></input>
-                  {!datosCuidador.nombre ? (
+                  {!dataToEdit.nombre ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -101,7 +108,7 @@ const EditarCuidador = () => {
                     name="apellido"
                     onChange={handleForm}
                   ></input>
-                  {!datosCuidador.apellido ? (
+                  {!dataToEdit.apellido ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -121,7 +128,7 @@ const EditarCuidador = () => {
                     name="email"
                     onChange={handleForm}
                   ></input>
-                  {!datosCuidador.email ? (
+                  {!dataToEdit.email ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -188,13 +195,13 @@ const EditarCuidador = () => {
               <p></p>
               <div className="row">
                 <div className="col-12 my-4 d-flex justify-content-center">
-                <Link to={`/#`} 
-                      className="text-white">
-                  <span className="fs-3"><i class="far fa-check-square me-4"></i></span>
-                </Link>
-                <Link to={`/perfilPrivado/${id}`} 
-                      className="text-white">
-                  <span className="fs-3"><i class="fas fa-arrow-left"></i></span>
+                <button className="btn btn-outline-light me-3 px-3">
+                  <span className="fs-5"><i className="fas fa-check"></i></span>
+                </button>
+                <Link to={`/perfilPrivado/${id}`}>
+                  <button className="btn btn-outline-light px-3">
+                    <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
+                  </button>
                 </Link>
                 </div>
               </div>

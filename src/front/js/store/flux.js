@@ -7,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			
-			//Ruta para registrar un cliente
+			//Registrar un cliente
 			setDatosFormularioCliente: (datosCliente) => {
 				fetch(
 				  "https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cliente",
@@ -27,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			
 
-			  //Ruta para registrar un cuidador
+			//Registrar un cuidador
 			setDatosFormularioCuidador: (datosCuidador) => {
 				fetch(
 				  "https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador",
@@ -45,7 +45,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("El error", error);
 				  });
 			  },
-			//Ruta para ver el detalle de un cuidador
+
+			  //Editar un cuidador
+			updateCuidador: (dataToEdit, id) => {
+				fetch(
+					`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/editarCuidador/${id}`,
+				  {
+					method: "PUT",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(dataToEdit),
+				  }
+				)
+				  .then((response) => response.json())
+				  .then(result => console.log(result))
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
+			  
+			//Ver el detalle de un cuidador
 			detalleCuidador: async id => {
 				await fetch(`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador/${id}`)
 					.then(response => response.json())

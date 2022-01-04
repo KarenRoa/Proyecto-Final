@@ -27,6 +27,7 @@ export const PerfilPrivado = () => {
                 className="text-white">
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
+          
           <span className="fs-5"><i className="fas fa-trash-alt"></i></span>
         </div>
       </div>

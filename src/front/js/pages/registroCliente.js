@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/registroCliente.css";
+import { useHistory } from 'react-router-dom'
+
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
+  const history = useHistory()
+
 
   const formInicial = {
     nombre: "",
@@ -73,10 +77,12 @@ const RegistroCliente = () => {
     //setError("Usuario registrado exitosamente");
     
     actions.setDatosFormularioCliente(datosCliente);
-    
+
     handleReset();
     
     alert("Te has registrado exitosamente");
+    history.push('/')
+
   };
 
   //FORMULARIO DE CLIENTE
