@@ -1,32 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
+import { Link, useParams } from "react-router-dom";
 
-const RegistroCuidador = () => {
+const EditarCuidador = () => {
+  const { store, actions } = useContext(Context);
+  const { id } = useParams();
+
+  
   //VARIABLES DE ESTADOS
+  
   const [datosCuidador, setDatosCuidador] = useState({
     nombre: "",
     apellido: "",
     email: "",
-    password1: "",
-    password2: "",
     telefono: "",
     comuna: "",
     rrss: "",
     descripcion: "",
   });
-
-  const [validacion, setValidacion] = useState(false);
+  
+  const datos = store.detalleCuidador
+    
+  
+  //Variables de estados
+  const [dataToEdit, setDataToEdit] = useState(datos)
   const [error, setError] = useState("");
-  const [errorPassword, setErrorPassword] = useState(false);
+  
+  useEffect(() => {
+    actions.detalleCuidador(id);
+  }, []);
 
   //MANEJADORES
   const handleForm = (event) => {
     const { name, value } = event.target;
     
-    setDatosCuidador((prevDatosCuidador) => ({
+    setDataToEdit((prevDatosCuidador) => ({
       ...prevDatosCuidador,
       [name]: value,
     }));
-    //console.log(datosCuidador);
+    
   };
 
   const handleSubmit = (event) => {
@@ -35,9 +47,7 @@ const RegistroCuidador = () => {
     if (
       !datosCuidador.nombre ||
       !datosCuidador.apellido ||
-      !datosCuidador.email ||
-      !datosCuidador.password1 ||
-      !datosCuidador.password2
+      !datosCuidador.email
     ) {
       setValidacion(true);
       setError("campo obligatorio");
@@ -46,22 +56,16 @@ const RegistroCuidador = () => {
 
     setValidacion(false);
 
-    if (datosCuidador.password1 !== datosCuidador.password2) {
-      setErrorPassword(true);
-      alert("Las Contraseñas tienen que ser identicas");
-      return;
-    }
-    setErrorPassword(false);
-    setError("Usuario registrado exitosamente");
-    alert("Te has registrado exitosamente");
   };
 
   //FORMULARIO DE CUIDADOR
+
   return (
+
     <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto">
+      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto rounded-2">
         <div className="row">
-          <h1 className="col-12 text-center my-4">Registro Cuidador</h1>
+          <h1 className="col-12 text-center my-4">Editar Mi Perfil</h1>
         </div>
         <div className="row">
           <div className="col-10 mx-auto">
@@ -69,14 +73,14 @@ const RegistroCuidador = () => {
               <div className="row">
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
                   <label htmlFor="nombre" className="form-label">
-                    Nombre *
+                    Nombre
                   </label>
                   <input
                     type="text"
                     className="form-control form-control-sm"
                     id="nombre"
                     placeholder="Nombre"
-                    value={datosCuidador.nombre}
+                    value={dataToEdit.nombre}
                     name="nombre"
                     onChange={handleForm}
                   ></input>
@@ -84,17 +88,16 @@ const RegistroCuidador = () => {
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
-
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
                   <label htmlFor="apellido" className="form-label">
-                    Apellido *
+                    Apellido
                   </label>
                   <input
                     type="text"
                     className="form-control form-control-sm"
                     id="apellido"
                     placeholder="Apellido"
-                    value={datosCuidador.apellido}
+                    value={dataToEdit.apellido}
                     name="apellido"
                     onChange={handleForm}
                   ></input>
@@ -104,18 +107,17 @@ const RegistroCuidador = () => {
                 </div>
               </div>
               <p></p>
-
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
                   <label htmlFor="email" className="form-label">
-                    Email *
+                    Email
                   </label>
                   <input
                     type="email"
                     className="form-control form-control-sm"
                     id="email"
                     placeholder="correo@example.com"
-                    value={datosCuidador.email}
+                    value={dataToEdit.email}
                     name="email"
                     onChange={handleForm}
                   ></input>
@@ -125,48 +127,7 @@ const RegistroCuidador = () => {
                 </div>
               </div>
               <p></p>
-
-              <div className="row">
-                <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
-                  <label htmlFor="password1" className="form-label">
-                    Contraseña *
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control form-control-sm"
-                    id="password"
-                    placeholder="Contraseña"
-                    value={datosCuidador.password1}
-                    name="password1"
-                    onChange={handleForm}
-                  ></input>
-                  {!datosCuidador.password1 ? (
-                    <p className="text-center m-0 text-danger">{error}</p>
-                  ) : null}
-                </div>
-
-                <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
-                  <label htmlFor="password2" className="form-label">
-                    Repetir Contraseña *
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control form-control-sm"
-                    id="password2"
-                    placeholder="Repita Contraseña"
-                    value={datosCuidador.password2}
-                    name="password2"
-                    onChange={handleForm}
-                  ></input>
-                  {!datosCuidador.password2 ? (
-                    <p className="text-center m-0 text-danger">{error}</p>
-                  ) : null}
-                  
-                </div>
-                
-              </div>
-              <p></p>
-
+              
               <div className="row">
                 <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
                   <label htmlFor="comuna" className="form-label">
@@ -177,11 +138,10 @@ const RegistroCuidador = () => {
                     className="form-control form-control-sm"
                     id="comuna"
                     placeholder="Comuna"
-                    value={datosCuidador.comuna}
+                    value={dataToEdit.comuna}
                     name="comuna"
                     onChange={handleForm}
                   ></input>
-                  
                 </div>
                 <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
                   <label htmlFor="telefono" className="form-label">
@@ -192,13 +152,11 @@ const RegistroCuidador = () => {
                     className="form-control form-control-sm"
                     id="telefono"
                     placeholder="+56912345678"
-                    value={datosCuidador.telefono}
+                    value={dataToEdit.telefono}
                     name="telefono"
                     onChange={handleForm}
                   ></input>
-                  
                 </div>
-
                 <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
                   <label htmlFor="redes sociales" className="form-label">Red Social</label>
                   <input
@@ -206,15 +164,13 @@ const RegistroCuidador = () => {
                     className="form-control form-control-sm"
                     id="redes sociales"
                     placeholder="Redes Sociales"
-                    value={datosCuidador.rrss}
+                    value={dataToEdit.rrss}
                     name="rrss"
                     onChange={handleForm}
                   ></input>
-                  
                 </div>
               </div>
               <p></p>
-
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
                   <label htmlFor="descripcion" className="form-label">Algo sobre ti</label>
@@ -223,17 +179,23 @@ const RegistroCuidador = () => {
                     className="form-control form-control-sm"
                     id="descripcion"
                     placeholder="Descripción"
-                    value={datosCuidador.descripcion}
+                    value={dataToEdit.descripcion}
                     name="descripcion"
                     onChange={handleForm}
                   ></textarea>
-                  
                 </div>
               </div>
               <p></p>
               <div className="row">
                 <div className="col-12 my-4 d-flex justify-content-center">
-                  <button className="w-50 btn btn-light btn-sm">Enviar</button>
+                <Link to={`/#`} 
+                      className="text-white">
+                  <span className="fs-3"><i class="far fa-check-square me-4"></i></span>
+                </Link>
+                <Link to={`/perfilPrivado/${id}`} 
+                      className="text-white">
+                  <span className="fs-3"><i class="fas fa-arrow-left"></i></span>
+                </Link>
                 </div>
               </div>
               <p></p>
@@ -242,7 +204,95 @@ const RegistroCuidador = () => {
         </div>
       </div>
     </div>
+    // <div className="container d-flex justify-content-center bg-dark w-50 text-light mt-5 ">
+      
+    //   <form className="form d-flex justify-content-center flex-column" onSubmit={handleSubmit}>
+    //   <h1 className="text-center my-2">Editar Mi Perfil</h1>
+    //     <div className="nombre d-flex flex-column m-auto">
+    //       <label htmlFor="">Nombre *</label>
+    //       <input
+    //         type="text"
+    //         value={dataToEdit.nombre}
+    //         name="nombre"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+
+    //     {!datosCuidador.nombre ? (
+    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+    //     ) : null}
+
+    //     <div className="apellido d-flex flex-column m-auto">
+    //       <label htmlFor="">Apellido *</label>
+    //       <input
+    //         type="text"
+    //         value={dataToEdit.apellido}
+    //         name="apellido"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+
+    //     {!datosCuidador.apellido ? (
+    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+    //     ) : null}
+
+    //     <div className="email d-flex flex-column">
+    //       <label htmlFor="">Email *</label>
+    //       <input
+    //         type="email"
+    //         value={dataToEdit.email}
+    //         name="email"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+
+    //     {!datosCuidador.email ? (
+    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+    //     ) : null}
+
+        
+
+    //     <div className="comuna d-flex flex-column">
+    //       <label htmlFor="">Comuna</label>
+    //       <input
+    //         type="text"
+    //         value={dataToEdit.comuna}
+    //         name="comuna"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+    //     <div className="telefono d-flex flex-column">
+    //       <label htmlFor="">Teléfono</label>
+    //       <input
+    //         type="tel"
+    //         value={dataToEdit.telefono}
+    //         name="telefono"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+
+    //     <div className="rrss d-flex flex-column">
+    //       <label htmlFor="">Red Social</label>
+    //       <input
+    //         type="text"
+    //         value={datosCuidador.rrss}
+    //         name="rrss"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+    //     <div className="descripcion d-flex flex-column">
+    //       <label htmlFor="">Algo sobre ti</label>
+    //       <input
+    //         type="text"
+    //         value={datosCuidador.descripcion}
+    //         name="descripcion"
+    //         onChange={handleForm}
+    //       ></input>
+    //     </div>
+    //     <button className="enviar my-2">Enviar</button>
+    //   </form>
+    // </div>
   );
 };
 
-export default RegistroCuidador;
+export default EditarCuidador;

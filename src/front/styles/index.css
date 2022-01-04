@@ -1,10 +1,13 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+<<<<<<< HEAD
 body {
   font-family: "Roboto", sans-serif;
   
 }
+=======
+>>>>>>> 5060df1e1156184f559df9cea79b0728b58a9d33
 
 
 #contenedor {
@@ -78,3 +81,4 @@ body {
 #navb{
   color: rgba(0, 0, 0, 0.363);
 }
+

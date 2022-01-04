@@ -9,7 +9,7 @@ export const Home = () => {
   const params = useParams();
   return (
     <div className="container text-center mt-5">
-      <div className="row ">
+     
         <div className="col-md-4">
           <Card />
         </div>
@@ -17,10 +17,9 @@ export const Home = () => {
           <Card />
          
         </div>
+     </div> 
+  )  
       
 
-        
-      </div>
-    </div>
-  );
+
 };
