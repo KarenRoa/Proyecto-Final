@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 
 const RegistroCuidador = () => {
+  const { store, actions } = useContext(Context);
+
   //VARIABLES DE ESTADOS
   const [datosCuidador, setDatosCuidador] = useState({
     nombre: "",
     apellido: "",
     email: "",
-    password1: "",
+    password: "",
     password2: "",
     telefono: "",
     comuna: "",
@@ -16,8 +19,8 @@ const RegistroCuidador = () => {
 
   //Variables de estados
   const [validacion, setValidacion] = useState(false);
-  const [error, setError] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
+  const [error, setError] = useState("");
 
   //MANEJADORES
   const handleForm = (event) => {
@@ -37,7 +40,7 @@ const RegistroCuidador = () => {
       !datosCuidador.nombre ||
       !datosCuidador.apellido ||
       !datosCuidador.email ||
-      !datosCuidador.password1 ||
+      !datosCuidador.password ||
       !datosCuidador.password2
     ) {
       setValidacion(true);
@@ -47,13 +50,15 @@ const RegistroCuidador = () => {
 
     setValidacion(false);
 
-    if (datosCuidador.password1 !== datosCuidador.password2) {
+    if (datosCuidador.password !== datosCuidador.password2) {
       setErrorPassword(true);
       alert("Las Contraseñas tienen que ser identicas");
       return;
     }
     setErrorPassword(false);
-    setError("Usuario registrado exitosamente");
+    
+    actions.setDatosFormularioCuidador(datosCuidador)
+
     alert("Te has registrado exitosamente");
   };
 
@@ -106,17 +111,17 @@ const RegistroCuidador = () => {
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
-        <div className="password1 d-flex flex-column">
+        <div className="password d-flex flex-column">
           <label htmlFor="">Contraseña *</label>
           <input
             type="password"
-            value={datosCuidador.password1}
-            name="password1"
+            value={datosCuidador.password}
+            name="password"
             onChange={handleForm}
           ></input>
         </div>
 
-        {!datosCuidador.password1 ? (
+        {!datosCuidador.password ? (
           <p style={{ color: "red", textAlign: "center" }}>{error}</p>
         ) : null}
 
@@ -171,7 +176,9 @@ const RegistroCuidador = () => {
             onChange={handleForm}
           ></input>
         </div>
-        <button className="enviar my-2">Enviar</button>
+        <div className="d-grid gap-2 col-6 mx-auto mt-4">
+                <button className="btn btn-outline-light btn-sm">Enviar</button>
+              </div>
       </form>
     </div>
   );

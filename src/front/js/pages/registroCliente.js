@@ -69,10 +69,10 @@ const RegistroCliente = () => {
     }
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
-    alert("Te has registrado exitosamente");
-
+    
     actions.setDatosFormularioCliente(datosCliente);
-
+    
+    alert("Te has registrado exitosamente");
     handleReset();
   };
 

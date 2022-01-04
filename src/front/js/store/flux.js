@@ -26,6 +26,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  });
 			  },
 			
+
+			  //Ruta para registrar un cuidador
+			setDatosFormularioCuidador: (datosCuidador) => {
+				fetch(
+				  "https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datosCuidador),
+				  }
+				)
+				  .then((response) => response.json())
+				  .then(result => console.log(result))
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
 			//Ruta para ver el detalle de un cuidador
 			detalleCuidador: async id => {
 				await fetch(`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador/${id}`)
