@@ -31,49 +31,52 @@ const RegistroCliente = () => {
   const [errorPassword, setErrorPassword] = useState(false);
 
   //MANEJADORES
+  //Funcion que limpia el formulario
+  const handleReset = () => {
+    setDatosCliente(formInicial);
+  };
+
   const handleForm = (event) => {
     const { name, value } = event.target;
-
+    
     setDatosCliente({
       ...datosCliente,
       [name]: value,
     });
     console.log(datosCliente);
   };
-
-  const handleReset = () => {
-    setDatosCliente(formInicial);
-  };
-
+  
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    
     if (
       !datosCliente.nombre ||
       !datosCliente.apellido ||
       !datosCliente.email ||
       !datosCliente.password ||
       !datosCliente.password2
-    ) {
-      setValidacion(true);
-      setError("Campo obligatorio");
-      return;
-    } else setError("");
-
-    setValidacion(false);
-
-    if (datosCliente.password !== datosCliente.password2) {
-      setErrorPassword(true);
-      alert("Las Contraseñas tienen que ser identicas");
-      return;
+      ) {
+        setValidacion(true);
+        setError("Campo obligatorio");
+        return;
+      } else setError("");
+      
+      setValidacion(false);
+      
+      if (datosCliente.password !== datosCliente.password2) {
+        setErrorPassword(true);
+        alert("Las Contraseñas tienen que ser identicas");
+        return;
     }
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
     
     actions.setDatosFormularioCliente(datosCliente);
     
-    alert("Te has registrado exitosamente");
     handleReset();
+    
+    alert("Te has registrado exitosamente");
   };
 
   //FORMULARIO DE CLIENTE

@@ -1,8 +1,22 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { useHistory } from 'react-router-dom'
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
+  const history = useHistory()
+  
+  const formInicial = {
+    nombre: "",
+    apellido: "",
+    email: "",
+    password: "",
+    password2: "",
+    telefono: "",
+    comuna: "",
+    rrss: "",
+    descripcion: ""
+  }
 
   //VARIABLES DE ESTADOS
   const [datosCuidador, setDatosCuidador] = useState({
@@ -23,6 +37,11 @@ const RegistroCuidador = () => {
   const [error, setError] = useState("");
 
   //MANEJADORES
+//Funcion que limpia el formulario
+  const handleReset = () => {
+    setDatosCuidador(formInicial);
+};
+
   const handleForm = (event) => {
     const { name, value } = event.target;
     
@@ -58,8 +77,13 @@ const RegistroCuidador = () => {
     setErrorPassword(false);
     
     actions.setDatosFormularioCuidador(datosCuidador)
+    
+    handleReset()
 
     alert("Te has registrado exitosamente");
+    history.push('/')
+
+
   };
 
   //FORMULARIO DE CUIDADOR
