@@ -3,30 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			detalleCuidador:{},
 			message: null,
-<<<<<<< HEAD
-			demo: [
-				{
-					nombre:"Josefina",
-					apellido: "Gomez",
-					email: "j.gomez@gmail.com",
-					initial: "white"
-				},
-				{
-					nombre:"Mariano",
-					apellido: "Constanzo",
-					background: "white",
-					initial: "white"
-				},
-				{
-					nombre:"Umai",
-					apellido: "Chhascona",
-					background: "white",
-					initial: "white"
-				}
-			]
-=======
 			
->>>>>>> 5060df1e1156184f559df9cea79b0728b58a9d33
 		},
 		actions: {
 			
