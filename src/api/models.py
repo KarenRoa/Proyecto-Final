@@ -24,7 +24,6 @@ class Cuidador(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "email": self.email,
-            "password": self.password,
             "telefono": self.telefono,
             "comuna": self.comuna,
             "rrss": self.rrss,
@@ -41,7 +40,7 @@ class Cliente(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     telefono = db.Column(db.String(80), unique=False, nullable=False)
     comuna = db.Column(db.String(80), unique=False, nullable=False)
-    descripcion = db.Column(db.String, unique=False, nullable=False)
+    
 
 
     def serialize(self):
@@ -50,10 +49,9 @@ class Cliente(db.Model):
             "nombre": self.nombre,
             "apellido": self.apellido,
             "email": self.email,
-            "password": self.password,
             "telefono": self.telefono,
             "comuna": self.comuna,
-            "descripcion": self.descripcion,
+            
 
         }
 

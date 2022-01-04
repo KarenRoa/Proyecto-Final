@@ -10,6 +10,10 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import RegistroCuidador from "./pages/registroCuidador";
+import EditarCuidador from "./pages/editarCuidador";
+import RegistroCliente from "./pages/registroCliente";
+import { PerfilPrivado } from "./pages/perfilPrivado";
 
 import fondo from "../img/bg.jpg";
 
@@ -20,12 +24,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-    <div
-      id="contenedor"
-      style={{
-        backgroundImage: `url(${fondo})`,
-      }}
-    >
+    
       <div>
         <BrowserRouter basename={basename}>
           <ScrollToTop>
@@ -43,6 +42,19 @@ const Layout = () => {
               <Route exact path="/login">
                 <Login />
               </Route>
+              <Route exact path="/registroCuidador">
+                <RegistroCuidador />
+              </Route>
+              <Route exact path="/editarCuidador/:id">
+                <EditarCuidador />
+              </Route>
+              <Route exact path="/registroCliente">
+                <RegistroCliente />
+              </Route>
+              <Route exact path="/perfilPrivado/:id">
+                <PerfilPrivado />
+              </Route>
+              
               <Route>
                 <h1>Not found!</h1>
               </Route>
@@ -51,7 +63,7 @@ const Layout = () => {
           </ScrollToTop>
         </BrowserRouter>
       </div>
-    </div>
+    
   );
 };
 
