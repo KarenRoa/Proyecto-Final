@@ -19,27 +19,16 @@ export const Demo = () => {
               <Link to={"/single/" + index}>
                 <span>Link to: {item.title}</span>
               </Link>
-             
-             
             </li>
           );
         })}
       </ul>
       <br />
-      
+
       <Link to="/">
         <button className="btn btn-primary">Back home</button>
       </Link>
-	  
-
-
-
-
-
-
-
-
+      
     </div>
-	
   );
 };
