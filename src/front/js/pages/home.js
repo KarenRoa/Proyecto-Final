@@ -7,7 +7,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
-    <div className="bg-light p-4 rounded-3 text-uppercase text-center">
+    <div className="bgcolor-transparent p-4 rounded-3 text-uppercase text-center">
       <div className="container py-5">
         <h1 className="display-6 fw-lighter">
           ¿Estás Ocupado o con poco tiempo?
@@ -17,8 +17,8 @@ export const Home = () => {
           <span className="text-warning">paseador@</span> de perro ideal
         </p>
         <p className="col fs-4 fw-light text-center">ó</p>
-        <button className="btn btn-outline-dark btn-sm fw-light shadow-sm mb-5">
-          ¿QUIERES SER PASEADOR@ DE PERRO?
+        <button className="btn btn-dark btn-sm fw-light shadow-sm mb-5">
+          ¿QUIERES SER PASEADOR@ DE PERROS?
         </button>
 
         <div className="container-fluid">
@@ -110,16 +110,16 @@ export const Home = () => {
           </div>
         </div>
 
-        <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
+        <button className="btn btn-dark btn-sm fw-light shadow-sm">
           VER TODOS
         </button>
       </div>
 
       <hr className="my-4" />
 
-      <div className="bg-light">
+      <div className="bgcolor-transparent">
         <div>
-          <h1 className="text-uppercase fst-italic">quienes somos</h1>
+          <h1 className="text-uppercase fst-italic ">quienes somos</h1>
         </div>
       </div>
       <div className="col-sm-6 col-md-6">
@@ -130,6 +130,10 @@ export const Home = () => {
           height="600"
         />
       </div>
+      <div>
+        
+      </div>
     </div>
+    
   );
 };
