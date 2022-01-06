@@ -1,10 +1,4 @@
-/*
-    home.css: This website contains selectors only used in home.css
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
 body {
   background-image: url("https://www.mascotas.com/cms/revista/Revista_60d49c2b782e3_24062021.jpg");
   background-attachment: fixed;
@@ -18,6 +12,24 @@ body {
   top: 0;
   left: 0; */
   }
-.background-image{
-    filter: opacity(0);
-}
+  
+  /*body::before{
+    content:"";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    opacity: 0.5;
+  
+  }*/
+  
+ 
+
+
+
+/*.background-image{
+    opacity: 0.6;
+}*/
+

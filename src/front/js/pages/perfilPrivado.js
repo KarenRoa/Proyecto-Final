@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import fotoPerfil from "../../img/fotoPerfil.jpg";
+import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilPrivado = () => {
   const { store, actions } = useContext(Context);
