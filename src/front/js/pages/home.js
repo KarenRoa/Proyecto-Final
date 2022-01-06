@@ -46,7 +46,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-6 col-md-6 col-lg-3">
               <div className="h-100 p-5 bg-light rounded-3 shadow-sm">
-              <img
+                <img
                   src="https://images.blush.design/QuHK5J2yl2vqKxCdOHSc?w=920&auto=compress&cs=srgb"
                   width="200"
                   height="200"
@@ -67,7 +67,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-6 col-md-6 col-lg-3">
               <div className="h-100 p-5 bg-light rounded-3 shadow-sm">
-              <img
+                <img
                   src="https://images.blush.design/QuHK5J2yl2vqKxCdOHSc?w=920&auto=compress&cs=srgb"
                   width="200"
                   height="200"
@@ -88,7 +88,7 @@ export const Home = () => {
             </div>
             <div className="col-sm-6 col-md-6 col-lg-3">
               <div className="h-100 p-5 bg-light rounded-3 shadow-sm">
-              <img
+                <img
                   src="https://images.blush.design/QuHK5J2yl2vqKxCdOHSc?w=920&auto=compress&cs=srgb"
                   width="200"
                   height="200"
@@ -130,10 +130,7 @@ export const Home = () => {
           height="600"
         />
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </div>
-    
   );
 };
