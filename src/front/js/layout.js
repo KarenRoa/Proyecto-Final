@@ -14,6 +14,7 @@ import RegistroCuidador from "./pages/registroCuidador";
 import EditarCuidador from "./pages/editarCuidador";
 import RegistroCliente from "./pages/registroCliente";
 import { PerfilPrivado } from "./pages/perfilPrivado";
+import Todoscuidadores from "./pages/todoscuidadores";
 
 
 
@@ -43,6 +44,9 @@ const Layout = () => {
               </Route>
               <Route exact path="/login">
                 <Login />
+              </Route>
+              <Route exact path="/todoscuidadores">
+                <Todoscuidadores />
               </Route>
               <Route exact path="/registroCuidador">
                 <RegistroCuidador />
