@@ -16,10 +16,6 @@ import RegistroCliente from "./pages/registroCliente";
 import { PerfilPrivado } from "./pages/perfilPrivado";
 import Todoscuidadores from "./pages/todoscuidadores";
 
-
-
-
-
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -27,49 +23,45 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-    
-      <div>
-        <BrowserRouter basename={basename}>
-          <ScrollToTop>
-            <Navbar />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/demo">
-                <Demo />
-              </Route>
-              <Route exact path="/single/:theid">
-                <Single />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/todoscuidadores">
-                <Todoscuidadores />
-              </Route>
-              <Route exact path="/registroCuidador">
-                <RegistroCuidador />
-              </Route>
-              <Route exact path="/editarCuidador/:id">
-                <EditarCuidador />
-              </Route>
-              <Route exact path="/registroCliente">
-                <RegistroCliente />
-              </Route>
-              <Route exact path="/perfilPrivado/:id">
-                <PerfilPrivado />
-              </Route>
-              
-              <Route>
-                <h1>Not found!</h1>
-              </Route>
-            </Switch>
-            <Footer />
-          </ScrollToTop>
-        </BrowserRouter>
-      </div>
-    
+    <div>
+      <BrowserRouter basename={basename}>
+        <ScrollToTop>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/demo">
+              <Demo />
+            </Route>
+            <Route exact path="/single/:theid">
+              <Single />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+
+            <Route exact path="/registroCuidador">
+              <RegistroCuidador />
+            </Route>
+            <Route exact path="/editarCuidador/:id">
+              <EditarCuidador />
+            </Route>
+            <Route exact path="/registroCliente">
+              <RegistroCliente />
+            </Route>
+            <Route exact path="/perfilPrivado/:id">
+              <PerfilPrivado />
+            </Route>
+
+            <Route>
+              <h1>Not found!</h1>
+            </Route>
+          </Switch>
+          <Footer />
+        </ScrollToTop>
+      </BrowserRouter>
+    </div>
   );
 };
 
