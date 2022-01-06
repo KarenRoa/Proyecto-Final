@@ -31,36 +31,36 @@ const Layout = () => {
         <BrowserRouter basename={basename}>
           <ScrollToTop>
             <Navbar />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/demo">
-                <Demo />
-              </Route>
-              <Route exact path="/single/:theid">
-                <Single />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/registroCuidador">
-                <RegistroCuidador />
-              </Route>
-              <Route exact path="/editarCuidador/:id">
-                <EditarCuidador />
-              </Route>
-              <Route exact path="/registroCliente">
-                <RegistroCliente />
-              </Route>
-              <Route exact path="/perfilPrivado/:id">
-                <PerfilPrivado />
-              </Route>
-              
-              <Route>
-                <h1>Not found!</h1>
-              </Route>
-            </Switch>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/demo">
+                  <Demo />
+                </Route>
+                <Route exact path="/single/:theid">
+                  <Single />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/registroCuidador">
+                  <RegistroCuidador />
+                </Route>
+                <Route exact path="/editarCuidador/:id">
+                  <EditarCuidador />
+                </Route>
+                <Route exact path="/registroCliente">
+                  <RegistroCliente />
+                </Route>
+                <Route exact path="/perfilPrivado/:id">
+                  <PerfilPrivado />
+                </Route>
+                
+                <Route>
+                  <h1>Not found!</h1>
+                </Route>
+              </Switch>
             <Footer />
           </ScrollToTop>
         </BrowserRouter>
