@@ -15,7 +15,9 @@ import EditarCuidador from "./pages/editarCuidador";
 import RegistroCliente from "./pages/registroCliente";
 import { PerfilPrivado } from "./pages/perfilPrivado";
 
-import fondo from "../img/bg.jpg";
+
+
+
 
 //create your first component
 const Layout = () => {
