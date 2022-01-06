@@ -15,7 +15,7 @@ const Todosloscuidadores = () => {
 
       <div className="container">
         <p className="col fs-4 fw-light text-center">
-          Si quieres saber mas sobre nuestros cuidadores haz click en ver más
+          Si quieres saber mas sobre nuestros cuidadores haz click en ver más...
         </p>
       </div>
 
