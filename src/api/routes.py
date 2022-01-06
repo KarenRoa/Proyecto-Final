@@ -73,7 +73,8 @@ def update_cuidador(id):
 @api.route('/cuidador/<id>', methods=['DELETE'])
 def delete_cuidador(id):
     Cuidador_id = Cuidador.query.get(id)
-    print(Cuidador_id)
+    db.session.delete(Cuidador_id)
+    db.session.commit()
     return "ok"
 
 #----------------------------------------------------------------------------------------    
@@ -104,6 +105,7 @@ def set_cliente():
                                   password = datos['password'], 
                                   telefono = datos['telefono'], 
                                   comuna = datos['comuna'],
+                                  descripcion = datos['descripcion'],
                                  )
         db.session.add(nuevo_cliente)
         db.session.commit()

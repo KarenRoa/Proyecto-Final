@@ -28,7 +28,11 @@ export const PerfilPrivado = () => {
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
           
-          <span className="fs-5"><i className="fas fa-trash-alt"></i></span>
+          <span className="fs-5"><i className="fas fa-trash-alt me-4"></i></span>
+          <Link to={`/`} 
+                className="text-white">
+                  <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
+          </Link>
         </div>
       </div>
       <div className="row d-flex align-items-center">

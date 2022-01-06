@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Registrar un cliente
 			setDatosFormularioCliente: (datosCliente) => {
 				fetch(
-				  "https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cliente",
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente",
 				  {
 					method: "POST",
 					headers: {
@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Registrar un cuidador
 			setDatosFormularioCuidador: (datosCuidador) => {
 				fetch(
-				  "https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador",
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador",
 				  {
 					method: "POST",
 					headers: {
@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  //Editar un cuidador
 			updateCuidador: (dataToEdit, id) => {
 				fetch(
-					`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/editarCuidador/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCuidador/${id}`,
 				  {
 					method: "PUT",
 					headers: {
@@ -67,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  
 			//Ver el detalle de un cuidador
 			detalleCuidador: async id => {
-				await fetch(`https://3001-green-octopus-9ofx02c6.ws-us25.gitpod.io/api/cuidador/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ detalleCuidador: data })

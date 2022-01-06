@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
@@ -187,9 +187,17 @@ const RegistroCuidador = () => {
     //         onChange={handleForm}
     //       ></input>
     <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto rounded-2">
+      <div className="col-12 col-md-8 col-lg-6 bg-dark text-white mt-5 mx-auto p-4 rounded-2">
+      <div className="row">
+          <div className="col d-flex justify-content-end me-2">
+          <Link to={`/`} 
+                className="text-white">
+                  <span className="fs-4"><i className="fas fa-arrow-left"></i></span>
+          </Link>
+          </div>
+        </div>
         <div className="row">
-          <h1 className="col-12 text-center my-4">Registro Cuidador</h1>
+          <h1 className="col-12 text-center my-3">Registro Paseador</h1>
         </div>
         <div className="row">
           <div className="col-10 mx-auto">
