@@ -41,7 +41,7 @@ export const Login = () => {
           <div className="col-2"></div>
           <div id="main-box" className="col-8 shadow-6 mt-5 mt-5">
             <div className="row">
-            <div className="col-1"></div>
+            
               <div className="col-10">
                 <h1 className="log-title">INICIO DE SESIÓN</h1>
               </div>
@@ -72,7 +72,7 @@ export const Login = () => {
                   </div>
 
                   <div className="row">
-                    <div className="col-1"></div>
+                    
                     <div className="col-10">
                         <div className="form-group">
                           <label htmlFor="exampleInputPassword1" id="password-text">
@@ -94,10 +94,6 @@ export const Login = () => {
                         </div>
                     </div>
                   </div>
-
-                  <br />
-                  <br />
-                  <br />
 
                   <div className="d-flex justify-content-center">
                     <button className="btn btn-outline-dark" id="btn-login">
