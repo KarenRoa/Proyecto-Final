@@ -46,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  });
 			  },
 
-			  //Editar un cuidador
+			//Editar un cuidador
 			updateCuidador: (dataToEdit, id) => {
 				fetch(
 					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCuidador/${id}`,
@@ -60,6 +60,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				  .then((response) => response.json())
 				  .then(result => console.log(result))
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
+
+			//Eliminar un cuidador
+			deleteCuidador: async id  => {
+				await fetch(
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCuidador/${id}`,
+				)
+				  .then((response) => response.json())
 				  .catch((error) => {
 					console.log("El error", error);
 				  });
