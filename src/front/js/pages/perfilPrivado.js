@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams,useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilPrivado = () => {
   const { store, actions } = useContext(Context);
+  const history = useHistory()
   
   
   const { id } = useParams();
@@ -14,6 +15,22 @@ export const PerfilPrivado = () => {
   useEffect(() => {
     actions.detalleCuidador(id);
   }, []);
+
+  const confirmar = () => {
+    if(confirm("Esta seguro que eliminar su perfil?"))
+	{
+	   eliminarCuidador(id)
+     history.push('/')
+	}
+	else
+	{
+	   return false;
+	}
+  }
+
+  const eliminarCuidador = (id) =>{
+    actions.deleteCuidador(id)
+  }
   
   return (
     
@@ -27,8 +44,10 @@ export const PerfilPrivado = () => {
                 className="text-white">
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
-          
-          <span className="fs-5"><i className="fas fa-trash-alt me-4"></i></span>
+          <Link to={'#'} className="text-white">
+            <span className="fs-5"><i className="fas fa-trash-alt me-4" onClick={()=> confirmar()}></i></span>
+          </Link>
+
           <Link to={`/`} 
                 className="text-white">
                   <span className="fs-5"><i className="fas fa-arrow-left"></i></span>

@@ -68,7 +68,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Eliminar un cuidador
 			deleteCuidador: async id  => {
 				await fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCuidador/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador/${id}`,
+					{
+						method: "DELETE",
+						headers: {
+						  "Content-Type": "application/json",
+						}
+					  }
 				)
 				  .then((response) => response.json())
 				  .catch((error) => {
@@ -86,8 +92,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
+			//Crear token cuidador
 			setLogin: async (datoslogin) => {
-        
 				await fetch(
 				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidadorlogin",
 				  {

@@ -51,7 +51,11 @@ export const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            
+            <div>
+              <Link to={'/login'}>
+                <button className="btn btn-outline-light btn-sm me-2">INGRESAR</button>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
