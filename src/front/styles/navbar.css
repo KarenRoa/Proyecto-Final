@@ -1,6 +1,36 @@
 .navbar{
     opacity: 0.8;
+    width: 100%;
 }
-.p{
-    float:right;
+
+#titulo {
+    color: white;
+}
+#titulo:hover {
+    color: #eb7d46;
+}
+
+#logo {
+    margin-left: 15px;
+}
+
+.subrayado{
+    text-decoration: none;
+}
+  
+#navb{
+    color: rgba(0, 0, 0, 0.363);
+}
+
+#btn{
+    margin-right: 5px;
+}
+
+#mid-mid{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.navbar-text{
+    text-decoration: none;
 }
