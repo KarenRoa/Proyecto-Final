@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/registroCliente.css";
 import { useHistory, Link } from 'react-router-dom'
 
 
@@ -83,7 +82,7 @@ const RegistroCliente = () => {
     handleReset();
     
     alert("Te has registrado exitosamente");
-    history.push('/')
+    history.push(`/`)
 
   };
 

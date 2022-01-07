@@ -114,7 +114,7 @@ export const Home = () => {
             </div>
           </div>
 
-          <Link to={'/todoscuidadores'}>
+          <Link to={`/todoscuidadores`}>
           <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
             VER TODOS
           </button>

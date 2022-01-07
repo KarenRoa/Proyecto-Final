@@ -55,7 +55,6 @@ const Layout = () => {
             <Route exact path="/perfilPrivado/:id">
               <PerfilPrivado />
             </Route>
-
             <Route>
               <h1>Not found!</h1>
             </Route>
