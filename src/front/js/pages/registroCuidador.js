@@ -80,7 +80,7 @@ const RegistroCuidador = () => {
     handleReset();
 
     alert("Te has registrado exitosamente");
-    history.push("/");
+    history.push('/');
   };
 
   //FORMULARIO DE CUIDADOR

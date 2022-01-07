@@ -1,0 +1,26 @@
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+#main-box {    
+    text-align: center;
+  
+    background: rgba(230, 230, 230, 0.5);
+    height: 450px;
+  
+    border-radius: 25px;
+}
+
+.log-title{
+    margin-top: 20px;
+    margin-bottom: 45px;
+}
+  
+.form-body{
+    text-align: left;
+}
+  
+#password-text{
+    margin-top: 35px;
+}

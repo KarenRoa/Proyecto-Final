@@ -8,7 +8,7 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
-    <>
+    <div>
       <div className="bg-light p-4 rounded-3 text-uppercase text-center">
         <div className="container py-5">
           <h1 className="display-6 fw-lighter">
@@ -114,9 +114,11 @@ export const Home = () => {
             </div>
           </div>
 
+          <Link to={'/todoscuidadores'}>
           <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
             VER TODOS
           </button>
+          </Link>
         </div>
 
         <hr className="my-4" />
@@ -135,6 +137,7 @@ export const Home = () => {
       </div>
       {/* Formulario de Contacto */}
       <FormularioContacto/>
-    </>
+      </div>
+      
   );
 };
