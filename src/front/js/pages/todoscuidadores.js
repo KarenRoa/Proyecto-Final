@@ -4,11 +4,6 @@ import "../../styles/todoscuidadores.css";
 const Todosloscuidadores = () => {
   return (
     <div>
-      <button className="btn btn-dark btn-sm fas fa-home shadow-lg">
-        {" "}
-        Home
-      </button>
-
       <h1 className="display-6 fw-light text-center text-uppercase">
         Todos Nuestros Cuidadores
       </h1>
