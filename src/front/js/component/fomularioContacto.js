@@ -63,19 +63,20 @@ export const FormularioContacto = () => {
                 </div>
                 <div className="row my-3">
                   <div className="col-10 col-md-8 mx-auto">
-                  <label htmlFor="descripcion" className="form-label">
-                    Mensaje
-                  </label>
+                    <label htmlFor="descripcion" className="form-label">
+                      Mensaje
+                    </label>
                     <textarea
                       className="form-control"
                       style={{ resize: "none" }}
-                    >
-                    </textarea>
+                    ></textarea>
                   </div>
                 </div>
                 <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-4">
-                <button className="btn btn-outline-light btn-sm">Enviar</button>
-              </div>
+                  <button className="btn btn-outline-light btn-sm">
+                    Enviar
+                  </button>
+                </div>
               </form>
             </div>
           </div>
