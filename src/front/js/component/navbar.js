@@ -51,10 +51,16 @@ export const Navbar = () => {
                 </Link>
               </li>
             </ul>
+            <Link to={'/registroCliente'}>
+                <button className="btn btn-outline-light btn-sm me-2">REGÍSTRATE</button>
+              </Link>
             <div>
               <Link to={'/login'}>
-                <button className="btn btn-outline-light btn-sm me-2">INGRESAR</button>
+                <button className="btn btn-outline-light btn-sm me-2">INGRESA</button>
               </Link>
+            </div>
+            <div>
+              
             </div>
           </div>
         </div>
