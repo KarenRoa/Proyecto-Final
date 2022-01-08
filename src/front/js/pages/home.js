@@ -6,6 +6,7 @@ import foto1 from "../../img/perfil02.jpg";
 import foto2 from "../../img/perfil03.png";
 import foto3 from "../../img/perfil04.png";
 import { Link, useParams } from "react-router-dom";
+import { FormularioContacto } from "../component/fomularioContacto";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -98,7 +99,6 @@ export const Home = () => {
               </div>
             </div>
           </div>
-        </div>
 
         <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
           VER TODOS
@@ -152,5 +152,6 @@ export const Home = () => {
         
       </div>
     </div>
+  </div>
   );
 };

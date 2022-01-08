@@ -1,16 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const EditarCuidador = () => {
+export const EditarCliente = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
-  const history = useHistory()
 
   
   //VARIABLES DE ESTADOS
   
-  const [datosCuidador, setDatosCuidador] = useState({
+  //const [datosCuidador, setDatosCuidador] = useState({
+  const [datosCliente, setDatosCliente] = useState({
     nombre: "",
     apellido: "",
     email: "",
@@ -20,24 +20,23 @@ const EditarCuidador = () => {
     descripcion: "",
   });
   
-  const datos = store.detalleCuidador
+  const datos = store.detalleCliente
     
   
   //Variables de estados
   const [dataToEdit, setDataToEdit] = useState(datos)
-  const [validacion, setValidacion] = useState(false)
   const [error, setError] = useState("");
   
   useEffect(() => {
-    actions.detalleCuidador(id);
+    actions.detalleCliente(id);
   }, []);
 
   //MANEJADORES
   const handleForm = (event) => {
     const { name, value } = event.target;
     
-    setDataToEdit((prevDatosCuidador) => ({
-      ...prevDatosCuidador,
+    setDataToEdit((prevDatosCliente) => ({
+      ...prevDatosCliente,
       [name]: value,
     }));
     
@@ -45,11 +44,11 @@ const EditarCuidador = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(dataToEdit)
+
     if (
-      !dataToEdit.nombre ||
-      !dataToEdit.apellido ||
-      !dataToEdit.email
+      !datosCliente.nombre ||
+      !datosCliente.apellido ||
+      !datosCliente.email
     ) {
       setValidacion(true);
       setError("campo obligatorio");
@@ -58,19 +57,13 @@ const EditarCuidador = () => {
 
     setValidacion(false);
 
-    actions.updateCuidador(dataToEdit, id)
-
-    alert("Datos modificados con Éxito")
-    history.push(`/perfilPrivado/${id}`)
-
   };
 
-  //FORMULARIO DE CUIDADOR
+  //FORMULARIO DE CLIENTE/DUENO
 
   return (
-
     <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto mb-4 rounded-2">
+      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto rounded-2">
         <div className="row">
           <h1 className="col-12 text-center my-4">Editar Mi Perfil</h1>
         </div>
@@ -91,7 +84,7 @@ const EditarCuidador = () => {
                     name="nombre"
                     onChange={handleForm}
                   ></input>
-                  {!dataToEdit.nombre ? (
+                  {!datosCliente.nombre ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -108,7 +101,7 @@ const EditarCuidador = () => {
                     name="apellido"
                     onChange={handleForm}
                   ></input>
-                  {!dataToEdit.apellido ? (
+                  {!datosCliente.apellido ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -128,7 +121,7 @@ const EditarCuidador = () => {
                     name="email"
                     onChange={handleForm}
                   ></input>
-                  {!dataToEdit.email ? (
+                  {!datosCliente.email ? (
                     <p className="text-center m-0 text-danger">{error}</p>
                   ) : null}
                 </div>
@@ -180,7 +173,7 @@ const EditarCuidador = () => {
               <p></p>
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
-                  <label htmlFor="descripcion" className="form-label">Algo sobre ti</label>
+                  <label htmlFor="descripcion" className="form-label">Algo sobre ti o tu perro</label>
                   <textarea
                     type="text"
                     className="form-control form-control-sm"
@@ -195,13 +188,13 @@ const EditarCuidador = () => {
               <p></p>
               <div className="row">
                 <div className="col-12 my-4 d-flex justify-content-center">
-                <button className="btn btn-outline-light me-3 px-3">
-                  <span className="fs-5"><i className="fas fa-check"></i></span>
-                </button>
-                <Link to={`/perfilPrivado/${id}`}>
-                  <button className="btn btn-outline-light px-3">
-                    <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
-                  </button>
+                <Link to={`/#`} 
+                      className="text-white">
+                  <span className="fs-3"><i class="far fa-check-square me-4"></i></span>
+                </Link>
+                <Link to={`/perfilCliente/${id}`} 
+                      className="text-white">
+                  <span className="fs-3"><i class="fas fa-arrow-left"></i></span>
                 </Link>
                 </div>
               </div>
@@ -301,5 +294,3 @@ const EditarCuidador = () => {
     // </div>
   );
 };
-
-export default EditarCuidador;

@@ -1,18 +1,16 @@
-.container{
+/* .container{
     height: 100%;
     width: 100%;
-}
+} */
 
-#main-box {    
-    text-align: center;
-  
+.main-box {    
     background: rgba(230, 230, 230, 0.5);
-    height: 450px;
+    height: 410px;
   
     border-radius: 25px;
 }
 
-.log-title{
+/* .log-title{
     margin-top: 20px;
     margin-bottom: 45px;
 }
@@ -23,4 +21,4 @@
   
 #password-text{
     margin-top: 35px;
-}
+} */

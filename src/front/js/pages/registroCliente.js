@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/registroCliente.css";
+import { useHistory, Link } from 'react-router-dom'
+
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
+  const history = useHistory()
+
 
   const formInicial = {
     nombre: "",
@@ -13,6 +17,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
+    descripcion:""
   };
   //VARIABLES DE ESTADOS
   const [datosCliente, setDatosCliente] = useState({
@@ -23,6 +28,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
+    descripcion:""
   });
 
   //Variables de estados
@@ -31,49 +37,54 @@ const RegistroCliente = () => {
   const [errorPassword, setErrorPassword] = useState(false);
 
   //MANEJADORES
+  //Funcion que limpia el formulario
+  const handleReset = () => {
+    setDatosCliente(formInicial);
+  };
+
   const handleForm = (event) => {
     const { name, value } = event.target;
-
+    
     setDatosCliente({
       ...datosCliente,
       [name]: value,
     });
     console.log(datosCliente);
   };
-
-  const handleReset = () => {
-    setDatosCliente(formInicial);
-  };
-
+  
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    
     if (
       !datosCliente.nombre ||
       !datosCliente.apellido ||
       !datosCliente.email ||
       !datosCliente.password ||
       !datosCliente.password2
-    ) {
-      setValidacion(true);
-      setError("Campo obligatorio");
-      return;
-    } else setError("");
-
-    setValidacion(false);
-
-    if (datosCliente.password !== datosCliente.password2) {
-      setErrorPassword(true);
-      alert("Las Contraseñas tienen que ser identicas");
-      return;
+      ) {
+        setValidacion(true);
+        setError("Campo obligatorio");
+        return;
+      } else setError("");
+      
+      setValidacion(false);
+      
+      if (datosCliente.password !== datosCliente.password2) {
+        setErrorPassword(true);
+        alert("Las Contraseñas tienen que ser identicas");
+        return;
     }
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
-    alert("Te has registrado exitosamente");
-
+    
     actions.setDatosFormularioCliente(datosCliente);
 
     handleReset();
+    
+    alert("Te has registrado exitosamente");
+    history.push('/')
+
   };
 
   //FORMULARIO DE CLIENTE
@@ -81,6 +92,14 @@ const RegistroCliente = () => {
   return (
     <div className="container">
       <div className="col-12 col-md-8 col-lg-6 bg-dark text-white mt-5 mx-auto p-4 rounded-2">
+        <div className="row">
+          <div className="col d-flex justify-content-end me-2">
+          <Link to={`/`} 
+                className="text-white">
+                  <span className="fs-4"><i className="fas fa-arrow-left"></i></span>
+          </Link>
+          </div>
+        </div>
         <h2 className="text-white text-center p-3">Registro de Cliente</h2>
         <div className="row">
           <div className="col">
@@ -221,7 +240,26 @@ const RegistroCliente = () => {
                   />
                 </div>
               </div>
-              <div className="d-grid gap-2 col-6 mx-auto mt-4">
+
+              <div className="row my-3">
+                <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
+                  <label htmlFor="descripcion" className="form-label">
+                    Cuentanos de tu Perro
+                  </label>
+                  <textarea
+                    type="text"
+                    className="form-control"
+                    style={{ resize: "none" }}
+                    id="descripcion"
+                    placeholder="Descripción"
+                    value={datosCliente.descripcion}
+                    name="descripcion"
+                    onChange={handleForm}
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="d-grid gap-2 col-6 mx-auto my-4">
                 <button className="btn btn-outline-light btn-sm">Enviar</button>
               </div>
             </form>
