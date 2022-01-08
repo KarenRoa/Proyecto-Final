@@ -14,7 +14,7 @@ export const Home = () => {
   const params = useParams();
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase text-center">
-      <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3">
+      <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 mt-4">
         <h1 className="display-6 fw-lighter">
           ¿Estás Ocupado o con poco tiempo?
         </h1>
@@ -58,7 +58,7 @@ export const Home = () => {
                     </small>
                   </p>
                 </div>
-                <Link to={"/todoscuidadores"}>
+                <Link to={"/perfilCuidadorPublico"}>
                   <div className="boton">
                     <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
                       VER MÁS...
@@ -123,7 +123,7 @@ export const Home = () => {
             </div>
             {/*Card - 04 ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
             <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
-              <div className="h-100 p-3 bg-light rounded-3 shadow-sm d-flex flex-column justify-content-between">
+              <div className="h-100 p-3 bg-light rounded-3 shadow-dm d-flex flex-column justify-content-between">
                 <div className="imagen">
                   <img src={foto3} className="rounded-circle w-75" />
                 </div>

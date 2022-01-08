@@ -2,12 +2,12 @@ import React from "react";
 
 export const QuienesSomos = () => {
   return (
-    <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3">
+    <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 shadow-lg">
       <div className="titulo">
         <h2 className="text-uppercase">Quienes Somos</h2>
       </div>
       <div className="row p-4">
-        <div class="card mb-3 border-0 ">
+        <div class="card mb-3 border-0">
           <div className="row g-0">
             <div className="col-md-4 my-auto">
               <img
