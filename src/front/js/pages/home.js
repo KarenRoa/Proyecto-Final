@@ -11,32 +11,29 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
-    <div className="bgcolor-transparent p-4 rounded-3 text-uppercase text-center">
-      <div className="container py-5">
+    <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase text-center">
+      <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3">
         <h1 className="display-6 fw-lighter">
           ¿Estás Ocupado o con poco tiempo?
         </h1>
         <p className="col fs-4 fw-light text-center">
           Aquí podrás encontrar a tu{" "}
-          <span className="text-warning">paseador@</span> de perro ideal
+          <span className="text-warning fw-bolder">paseador@</span> de perro
+          ideal
         </p>
         <p className="col fs-4 fw-light text-center">ó</p>
-        <button className="btn btn-dark btn-sm fw-light shadow-sm mb-5">
-          ¿QUIERES SER PASEADOR@ DE PERROS?
+        <button className="btn btn-outline-dark btn-sm fw-light shadow-sm mb-5">
+          ¿QUIERES SER <span className="text-warning fw-bolder">PASEADOR@</span>{" "}
+          DE PERRO?
         </button>
 
         <div className="container-fluid">
           <div className="row mb-5">
-            <div className="col-sm-6 col-md-6 col-lg-3">
-              <div className="h-100 p-2 bg-light rounded-3 shadow-sm">
-                <img
-                  src={foto}
-                  width="200"
-                  height="200"
-                  className="rounded-circle"
-                ></img>
+            <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
+              <div className="h-100 p-3 bg-light rounded-3 shadow-sm">
+                <img src={foto} className="rounded-circle w-75" />
                 <hr className="my-2" />
-                <h4 className="fw-light">nombre</h4>
+                <h5 className="fw-light">Javier Mella</h5>
                 <hr className="my-2" />
                 <p className="fw-light">
                   <small>
@@ -49,16 +46,11 @@ export const Home = () => {
                 </button>
               </div>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-3">
-              <div className="h-100 p-5 bg-light rounded-3 shadow-sm">
-                <img
-                  src={foto1}
-                  width="200"
-                  height="200"
-                  className="rounded-circle"
-                ></img>
+            <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
+              <div className="h-100 p-3 bg-light rounded-3 shadow-sm">
+                <img src={foto1} className="rounded-circle w-75" />
                 <hr className="my-2" />
-                <h4 className="fw-light">nombre</h4>
+                <h5 className="fw-light">Luisa Goméz</h5>
                 <hr className="my-2" />
                 <p className="fw-light">
                   <small>
@@ -71,16 +63,11 @@ export const Home = () => {
                 </button>
               </div>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-3">
-              <div className="h-100 p-2 bg-light rounded-3 shadow-sm">
-                <img
-                  src={foto2}
-                  width="200"
-                  height="200"
-                  className="rounded-circle"
-                ></img>
+            <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
+              <div className="h-100 p-3 bg-light rounded-3 shadow-sm">
+                <img src={foto2} className="rounded-circle w-75" />
                 <hr className="my-2" />
-                <h4 className="fw-light">nombre</h4>
+                <h5 className="fw-light">Manuel Rojas</h5>
                 <hr className="my-2" />
                 <p className="fw-light">
                   <small>
@@ -93,16 +80,11 @@ export const Home = () => {
                 </button>
               </div>
             </div>
-            <div className="col-sm-6 col-md-6 col-lg-3">
-              <div className="h-100 p-2 bg-light rounded-3 shadow-sm">
-                <img
-                  src={foto3}
-                  width="200"
-                  height="200"
-                  className="rounded-circle"
-                ></img>
+            <div className="col-sm-6 col-md-6 col-lg-3 mb-4">
+              <div className="h-100 p-3 bg-light rounded-3 shadow-sm">
+                <img src={foto3} className="rounded-circle w-75" />
                 <hr className="my-2" />
-                <h4 className="fw-light">nombre</h4>
+                <h5 className="fw-light">Lola Ramirez</h5>
                 <hr className="my-2" />
                 <p className="fw-light">
                   <small>
@@ -118,44 +100,57 @@ export const Home = () => {
           </div>
         </div>
 
-        <button className="btn btn-dark btn-sm fw-light shadow-sm">
+        <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
           VER TODOS
         </button>
       </div>
 
       <hr className="my-4" />
-
-      <div className="bgcolor-transparent">
-        <div>
-          <h1 className="text-uppercase fst-italic ">quienes somos</h1>
-        </div>
+      <div>
+        <h2 className="text-uppercase fst-italic">Quienes Somos</h2>
       </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="boxed1 col-md-6">
-            <img
-              className="mujer"
-              src="https://blush.design/api/download?shareUri=6ERJt5MPgrc3rKqt&w=800&h=800&fm=png"
-            />
-            <img
-              className="arbusto"
-              src="https://blush.design/api/download?shareUri=-V5lYT3tcwHM1ms4&w=800&h=800&fm=png"
-            />
-          </div>
-          <div className="boxed2 col-md-6">
-            <h1 className="display-1">"</h1>
-            <span className="">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare
-              vitae sapien faucibus et vitae velit aenean purus. Fermentum cras
-              facilisi habitant elementum diam dignissim pellentesque nibh
-              molestie. Phasellus mattis pharetra enim non.
-            </span>
-            <h1 className="display-1">"</h1>
+
+      <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3">
+        <div className="row p-4">
+          <div class="card mb-3 border-0">
+            <div className="row g-0">
+              <div className="col-md-4">
+                <img
+                  src="https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                  class="img-fluid rounded-start"
+                />
+              </div>
+              
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h4 className="card-title fw-light">Nombre de app</h4>
+                  <p className="card-text fw-light mt-5">
+                    <small>
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer. This is a wider card with supporting
+                      text below as a natural lead-in.
+                      This is a wider card with supporting text below as a
+                      natural lead-in to additional content. This content is a
+                      little bit longer. This is a wider card with supporting
+                      text below as a natural lead-in.
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <hr className="my-4" />
+
+      <div>
+        <h2 className="text-uppercase fst-italic">Contacto</h2>
+      </div>
+      <div className="box-contacto">
+        
+      </div>
     </div>
   );
 };
