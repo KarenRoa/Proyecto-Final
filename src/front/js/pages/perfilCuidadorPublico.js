@@ -14,16 +14,16 @@ export const PerfilCuidadorPublico = () => {
 
           <div className="col-4 col-sm-4 col-md-1">
             <Link to={`/`} className="text-dark">
-              <span className="fs-2">
-                <i className="fas fa-arrow-left"></i>
-              </span>
+              <button className="btn btn-outline-dark">
+                <i className="fas fa-arrow-left p-2"></i>
+              </button>
             </Link>
           </div>
           {/*Boton me GUsta ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
           <div className="col-4 col-sm-4 col-md-1">
-            <span className="fs-2">
-              <i class="far fa-heart"></i>
-            </span>
+            <button className="btn btn-outline-dark">
+              <i class="far fa-heart p-2"></i>
+            </button>
           </div>
         </div>
         <hr className="my-2" />

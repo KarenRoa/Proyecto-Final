@@ -91,7 +91,7 @@ const RegistroCliente = () => {
 
   return (
     <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-white mt-5 mx-auto p-4 rounded-2">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg">
         <div className="row">
           <div className="col d-flex justify-content-end me-2">
           <Link to={`/`} 
@@ -100,7 +100,7 @@ const RegistroCliente = () => {
           </Link>
           </div>
         </div>
-        <h2 className="text-white text-center p-3">Registro de Cliente</h2>
+        <h2 className="text-dark text-center p-3">Registro de Cliente</h2>
         <div className="row">
           <div className="col">
             <form onSubmit={handleSubmit}>
@@ -259,8 +259,8 @@ const RegistroCliente = () => {
                 </div>
               </div>
 
-              <div className="d-grid gap-2 col-6 mx-auto my-4">
-                <button className="btn btn-outline-light btn-sm">Enviar</button>
+              <div className="d-grid gap-2 col-6 mx-auto my-4 ">
+                <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>
           </div>
