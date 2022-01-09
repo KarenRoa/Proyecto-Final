@@ -186,8 +186,8 @@ const RegistroCuidador = () => {
     //         name="rrss"
     //         onChange={handleForm}
     //       ></input>
-    <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-white mt-5 mx-auto p-4 rounded-2">
+    <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
       <div className="row">
           <div className="col d-flex justify-content-end me-2">
           <Link to={`/`} 
@@ -367,7 +367,7 @@ const RegistroCuidador = () => {
               </div>
 
               <div className="d-grid gap-2 col-6 mx-auto my-4">
-                <button className="btn btn-outline-light btn-sm">Enviar</button>
+                <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>
           </div>

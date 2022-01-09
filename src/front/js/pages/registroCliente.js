@@ -1,13 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/registroCliente.css";
-import { useHistory, Link } from 'react-router-dom'
-
+import { useHistory, Link } from "react-router-dom";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory()
-
+  const history = useHistory();
 
   const formInicial = {
     nombre: "",
@@ -17,7 +15,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
-    descripcion:""
+    descripcion: "",
   };
   //VARIABLES DE ESTADOS
   const [datosCliente, setDatosCliente] = useState({
@@ -28,7 +26,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
-    descripcion:""
+    descripcion: "",
   });
 
   //Variables de estados
@@ -44,60 +42,59 @@ const RegistroCliente = () => {
 
   const handleForm = (event) => {
     const { name, value } = event.target;
-    
+
     setDatosCliente({
       ...datosCliente,
       [name]: value,
     });
     console.log(datosCliente);
   };
-  
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     if (
       !datosCliente.nombre ||
       !datosCliente.apellido ||
       !datosCliente.email ||
       !datosCliente.password ||
       !datosCliente.password2
-      ) {
-        setValidacion(true);
-        setError("Campo obligatorio");
-        return;
-      } else setError("");
-      
-      setValidacion(false);
-      
-      if (datosCliente.password !== datosCliente.password2) {
-        setErrorPassword(true);
-        alert("Las Contraseñas tienen que ser identicas");
-        return;
+    ) {
+      setValidacion(true);
+      setError("Campo obligatorio");
+      return;
+    } else setError("");
+
+    setValidacion(false);
+
+    if (datosCliente.password !== datosCliente.password2) {
+      setErrorPassword(true);
+      alert("Las Contraseñas tienen que ser identicas");
+      return;
     }
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
-    
+
     actions.setDatosFormularioCliente(datosCliente);
 
     handleReset();
-    
-    alert("Te has registrado exitosamente");
-    history.push('/')
 
+    alert("Te has registrado exitosamente");
+    history.push("/");
   };
 
   //FORMULARIO DE CLIENTE
 
   return (
-    <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg">
+    <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
         <div className="row">
-          <div className="col d-flex justify-content-end me-2">
-          <Link to={`/`} 
-                className="text-white">
-                  <span className="fs-4"><i className="fas fa-arrow-left"></i></span>
-          </Link>
+        <div className="col d-flex justify-content-end me-2">
+            <Link to={`/`} className="text-white">
+              <span className="fs-4">
+                <i className="fas fa-arrow-left"></i>
+              </span>
+            </Link>
           </div>
         </div>
         <h2 className="text-dark text-center p-3">Registro de Cliente</h2>
@@ -142,10 +139,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12">
-                  <label
-                    htmlFor="email"
-                    className="form-label"
-                  >
+                  <label htmlFor="email" className="form-label">
                     Email
                   </label>
                   <input
@@ -164,10 +158,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12 col-sm-6 col-md-6">
-                  <label
-                    htmlFor="password"
-                    className="form-label"
-                  >
+                  <label htmlFor="password" className="form-label">
                     Contraseña
                   </label>
                   <input
@@ -184,10 +175,7 @@ const RegistroCliente = () => {
                   ) : null}
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
-                  <label
-                    htmlFor="password2"
-                    className="form-label"
-                  >
+                  <label htmlFor="password2" className="form-label">
                     Repita Contraseña
                   </label>
                   <input
@@ -206,10 +194,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12 col-sm-6 col-md-6">
-                  <label
-                    htmlFor="comuna"
-                    className="form-label"
-                  >
+                  <label htmlFor="comuna" className="form-label">
                     Comuna
                   </label>
                   <input
@@ -223,10 +208,7 @@ const RegistroCliente = () => {
                   />
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
-                  <label
-                    htmlFor="telefono"
-                    className="form-label"
-                  >
+                  <label htmlFor="telefono" className="form-label">
                     Telefono
                   </label>
                   <input
