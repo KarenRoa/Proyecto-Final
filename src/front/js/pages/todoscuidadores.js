@@ -46,7 +46,7 @@ const Todosloscuidadores = () => {
                 <p className="fw-light">
                   <small>{el.descripcion}</small>
                 </p>
-                <Link to={`/perfilPublicoCuidador/${el.id}`}>
+                <Link to={`/perfilPrivado/${el.id}`}>
                 <button className="btn btn-dark btn-sm fw-light shadow-lg">
                   VER MÁS...
                 </button>

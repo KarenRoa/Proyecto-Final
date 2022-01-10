@@ -116,6 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				  .then((resp) => resp.json())
 				  .then(data => {
+					
 					sessionStorage.setItem("token", data.token)
 					setStore({ datos: data })
 				  })
