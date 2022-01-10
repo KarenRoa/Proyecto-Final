@@ -1,0 +1,12 @@
+.contenedor{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.main-box {    
+    background: rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+    margin-top: 80px;
+    height: 380px;
+}
+

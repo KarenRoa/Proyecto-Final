@@ -69,6 +69,16 @@ def update_cuidador(id):
     db.session.commit()
     return 'Usuario Registrado'
 
+#Ruta para eliminar un cuidador
+@api.route('/cuidador/<id>', methods=['DELETE'])
+def delete_cuidador(id):
+    Cuidador_id = Cuidador.query.get(id)
+    db.session.delete(Cuidador_id)
+    db.session.commit()
+    return "ok"
+
+#----------------------------------------------------------------------------------------    
+
 #Ruta para ver todos los Clientes
 @api.route('/clientes', methods=['GET'])
 def get_clientes():
@@ -76,6 +86,37 @@ def get_clientes():
     Clientes = list(map(lambda x: x.serialize(),Clientes))
 
     return jsonify(Clientes), 200
+
+#Ruta para ver un cliente
+@api.route('/cliente/<int:id>', methods=['GET'])
+def get_cliente(id):
+    Cliente_id = Cliente.query.get(id)
+
+    return jsonify(Cliente_id.serialize())
+
+
+#Ruta para editar un cliente
+@api.route('/editarCliente/<id>', methods=['PUT'])
+def update_cliente(id):
+    cliente = Cliente.query.get(id)
+    datos = request.get_json()
+    cliente.nombre = datos['nombre'],
+    cliente.apellido = datos['apellido'],
+    cliente.email = datos['email'], 
+    cliente.telefono = datos['telefono'], 
+    cliente.comuna = datos['comuna'],
+    cliente.descripcion = datos['descripcion']
+                                 
+    db.session.commit()
+    return 'Datos Actualizados'
+
+#Ruta para eliminar un cliente
+@api.route('/cuidador/<id>', methods=['DELETE'])
+def delete_cliente(id):
+    Cliente_id = Cliente.query.get(id)
+    db.session.delete(Cliente_id)
+    db.session.commit()
+    return "ok"
 
 #Ruta para crear un Cliente
 @api.route('/cliente',  methods=['POST'])
@@ -95,6 +136,7 @@ def set_cliente():
                                   password = datos['password'], 
                                   telefono = datos['telefono'], 
                                   comuna = datos['comuna'],
+                                  descripcion = datos['descripcion'],
                                  )
         db.session.add(nuevo_cliente)
         db.session.commit()

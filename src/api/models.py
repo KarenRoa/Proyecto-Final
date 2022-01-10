@@ -15,8 +15,8 @@ class Cuidador(db.Model):
     rrss = db.Column(db.String(80), unique=False, nullable=True)
     descripcion = db.Column(db.String, unique=False, nullable=False)
     
-    # def __repr__(self):
-    #     return '<User %r>' % self.username
+    def __repr__(self):
+        return '<Cuidador %r>' % self.nombre
 
     def serialize(self):
         return {
@@ -40,7 +40,10 @@ class Cliente(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     telefono = db.Column(db.String(80), unique=False, nullable=False)
     comuna = db.Column(db.String(80), unique=False, nullable=False)
-    
+    descripcion = db.Column(db.String, unique=False, nullable=False)
+
+    def __repr__(self):
+        return '<Cliente %r>' % self.nombre
 
 
     def serialize(self):
@@ -51,8 +54,7 @@ class Cliente(db.Model):
             "email": self.email,
             "telefono": self.telefono,
             "comuna": self.comuna,
-            
-
+            "descripcion": self.descripcion,
         }
 
 class Favoritos(db.Model):

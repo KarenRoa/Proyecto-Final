@@ -1,9 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/registroCliente.css";
+import { useHistory, Link } from 'react-router-dom'
+
+
+
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
+  const history = useHistory();
 
   const formInicial = {
     nombre: "",
@@ -13,6 +17,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
+    descripcion: "",
   };
   //VARIABLES DE ESTADOS
   const [datosCliente, setDatosCliente] = useState({
@@ -23,6 +28,7 @@ const RegistroCliente = () => {
     password2: "",
     telefono: "",
     comuna: "",
+    descripcion: "",
   });
 
   //Variables de estados
@@ -31,6 +37,11 @@ const RegistroCliente = () => {
   const [errorPassword, setErrorPassword] = useState(false);
 
   //MANEJADORES
+  //Funcion que limpia el formulario
+  const handleReset = () => {
+    setDatosCliente(formInicial);
+  };
+
   const handleForm = (event) => {
     const { name, value } = event.target;
 
@@ -39,10 +50,6 @@ const RegistroCliente = () => {
       [name]: value,
     });
     console.log(datosCliente);
-  };
-
-  const handleReset = () => {
-    setDatosCliente(formInicial);
   };
 
   const handleSubmit = (event) => {
@@ -69,19 +76,31 @@ const RegistroCliente = () => {
     }
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
-    alert("Te has registrado exitosamente");
 
     actions.setDatosFormularioCliente(datosCliente);
 
     handleReset();
+    
+    alert("Te has registrado exitosamente");
+    history.push(`/`)
+
   };
 
   //FORMULARIO DE CLIENTE
 
   return (
-    <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-white mt-5 mx-auto p-4 rounded-2">
-        <h2 className="text-white text-center p-3">Registro de Cliente</h2>
+    <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
+        <div className="row">
+        <div className="col d-flex justify-content-end me-2">
+            <Link to={`/`} className="text-white">
+              <span className="fs-4">
+                <i className="fas fa-arrow-left"></i>
+              </span>
+            </Link>
+          </div>
+        </div>
+        <h2 className="text-dark text-center p-3">Registro de Cliente</h2>
         <div className="row">
           <div className="col">
             <form onSubmit={handleSubmit}>
@@ -123,10 +142,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12">
-                  <label
-                    htmlFor="email"
-                    className="form-label"
-                  >
+                  <label htmlFor="email" className="form-label">
                     Email
                   </label>
                   <input
@@ -145,10 +161,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12 col-sm-6 col-md-6">
-                  <label
-                    htmlFor="password"
-                    className="form-label"
-                  >
+                  <label htmlFor="password" className="form-label">
                     Contraseña
                   </label>
                   <input
@@ -165,10 +178,7 @@ const RegistroCliente = () => {
                   ) : null}
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
-                  <label
-                    htmlFor="password2"
-                    className="form-label"
-                  >
+                  <label htmlFor="password2" className="form-label">
                     Repita Contraseña
                   </label>
                   <input
@@ -187,10 +197,7 @@ const RegistroCliente = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-12 col-sm-6 col-md-6">
-                  <label
-                    htmlFor="comuna"
-                    className="form-label"
-                  >
+                  <label htmlFor="comuna" className="form-label">
                     Comuna
                   </label>
                   <input
@@ -204,10 +211,7 @@ const RegistroCliente = () => {
                   />
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
-                  <label
-                    htmlFor="telefono"
-                    className="form-label"
-                  >
+                  <label htmlFor="telefono" className="form-label">
                     Telefono
                   </label>
                   <input
@@ -221,8 +225,27 @@ const RegistroCliente = () => {
                   />
                 </div>
               </div>
-              <div className="d-grid gap-2 col-6 mx-auto mt-4">
-                <button className="btn btn-outline-light btn-sm">Enviar</button>
+
+              <div className="row my-3">
+                <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
+                  <label htmlFor="descripcion" className="form-label">
+                    Cuentanos de tu Perro
+                  </label>
+                  <textarea
+                    type="text"
+                    className="form-control"
+                    style={{ resize: "none" }}
+                    id="descripcion"
+                    placeholder="Descripción"
+                    value={datosCliente.descripcion}
+                    name="descripcion"
+                    onChange={handleForm}
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="d-grid gap-2 col-6 mx-auto my-4 ">
+                <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>
           </div>
