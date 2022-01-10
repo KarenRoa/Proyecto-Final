@@ -40,13 +40,13 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#">
+                <Link to={`#`} className="nav-link" href="#">
                   QUIENES SOMOS
                 </Link>
               </li>
             
               <li className="nav-item">
-              <Link className="nav-link" href="#">
+              <Link to={`#`} className="nav-link" href="#">
                   CONTACTO
                 </Link>
               </li>
