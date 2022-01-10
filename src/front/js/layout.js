@@ -17,6 +17,7 @@ import { PerfilPrivado } from "./pages/perfilPrivado";
 import Todoscuidadores from "./pages/todoscuidadores";
 import { PerfilCliente } from "./pages/perfilCliente";
 import { EditarCliente } from "./pages/editarCliente";
+import { PerfilPublicoCuidador } from "./pages/perfilPublicoCuidador";
 
 //create your first component
 const Layout = () => {
@@ -51,11 +52,14 @@ const Layout = () => {
             <Route exact path="/editarCuidador/:id">
               <EditarCuidador />
             </Route>
-            <Route exact path="/registroCliente">
-              <RegistroCliente />
-            </Route>
             <Route exact path="/perfilPrivado/:id">
               <PerfilPrivado />
+            </Route>
+            <Route exact path="/perfilPublicoCuidador/:id">
+              <PerfilPublicoCuidador/>
+            </Route>
+            <Route exact path="/registroCliente">
+              <RegistroCliente />
             </Route>
             <Route exact path="/perfilCliente/:id">
               <PerfilCliente />

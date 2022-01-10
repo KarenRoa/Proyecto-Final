@@ -5,7 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 const Todosloscuidadores = () => {
   const { store, actions } = useContext(Context);
   const history = useHistory();
-  console.log(store.cuidadores);
+  
 
   useEffect(() => {
     actions.obtenerCuidadores();
@@ -39,14 +39,14 @@ const Todosloscuidadores = () => {
                   src="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/articulos/canguros_mascotas_paseador_perros.jpg"
                   className="img-fluid"
                 ></img>
-                <h3 className="fw-light">
+                <h3 className="fw-light mt-3">
                   {el.nombre} {el.apellido}
                 </h3>
                 <hr className="my-2" />
                 <p className="fw-light">
                   <small>{el.descripcion}</small>
                 </p>
-                <Link to={`/perfilPrivado/${el.id}`}>
+                <Link to={`/perfilPublicoCuidador/${el.id}`}>
                 <button className="btn btn-dark btn-sm fw-light shadow-lg">
                   VER MÁS...
                 </button>
