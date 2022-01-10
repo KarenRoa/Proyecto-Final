@@ -2,5 +2,8 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 body {
+  background-image: url("https://www.mascotas.com/cms/revista/Revista_60d49c2b782e3_24062021.jpg");
+  background-attachment: fixed;
+  background-size: cover;
   font-family: "Roboto", sans-serif;
 }

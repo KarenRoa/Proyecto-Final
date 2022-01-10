@@ -10,15 +10,15 @@ export const PerfilCliente = () => {
   const { id } = useParams();
   
   useEffect(() => {
-    //actions.detalleCuidador(id);
-    actions.detalleCliente(id);
+    
+    //actions.detalleCliente(id);
   }, []);
   
   return (
     <div className="container bg-dark text-light text-center w-50 my-4 p-4">
       <div className="row d-flex justify-content-between align-items-center">
         <div className=" col-12 col-md-8">
-          <h2 className="display-5">{store.detalleCliente.nombre} {store.detalleCliente.apellido}</h2>
+          <h2 className="display-5"></h2>
         </div>
         <div className="col-12 col-md-4">
           <Link to={`/editarCliente/${id}`} 
@@ -33,7 +33,7 @@ export const PerfilCliente = () => {
           <img src={fotoPerfil} className="rounded-circle p-2 img-fluid"/>
         </div>
         <div className="col-12 col-md-8">
-          <p>"{store.detalleCliente.descripcion}"</p>
+          <p></p>
         </div>
       </div>
       <div className="row">
@@ -42,16 +42,16 @@ export const PerfilCliente = () => {
       <div className="row">
         <div className="col-sm-4">
           <span><i className="fas fa-map-marker-alt"></i> Zona de Atención</span>
-          <p>{store.detalleCliente.comuna}</p>
+          <p></p>
         
         </div>
         <div className="col-sm-4">
           <span><i className="fab fa-instagram"></i> Instagram</span>
-          <p>{store.detalleCliente.rrss}</p>
+          <p></p>
         </div>
         <div className="col-sm-4">
           <span><i className="fab fa-whatsapp"></i> WhatsApp</span>
-          <p>{store.detalleCliente.telefono}</p>
+          <p></p>
         </div>
       </div>
     </div>

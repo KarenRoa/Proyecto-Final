@@ -40,10 +40,10 @@ export const Login = () => {
 
   return (
     <>
-      <div className="container my-4">
-        <div className="col-12 col-md-8 col-lg-6 mx-auto main-box">
+      <div className="container contenedor">
+        <div className="col-12 col-md-8 col-lg-6 main-box">
           <h2 className="text-center p-4">Inicio de Sesión</h2>
-          <div className="row mt-3">
+          <div className="row">
             <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-10 col-md-8 mx-auto">
@@ -75,7 +75,7 @@ export const Login = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="d-grid gap-2 col-10 col-md-8 mx-auto mt-4">
+              <div className="d-grid gap-2 col-10 col-md-8 mx-auto">
                 <button className="btn btn-dark btn-sm">Enviar</button>
               </div>
             </form>

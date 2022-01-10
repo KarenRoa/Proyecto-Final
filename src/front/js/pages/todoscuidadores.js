@@ -1,44 +1,67 @@
-import React from "react";
-import "../../styles/todoscuidadores.css";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
+import { useHistory, Link } from "react-router-dom";
 
 const Todosloscuidadores = () => {
-  return (
-    <div>
-      <h1 className="display-6 fw-light text-center text-uppercase">
-        Todos Nuestros Cuidadores
-      </h1>
+  const { store, actions } = useContext(Context);
+  const history = useHistory();
+  
 
-      <div className="container">
-        <p className="col fs-4 fw-light text-center">
-          Si quieres saber mas sobre nuestros cuidadores haz click en ver más...
-        </p>
+  useEffect(() => {
+    actions.obtenerCuidadores();
+  }, []);
+
+  return (
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col">
+          <h1 className="display-6 fw-light text-center text-uppercase">
+            Todos Nuestros Cuidadores
+          </h1>
+        </div>
       </div>
 
-      <div className="container-fluid">
-        <div className="row mb-5 ">
-          <div className="col-sm-6 col-md-6 col-lg-3">
-            <div className="h-100 p-5 bg-light rounded-3 shadow-lg">
-              <img
-                src="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/articulos/canguros_mascotas_paseador_perros.jpg"
-                width="200"
-                height="200"
-                className="rounded-circle"
-              ></img>
-              <h3 className="fw-light">Brenda Cuevas</h3>
-              <hr className="my-2" />
-              <p className="fw-light">
-                <small>
-                  "Me apasiona la biología y los animales, hice una carrera de
-                  ello y en mis tiempos libres me dedico a pasear mascotas"
-                </small>
-              </p>
-              <button className="btn btn-dark btn-sm fw-light shadow-lg">
-                VER MÁS...
-              </button>
-            </div>
-          </div>
+      <div className="row">
+        <div className="col">
+          <p className="col fs-4 fw-light text-center">
+            Si quieres saber mas sobre nuestros cuidadores haz click en ver
+            más...
+          </p>
+        </div>
+      </div>
 
-          <div className="col-sm-6 col-md-6 col-lg-3">
+      <div className="row">
+        {store.cuidadores.map((el, index) => {
+          return (
+            <div className="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
+              <div className="p-3 bg-light rounded-3 shadow-lg mb-3">
+                <img
+                  src="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/articulos/canguros_mascotas_paseador_perros.jpg"
+                  className="img-fluid"
+                ></img>
+                <h3 className="fw-light mt-3">
+                  {el.nombre} {el.apellido}
+                </h3>
+                <hr className="my-2" />
+                <p className="fw-light">
+                  <small>{el.descripcion}</small>
+                </p>
+                <Link to={`/perfilPrivado/${el.id}`}>
+                <button className="btn btn-dark btn-sm fw-light shadow-lg">
+                  VER MÁS...
+                </button>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+{
+  /* <div className="col-sm-6 col-md-6 col-lg-3">
             <div className="h-100 p-5 bg-light rounded-3 shadow-lg">
               <img
                 src="https://www.milenio.com/uploads/media/2020/02/04/peta-dice-que-usar-la.jpg"
@@ -113,11 +136,6 @@ const Todosloscuidadores = () => {
                 VER MÁS...
               </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+          </div> */
+}
 export default Todosloscuidadores;

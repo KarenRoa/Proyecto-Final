@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/registroCliente.css";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link } from 'react-router-dom'
+
+
+
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
@@ -78,9 +80,10 @@ const RegistroCliente = () => {
     actions.setDatosFormularioCliente(datosCliente);
 
     handleReset();
-
+    
     alert("Te has registrado exitosamente");
-    history.push("/");
+    history.push(`/`)
+
   };
 
   //FORMULARIO DE CLIENTE

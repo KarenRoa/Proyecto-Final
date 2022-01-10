@@ -87,6 +87,37 @@ def get_clientes():
 
     return jsonify(Clientes), 200
 
+#Ruta para ver un cliente
+@api.route('/cliente/<int:id>', methods=['GET'])
+def get_cliente(id):
+    Cliente_id = Cliente.query.get(id)
+
+    return jsonify(Cliente_id.serialize())
+
+
+#Ruta para editar un cliente
+@api.route('/editarCliente/<id>', methods=['PUT'])
+def update_cliente(id):
+    cliente = Cliente.query.get(id)
+    datos = request.get_json()
+    cliente.nombre = datos['nombre'],
+    cliente.apellido = datos['apellido'],
+    cliente.email = datos['email'], 
+    cliente.telefono = datos['telefono'], 
+    cliente.comuna = datos['comuna'],
+    cliente.descripcion = datos['descripcion']
+                                 
+    db.session.commit()
+    return 'Datos Actualizados'
+
+#Ruta para eliminar un cliente
+@api.route('/cuidador/<id>', methods=['DELETE'])
+def delete_cliente(id):
+    Cliente_id = Cliente.query.get(id)
+    db.session.delete(Cliente_id)
+    db.session.commit()
+    return "ok"
+
 #Ruta para crear un Cliente
 @api.route('/cliente',  methods=['POST'])
 def set_cliente():
