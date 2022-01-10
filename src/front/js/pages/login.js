@@ -75,7 +75,7 @@ export const Login = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="d-grid gap-2 col-10 col-md-8 mx-auto mt-4">
+              <div className="d-grid gap-2 col-10 col-md-8 mx-auto">
                 <button className="btn btn-dark btn-sm">Enviar</button>
               </div>
             </form>

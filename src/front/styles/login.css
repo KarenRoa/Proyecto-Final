@@ -2,12 +2,11 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 .main-box {    
     background: rgba(230, 230, 230, 0.5);
-    height: 400px;
-  
-    border-radius: 25px;
+    border-radius: 20px;
+    margin-top: 80px;
+    height: 380px;
 }
 
