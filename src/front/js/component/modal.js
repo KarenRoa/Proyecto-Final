@@ -48,7 +48,7 @@ const Modal = () => {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body text-info bg-dark">
+              <div className="modal-body text-light bg-dark">
                 Art. 9°. El contrato de trabajo es consensual; deberá constar
                 por escrito en los plazos a que se refiere el inciso siguiente,
                 y firmarse por ambas partes en dos ejemplares, quedando uno en
