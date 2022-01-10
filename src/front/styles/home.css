@@ -1,9 +1,11 @@
-
 body {
   background-image: url("https://www.mascotas.com/cms/revista/Revista_60d49c2b782e3_24062021.jpg");
   background-attachment: fixed;
   background-size: cover;
   font-family: "Roboto", sans-serif;
+  background-color: transparent;
+ 
+ 
   /* min-height: 100%;
   min-width: 800px;
   width: 100%;
@@ -11,9 +13,9 @@ body {
   position: fixed;
   top: 0;
   left: 0; */
-  }
-  
-  /*body::before{
+}
+
+/*body::before{
     content:"";
     width: 100%;
     min-height: 100vh;
@@ -24,12 +26,18 @@ body {
     opacity: 0.5;
   
   }*/
-  
- 
-
-
 
 /*.background-image{
     opacity: 0.6;
 }*/
 
+
+
+.foto{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+
+/*background-image: url("https://www.mascotas.com/cms/revista/Revista_60d49c2b782e3_24062021.jpg");*/

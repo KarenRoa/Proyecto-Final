@@ -8,18 +8,16 @@ export const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
-          <Link to={'/'} className="navbar-brand ms-2">
-          <img
-               src={perro}
+          <Link to={"/"} className="navbar-brand ms-2">
+            <img
+              src={perro}
               width="35"
               height="35"
-               className="d-inline-block align-top"
-               alt=""
-             />
+              className="d-inline-block align-top"
+              alt=""
+            />
 
-             <strong  id="titulo">
-               WALK-DOGS
-            </strong>
+            <strong id="titulo">WALK-DOGS</strong>
           </Link>
           <button
             className="navbar-toggler"
@@ -35,7 +33,7 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
               <li className="nav-item">
-                <Link to={'/'} className="nav-link"  href="#">
+                <Link to={"/"} className="nav-link" href="#">
                   INICIO
                 </Link>
               </li>
@@ -44,18 +42,31 @@ export const Navbar = () => {
                   QUIENES SOMOS
                 </Link>
               </li>
-            
+
               <li className="nav-item">
-              <Link className="nav-link" href="#">
+                <Link className="nav-link" href="#">
                   CONTACTO
                 </Link>
               </li>
             </ul>
-            <div>
-              <Link to={'/login'}>
-                <button className="btn btn-outline-light btn-sm me-2">INGRESAR</button>
-              </Link>
-            </div>
+            <Link to={"/registroCliente"}>
+              <div className="mx-2">
+                <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
+                  REGÍSTRATE
+                </button>
+              </div>
+            </Link>
+            <hr className="my-1" />
+
+            <Link to={"/login"}>
+              <div className="mx-2">
+                <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
+                  INGRESA
+                </button>
+              </div>
+            </Link>
+
+            <div></div>
           </div>
         </div>
       </nav>
