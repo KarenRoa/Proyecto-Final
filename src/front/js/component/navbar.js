@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import perro from "../../img/perro2.png";
 import "../../styles/navbar.css";
+import { Anchor1 } from "./navbar/quienes-somos";
+import { Anchor2 } from "./navbar/contacto";
 
 export const Navbar = () => {
   return (
@@ -30,25 +32,18 @@ export const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
               <li className="nav-item">
-                <Link to={"/"} className="nav-link" href="#">
+                <Link to={"/"} className="nav-link">
                   INICIO
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to={`#`} className="nav-link" href="#">
-                  QUIENES SOMOS
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link className="nav-link" href="#">
-                  CONTACTO
-                </Link>
-              </li>
+              <Anchor1 />
+              <Anchor2 />
             </ul>
+
             <Link to={"/registroCliente"}>
               <div className="mx-2">
                 <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
@@ -65,8 +60,6 @@ export const Navbar = () => {
                 </button>
               </div>
             </Link>
-
-            <div></div>
           </div>
         </div>
       </nav>
