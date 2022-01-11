@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import foto0 from "../../img/perfil08.png";
+import foto1 from "../../img/perfil07.png";
 
 export const PerfilCuidadorPublico = () => {
   return (
@@ -8,37 +8,34 @@ export const PerfilCuidadorPublico = () => {
       <div className="container bg-light bg-opacity-75 text-dark text-center my-4 p-4 rounded-3 shadow-lg">
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-4">
-            <h3 className="display-5">Luisa Mella</h3>
+            <h3 className="display-5">Javier Goméz</h3>
           </div>
           <div className="col-md-6"></div>
 
           <div className="col-4 col-sm-4 col-md-1">
             <Link to={`/`} className="text-dark">
-              <button className="btn btn-outline-dark">
-                <i className="fas fa-arrow-left p-2"></i>
-              </button>
+              <span className="fs-3">
+                <i className="fas fa-arrow-left"></i>
+              </span>
             </Link>
           </div>
           {/*Boton me GUsta ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
           <div className="col-4 col-sm-4 col-md-1">
-            <button className="btn btn-outline-dark">
-              <i class="far fa-heart p-2"></i>
-            </button>
+            <span className="fs-3"><i className="far fa-heart"></i></span>
           </div>
         </div>
         <hr className="my-2" />
         <div className="row d-flex align-items-center">
           <div className="col-12 col-md-4">
-            <img src={foto0} className="p-2 img-fluid ratio ratio-1x1" />
+            <img src={foto1} className="img-fluid ratio ratio-1x1 rounded-3" />
           </div>
           <div className="col-12 col-md-8">
-            <h3 className="fw-lighter m-4">Sobre mí...</h3>
+            <h3 className="fw-normal m-4">Sobre mí...</h3>
             <p className="fw-lighter">
-              "Me considero doglovers 100%, los paseos además de ser relajantes
-              para las mascotas, tambien ayudan a nuestra mente. Tengo 3 perros,
-              uno es cachorro y los otros dos son adultos. Todos los días
+              "Estar rodeado de perros, ir al parque y compartir con ellos,
+              siempre será una experiencia que me encanta! Todos los días
               acostumbro a ir al parque con ellos. Con el tele-trabajo he podido
-              flexibilizar mis tiempos y además me queda para utilizar WalkyDog
+              flexibilizar mis tiempos y además me queda para utilizar Walk-Dogs
               y ganar algo extra."
             </p>
           </div>
