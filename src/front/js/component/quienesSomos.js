@@ -7,7 +7,7 @@ export const QuienesSomos = () => {
         <h2 className="text-uppercase">Quienes Somos</h2>
       </div>
       <div className="row p-4">
-        <div class="card mb-3 border-0">
+        <div className="card mb-3 border-0">
           <div className="row g-0">
             <div className="col-md-4 my-auto">
               <img
