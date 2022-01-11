@@ -1,7 +1,7 @@
 import React, {useEffect, useContext}from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
-import foto1 from "../../img/perfil07.png";
+import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilCuidadorPublico = () => {
   const { store, actions } = useContext(Context);
@@ -44,7 +44,7 @@ export const PerfilCuidadorPublico = () => {
         <hr className="my-2" />
         <div className="row d-flex align-items-center">
           <div className="col-12 col-md-4">
-            <img src={foto1} className="img-fluid ratio ratio-1x1 rounded-3" />
+            <img src={fotoPerfil} className="img-fluid ratio ratio-1x1 rounded-3" />
           </div>
           <div className="col-12 col-md-8">
             <h3 className="fw-normal m-4">Sobre mí...</h3>

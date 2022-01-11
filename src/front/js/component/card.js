@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
 import {Link, useParams,useHistory } from "react-router-dom";
-import foto1 from "../../img/perfil07.png";
+import fotoPerfil from "../../img/user.jpg";
 
 export const Card = () => {
   const { store, actions } = useContext(Context);
@@ -19,7 +19,7 @@ export const Card = () => {
     <div className="col-sm-6 col-md-6 col-lg-3 mb-4 text-center">
       <div className="h-100 p-3 bg-light rounded-3 shadow-sm d-flex flex-column justify-content-between">
         <div className="imagen">
-          <img src={foto1} className="rounded-circle w-75" />
+          <img src={fotoPerfil} className="rounded-circle w-75" />
         </div>
         <div className="titulo">
           <hr className="my-2" />

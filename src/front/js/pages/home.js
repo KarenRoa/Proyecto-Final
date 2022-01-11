@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/home.css"; 
 import { Link, useParams } from "react-router-dom";
 import { FormularioContacto } from "../component/fomularioContacto";
 import { QuienesSomos } from "../component/quienesSomos";
@@ -20,6 +20,11 @@ export const Home = () => {
 
         <div className="container-fluid">
           <div className="row mb-5">
+            {/* store.detalleCuidador.map((index) => {
+              return (
+                <div key = {index} > <Card/> <div/>
+              )
+            })   */}
             {/*Card - 01 ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
             <Card />
             {/*Card - 02 ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
