@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/modal.css";
+import "../../styles/modal.css"
 
 const Modal = () => {
   return (
@@ -8,14 +8,13 @@ const Modal = () => {
         <div className="mx-2">
           <button
             type="button"
-            className="btn btn-outline-light"
+            className="btn btn-outline-dark"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
             <i className="fas fa-paw"></i> Terminos y condiciones
           </button>
         </div>
-
         <div className="form-check form-check-inline d-flex">
           <input
             className="form-check-input my-auto"
@@ -26,6 +25,7 @@ const Modal = () => {
           />
         </div>
       </div>
+
 
       <div className="modal-dialog modal-dialog-scrollable">
         <div
@@ -39,7 +39,7 @@ const Modal = () => {
             <div className="modal-content">
               <div className="modal-header text-light bg-dark">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Modal title
+                  <i className="fas fa-paw"></i> Terminos y Condiciones
                 </h5>
                 <button
                   type="button"
@@ -49,50 +49,51 @@ const Modal = () => {
                 ></button>
               </div>
               <div className="modal-body text-light bg-dark">
-                Art. 9°. El contrato de trabajo es consensual; deberá constar
-                por escrito en los plazos a que se refiere el inciso siguiente,
-                y firmarse por ambas partes en dos ejemplares, quedando uno en
-                poder de cada contratante. 87 88 El empleador que no haga
-                constar por escrito el contrato dentro del plazo de quince días
-                de incorporado el trabajador, o de cinco días si se trata de
-                contratos por obra, trabajo o servicio determinado o de duración
-                inferior a treinta días, será sancionado con una multa a
-                beneficio fiscal de una a cinco unidades tributarias mensuales.
-                89 Si el trabajador se negare a firmar, el empleador enviará el
-                contrato a la respectiva Inspección del Trabajo para que ésta
-                requiera la firma. Si el trabajador insistiere en su actitud
-                ante dicha Inspección, podrá ser despedido, sin derecho a
-                indemnización, a menos que pruebe haber sido contratado en
-                condiciones distintas a las consignadas en el documento escrito.
-                90 Si el empleador no hiciere uso del derecho que se le confiere
-                en el inciso anterior, dentro del respectivo plazo que se indica
-                en el inciso segundo, la falta de contrato escrito hará presumir
-                legalmente que son estipulaciones del contrato las que declare
-                el trabajador. 91 El empleador, en todo caso, estará obligado a
-                mantener en el lugar de trabajo, o en un lugar fijado con
-                anterioridad y que deberá haber sido autorizado previamente por
-                la Inspección del Trabajo, un ejemplar del contrato, y, en su
-                caso, uno del finiquito en que conste el término de la relación
-                laboral, firmado por las partes. 92 Conforme a lo señalado en el
-                inciso anterior, cuando exista la necesidad de centralizar la
-                documentación laboral y previsional, en razón de tener
-                organizado su giro económico en diversos establecimientos,
-                sucursales o lugares de trabajo o por razones de administración,
-                control, operatividad o seguridad o que sus trabajadores presten
-                servicios en instalaciones de terceros, o lugares de difícil
-                ubicación específica, o carentes de condiciones materiales en
-                las cuales mantener adecuadamente la referida documentación,
-                como labores agrícolas, mineras o forestales y de vigilancia
-                entre otras, las empresas podrán solicitar a la Dirección del
-                Trabajo autorización para centralizar los documentos antes
-                señalados y ofrecer mantener copias digitalizadas de dichos
-                documentos laborales y previsionales. Para estos efectos, el
-                Director del Trabajo, mediante resolución fundada, fijará las
-                condiciones y modalidades para dicha centralización. La
-                Dirección del Trabajo deberá resolver la solicitud de que trata
-                este inciso en un plazo de treinta días, no siendo exigible la
-                obligación establecida en el inciso quinto, en tanto no se
-                notifique dicha respuesta al peticionario.
+                Yo, ………………………………. Me comprometo a través de este documento a
+                prestar los servicios de paseador de perros; a cuidar y darle
+                amor a las mascotas que estén a mi cargo y procurar que tengan
+                un paseo agradable para luego volver con sus respectivos dueños
+                en las mismas condiciones en que me fue entregado, asi mismo, me
+                comprometo a:
+                <li>Recoger las heces de la mascota cuidando el entorno.</li>
+                <li>
+                  Dar al perrito la hidratacion necesaria mientras dure el
+                  paseo.
+                </li>
+                <li>
+                  Seguir las indicaciones especiales que informe el dueño de la
+                  mascota previo al paseo.
+                </li>
+                <li>
+                  No pasear mas de 04 (cuatro) perros a la vez por motivos de
+                  seguridad.
+                </li>
+                <li>
+                  En caso de ser necesario comunicar al dueño la cancelacion del
+                  paseo con un minimo de 24 horas antes de la hora acordada
+                </li>
+                Además de ello tomo conocimiento de que en caso de existir algún
+                tipo de maltrato podrían aplicarse las sanciones que indica la
+                ley de tenencia responsable, las cuales corresponden a:
+                <li>
+                  <b>Daño a un animal:</b> pena de presidio menor en su grado
+                  mínimo a medio y multa de 10 a 30 UTM, además de la
+                  inhabilidad absoluta perpetua para la tenencia de cualquier
+                  tipo de animal.
+                </li>
+                <li>
+                  {" "}
+                  <b>
+                    Lesiones graves en la integridad física o muerte del animal:
+                  </b>{" "}
+                  pena de presidio menor en su grado medio y multa de 20 a 30
+                  UTM, además de la inhabilidad absoluta perpetua para la
+                  tenencia de cualquier tipo de animal.
+                </li>
+                Al aceptar los Términos y Condiciones confirmo además que los
+                datos que he entregado en esta página son verídicos y cualquier
+                accidente que pueda tener la mascota será de mi completa
+                responsabilidad.
               </div>
               <div className="modal-footer bg-dark">
                 <button
