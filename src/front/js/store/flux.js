@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			cuidadores:[],
 			detalleCuidador:{},
 			message: null,
 			
@@ -65,6 +66,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  });
 			  },
 
+
+			//Ver todos los cuidadores
+			obtenerCuidadores: async () => {
+				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidadores")
+					.then(response => response.json())
+					.then(data => setStore({ cuidadores: data }))
+					.catch(error => console.log("error", error));
+			},
+
 			//Eliminar un cuidador
 			deleteCuidador: async id  => {
 				await fetch(
@@ -106,6 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				  .then((resp) => resp.json())
 				  .then(data => {
+					
 					sessionStorage.setItem("token", data.token)
 					setStore({ datos: data })
 				  })

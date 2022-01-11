@@ -48,7 +48,7 @@ export const PerfilPrivado = () => {
             <span className="fs-5"><i className="fas fa-trash-alt me-4" onClick={()=> confirmar()}></i></span>
           </Link>
 
-          <Link to={`/`} 
+          <Link to={`/todoscuidadores`} 
                 className="text-white">
                   <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
           </Link>

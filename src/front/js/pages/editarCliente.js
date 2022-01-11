@@ -28,7 +28,7 @@ export const EditarCliente = () => {
   const [error, setError] = useState("");
   
   useEffect(() => {
-    actions.detalleCliente(id);
+    //actions.detalleCliente(id);
   }, []);
 
   //MANEJADORES
@@ -80,7 +80,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="nombre"
                     placeholder="Nombre"
-                    value={dataToEdit.nombre}
+                    //value={dataToEdit.nombre}
                     name="nombre"
                     onChange={handleForm}
                   ></input>
@@ -97,7 +97,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="apellido"
                     placeholder="Apellido"
-                    value={dataToEdit.apellido}
+                    //value={dataToEdit.apellido}
                     name="apellido"
                     onChange={handleForm}
                   ></input>
@@ -117,7 +117,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="email"
                     placeholder="correo@example.com"
-                    value={dataToEdit.email}
+                    //value={dataToEdit.email}
                     name="email"
                     onChange={handleForm}
                   ></input>
@@ -138,7 +138,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="comuna"
                     placeholder="Comuna"
-                    value={dataToEdit.comuna}
+                    //value={dataToEdit.comuna}
                     name="comuna"
                     onChange={handleForm}
                   ></input>
@@ -152,7 +152,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="telefono"
                     placeholder="+56912345678"
-                    value={dataToEdit.telefono}
+                    //value={dataToEdit.telefono}
                     name="telefono"
                     onChange={handleForm}
                   ></input>
@@ -164,7 +164,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="redes sociales"
                     placeholder="Redes Sociales"
-                    value={dataToEdit.rrss}
+                    //value={dataToEdit.rrss}
                     name="rrss"
                     onChange={handleForm}
                   ></input>
@@ -179,7 +179,7 @@ export const EditarCliente = () => {
                     className="form-control form-control-sm"
                     id="descripcion"
                     placeholder="Descripción"
-                    value={dataToEdit.descripcion}
+                    //value={dataToEdit.descripcion}
                     name="descripcion"
                     onChange={handleForm}
                   ></textarea>
@@ -190,11 +190,11 @@ export const EditarCliente = () => {
                 <div className="col-12 my-4 d-flex justify-content-center">
                 <Link to={`/#`} 
                       className="text-white">
-                  <span className="fs-3"><i class="far fa-check-square me-4"></i></span>
+                  <span className="fs-3"><i className="far fa-check-square me-4"></i></span>
                 </Link>
                 <Link to={`/perfilCliente/${id}`} 
                       className="text-white">
-                  <span className="fs-3"><i class="fas fa-arrow-left"></i></span>
+                  <span className="fs-3"><i className="fas fa-arrow-left"></i></span>
                 </Link>
                 </div>
               </div>

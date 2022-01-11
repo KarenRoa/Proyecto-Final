@@ -1,24 +1,12 @@
-/* .container{
-    height: 100%;
-    width: 100%;
-} */
-
+.contenedor{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
 .main-box {    
     background: rgba(230, 230, 230, 0.5);
-    height: 410px;
-  
-    border-radius: 25px;
+    border-radius: 20px;
+    margin-top: 80px;
+    height: 380px;
 }
 
-/* .log-title{
-    margin-top: 20px;
-    margin-bottom: 45px;
-}
-  
-.form-body{
-    text-align: left;
-}
-  
-#password-text{
-    margin-top: 35px;
-} */

@@ -19,6 +19,7 @@ import { PerfilCliente } from "./pages/perfilCliente";
 import { EditarCliente } from "./pages/editarCliente";
 import { PerfilCuidadorPublico } from "./pages/perfilCuidadorPublico";
 
+
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -60,6 +61,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/perfilPrivado/:id">
               <PerfilPrivado />
+            </Route>
+            <Route exact path="/registroCliente">
+              <RegistroCliente />
             </Route>
             <Route exact path="/perfilCliente/:id">
               <PerfilCliente />
