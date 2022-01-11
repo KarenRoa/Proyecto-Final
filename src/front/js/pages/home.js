@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import foto0 from "../../img/perfil08.png";
@@ -12,6 +12,9 @@ import { QuienesSomos } from "../component/quienesSomos";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase text-center">
       <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 mt-4">
@@ -65,7 +68,6 @@ export const Home = () => {
                     </button>
                   </div>
                 </Link>
-             
               </div>
             </div>
             {/*Card - 02 ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
@@ -150,9 +152,9 @@ export const Home = () => {
           </div>
 
           <Link to={`/todoscuidadores`}>
-          <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
-            VER TODOS
-          </button>
+            <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
+              VER TODOS
+            </button>
           </Link>
         </div>
 

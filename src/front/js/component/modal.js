@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/modal.css"
+
 
 const Modal = () => {
   return (
@@ -15,6 +15,7 @@ const Modal = () => {
             <i className="fas fa-paw"></i> Terminos y condiciones
           </button>
         </div>
+
         <div className="form-check form-check-inline d-flex">
           <input
             className="form-check-input my-auto"
@@ -25,7 +26,6 @@ const Modal = () => {
           />
         </div>
       </div>
-
 
       <div className="modal-dialog modal-dialog-scrollable">
         <div
