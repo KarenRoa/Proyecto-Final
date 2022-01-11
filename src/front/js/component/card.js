@@ -1,11 +1,20 @@
-{
-  /*-> Card - Componente -*/
-}
-import React from "react";
+import React, {useState, useEffect, useContext} from "react";
+import { Context } from "../store/appContext";
+import {Link, useParams,useHistory } from "react-router-dom";
 import foto1 from "../../img/perfil07.png";
-import { Link } from "react-router-dom";
 
 export const Card = () => {
+  const { store, actions } = useContext(Context);
+  const history = useHistory()
+  
+  
+  const { id } = useParams();
+
+  useEffect(() => {
+    actions.detalleCuidador(id);
+  }, []);
+
+
   return (
     <div className="col-sm-6 col-md-6 col-lg-3 mb-4 text-center">
       <div className="h-100 p-3 bg-light rounded-3 shadow-sm d-flex flex-column justify-content-between">
@@ -14,19 +23,16 @@ export const Card = () => {
         </div>
         <div className="titulo">
           <hr className="my-2" />
-          <h5 className="fw-light">Javier Goméz</h5>
+          <h5 className="fw-light">"{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}"</h5>
           <hr className="my-2" />
         </div>
         <div className="texto">
           <p className="fw-light">
-            <small>
-              "Estar rodeado de perros, ir al parque y compartir con ellos,
-              siempre será una experiencia que me encanta!"
-            </small>
+            <small>"{store.detalleCuidador.descripcion}"</small>
           </p>
         </div>
 
-        <Link to={"/perfilCuidadorPublico"}>
+        <Link to={`/perfilCuidadorPublico/${id}`}>
           <div className="boton">
             <button className="btn btn-outline-dark btn-sm fw-light shadow-sm">
               VER MÁS...
