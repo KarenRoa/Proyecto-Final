@@ -4,7 +4,7 @@ import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-export const Anchor2 = () => {
+export const AnchorContact = () => {
     return(
         <Anchor affix={false} targetOffset="65">
             <li className="nav-item">
