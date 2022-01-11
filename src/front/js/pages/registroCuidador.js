@@ -191,13 +191,13 @@ const RegistroCuidador = () => {
       <div className="row">
           <div className="col d-flex justify-content-end me-2">
           <Link to={`/`} 
-                className="text-white">
+                className="text-dark">
                   <span className="fs-4"><i className="fas fa-arrow-left"></i></span>
           </Link>
           </div>
         </div>
         <div className="row">
-          <h1 className="col-12 text-center my-3">Registro Paseador</h1>
+          <h2 className="col-12 text-center mb-3">Registro Paseador</h2>
         </div>
         <div className="row">
           <div className="col-10 mx-auto">
