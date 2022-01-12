@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory, Link } from "react-router-dom";
+import Modal from "../component/modal";
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
@@ -80,7 +81,7 @@ const RegistroCuidador = () => {
     handleReset();
 
     alert("Te has registrado exitosamente");
-    history.push('/');
+    history.push("/");
   };
 
   //FORMULARIO DE CUIDADOR
@@ -188,16 +189,16 @@ const RegistroCuidador = () => {
     //       ></input>
     <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
       <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
-      <div className="row">
+        <div className="row">
           <div className="col d-flex justify-content-end me-2">
           <Link to={`/`} 
-                className="text-white">
+                className="text-dark">
                   <span className="fs-4"><i className="fas fa-arrow-left"></i></span>
           </Link>
           </div>
         </div>
         <div className="row">
-          <h1 className="col-12 text-center my-3">Registro Paseador</h1>
+          <h2 className="col-12 text-center mb-3">Registro Paseador</h2>
         </div>
         <div className="row">
           <div className="col-10 mx-auto">
@@ -365,7 +366,11 @@ const RegistroCuidador = () => {
                   ></textarea>
                 </div>
               </div>
-
+              <div>
+                <div className="my-4">
+                  <Modal></Modal>
+                </div>
+              </div>
               <div className="d-grid gap-2 col-6 mx-auto my-4">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>

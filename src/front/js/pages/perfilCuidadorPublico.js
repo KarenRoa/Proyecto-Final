@@ -1,46 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import foto0 from "../../img/perfil08.png";
+import React, {useEffect, useContext}from "react";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { Context } from "../store/appContext";
+import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilCuidadorPublico = () => {
+  const { store, actions } = useContext(Context);
+  const history = useHistory()
+  
+  
+  const { id } = useParams();
+
+  useEffect(() => {
+    actions.detalleCuidador(id);
+  }, []);
+
+
+
+
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase text-center">
       <div className="container bg-light bg-opacity-75 text-dark text-center my-4 p-4 rounded-3 shadow-lg">
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-4">
-            <h3 className="display-5">Luisa Mella</h3>
+            <h3 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h3>
           </div>
           <div className="col-md-6"></div>
 
+
+
+           {/*Boton Atrás ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
           <div className="col-4 col-sm-4 col-md-1">
             <Link to={`/`} className="text-dark">
-              <button className="btn btn-outline-dark">
-                <i className="fas fa-arrow-left p-2"></i>
-              </button>
+              <span className="fs-3">
+                <i className="fas fa-arrow-left"></i>
+              </span>
             </Link>
           </div>
           {/*Boton me GUsta ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
           <div className="col-4 col-sm-4 col-md-1">
-            <button className="btn btn-outline-dark">
-              <i class="far fa-heart p-2"></i>
-            </button>
+            <span className="fs-3"><i className="far fa-heart"></i></span>
           </div>
         </div>
         <hr className="my-2" />
         <div className="row d-flex align-items-center">
           <div className="col-12 col-md-4">
-            <img src={foto0} className="p-2 img-fluid ratio ratio-1x1" />
+            <img src={fotoPerfil} className="img-fluid ratio ratio-1x1 rounded-3" />
           </div>
           <div className="col-12 col-md-8">
-            <h3 className="fw-lighter m-4">Sobre mí...</h3>
-            <p className="fw-lighter">
-              "Me considero doglovers 100%, los paseos además de ser relajantes
-              para las mascotas, tambien ayudan a nuestra mente. Tengo 3 perros,
-              uno es cachorro y los otros dos son adultos. Todos los días
-              acostumbro a ir al parque con ellos. Con el tele-trabajo he podido
-              flexibilizar mis tiempos y además me queda para utilizar WalkyDog
-              y ganar algo extra."
-            </p>
+            <h3 className="fw-normal m-4">Sobre mí...</h3>
+            <p className="fw-lighter">"{store.detalleCuidador.descripcion}"</p>
           </div>
         </div>
         <hr className="my-2" />
@@ -54,19 +62,19 @@ export const PerfilCuidadorPublico = () => {
             <span>
               <i className="fas fa-map-marker-alt"></i> Zona de Atención
             </span>
-            <p></p>
+            <p>{store.detalleCuidador.comuna}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-instagram"></i> Instagram
             </span>
-            <p></p>
+            <p>{store.detalleCuidador.rrss}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-whatsapp"></i> WhatsApp
             </span>
-            <p></p>
+            <p>{store.detalleCuidador.telefono}</p> 
           </div>
         </div>
       </div>
