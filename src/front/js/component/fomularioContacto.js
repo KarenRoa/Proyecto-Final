@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export const FormularioContacto = () => {
   return (
-    <div className="container">
+    <div id="contacto" className="container">
       <div className="col-12 col-md-8 col-lg-7 bg-light text-dark mt-5 mx-auto p-4 rounded-2 shadow-lg">
         <div>
           <h2 className="text-dark text-center p-3">Contacto</h2>

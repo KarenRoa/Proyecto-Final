@@ -26,6 +26,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("El error", error);
 				  });
 			  },
+
+			//Editar un Cliente
 			
 
 			//Registrar un cuidador
