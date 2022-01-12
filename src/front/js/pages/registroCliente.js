@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory, Link } from 'react-router-dom'
-
-
-
+import { useHistory, Link } from "react-router-dom";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
@@ -80,10 +77,9 @@ const RegistroCliente = () => {
     actions.setDatosFormularioCliente(datosCliente);
 
     handleReset();
-    
-    alert("Te has registrado exitosamente");
-    history.push(`/`)
 
+    alert("Te has registrado exitosamente");
+    history.push(`/`);
   };
 
   //FORMULARIO DE CLIENTE
@@ -250,6 +246,7 @@ const RegistroCliente = () => {
             </form>
           </div>
         </div>
+       
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css"; 
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +10,9 @@ import { Banner } from "../component/banner";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase">
       <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 mt-4">
