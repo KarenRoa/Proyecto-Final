@@ -86,8 +86,8 @@ const RegistroCliente = () => {
   //FORMULARIO DE CLIENTE
 
   return (
-    <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
-      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
+    <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-4">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mx-auto p-4 rounded-3 shadow-lg mt-4">
         <div className="row">
         <div className="col d-flex justify-content-end me-2">
             <Link to={`/`} className="text-dark">
@@ -241,12 +241,12 @@ const RegistroCliente = () => {
                 </div>
               </div>
               <div>
-                <div className="my-4">
+                <div className="mt-2">
                   <Modal2></Modal2>
                 </div>
               </div>
 
-              <div className="d-grid gap-2 col-6 mx-auto my-4 ">
+              <div className="d-grid gap-2 col-6 mx-auto my-2 ">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>
