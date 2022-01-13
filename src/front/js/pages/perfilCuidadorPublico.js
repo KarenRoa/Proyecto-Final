@@ -9,6 +9,7 @@ export const PerfilCuidadorPublico = () => {
   
   
   const { id } = useParams();
+  
 
   useEffect(() => {
     actions.detalleCuidador(id);
@@ -22,7 +23,7 @@ export const PerfilCuidadorPublico = () => {
       <div className="container bg-light bg-opacity-75 text-dark text-center my-4 p-4 rounded-3 shadow-lg">
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-4">
-            <h3 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h3>
+            <h3>{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h3>
           </div>
           <div className="col-md-6"></div>
 
