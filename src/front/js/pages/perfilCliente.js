@@ -15,14 +15,15 @@ export const PerfilCliente = () => {
   }, []);
   
   return (
-    <div className="container bg-dark text-light text-center w-50 my-4 p-4">
+    <div className="container-fluid  bg-light bg-opacity-50 text-dark p-4 rounded-3 shadow-lg">
+       <div className="container my-4 bg-light  text-dark text-center w-75 my-4 p-4 rounded-3 shadow">
       <div className="row d-flex justify-content-between align-items-center">
         <div className=" col-12 col-md-8">
-          <h2 className="display-5"></h2>
+          <h2 className="display-5">Nombre</h2>
         </div>
         <div className="col-12 col-md-4">
           <Link to={`/editarCliente/${id}`} 
-                className="text-white">
+                className="text-dark">
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
           <span className="fs-5"><i className="fas fa-trash-alt"></i></span>
@@ -30,7 +31,7 @@ export const PerfilCliente = () => {
       </div>
       <div className="row d-flex align-items-center">
         <div className="col-12 col-md-4">
-          <img src={fotoPerfil} className="rounded-circle p-2 img-fluid"/>
+          <img src={fotoPerfil} className="rounded-3 p-2 img-fluid"/>
         </div>
         <div className="col-12 col-md-8">
           <p></p>
@@ -55,5 +56,7 @@ export const PerfilCliente = () => {
         </div>
       </div>
     </div>
+    </div>
+   
   );
 };
