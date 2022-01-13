@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Modal = () => {
   return (
     <div>
@@ -73,7 +72,10 @@ const Modal = () => {
                   paseo con un minimo de 24 horas antes de la hora acordada
                 </li>
                 Además de ello tomo conocimiento de que en caso de existir algún
-                tipo de maltrato podrían aplicarse las sanciones que indica la
+                tipo de maltrato podrían aplicarse las sanciones que indica la{" "}
+                <a href="https://www.bcn.cl/leychile/navegar?idNorma=1106037">
+                  Ley de Tenencia Responsable
+                </a>
                 ley de tenencia responsable, las cuales corresponden a:
                 <li>
                   <b>Daño a un animal:</b> pena de presidio menor en su grado
