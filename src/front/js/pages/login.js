@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import "../../styles/login.css";
 

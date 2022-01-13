@@ -5,7 +5,9 @@ import { useHistory, Link } from "react-router-dom";
 const Todosloscuidadores = () => {
   const { store, actions } = useContext(Context);
   const history = useHistory();
-  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+    },[])
 
   useEffect(() => {
     actions.obtenerCuidadores();
