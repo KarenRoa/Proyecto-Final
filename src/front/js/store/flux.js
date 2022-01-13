@@ -144,13 +144,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			getApiImagen: async(datosRaza) => {
-
 				console.log(datosRaza)
 				var requestOptions = {
 					method: 'GET',
 					redirect: 'follow'
 				  };
-				  
 				 await fetch(`https://dog.ceo/api/breed/${datosRaza}/images`, requestOptions)
 					.then(response => response.json())
 					.then(data =>{
