@@ -73,7 +73,7 @@ export const FormularioContacto = () => {
                   </div>
                 </div>
                 <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-4">
-                  <button className="btn btn-outline-light btn-sm">
+                  <button className="btn btn-outline-dark btn-sm">
                     Enviar
                   </button>
                 </div>

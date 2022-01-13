@@ -15,7 +15,7 @@ export const Home = () => {
   }, []);
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase">
-      <div className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 mt-4">
+      <div className="container py-5 bg-light bg-opacity-75 rounded-3 mt-4">
         {/*Banner -  ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
         <Banner />
 
