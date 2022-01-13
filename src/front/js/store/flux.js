@@ -3,34 +3,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			cuidadores:[],
 			detalleCuidador:{},
+			
+			clientes:[],
+			detalleCliente:{},
 			razas: {},
 			Imagenes:{}
 			//message: null,
 			
 		},
 		actions: {
-			
-			//Registrar un cliente
-			setDatosFormularioCliente: (datosCliente) => {
-				fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente",
-				  {
-					method: "POST",
-					headers: {
-					  "Content-Type": "application/json",
-					},
-					body: JSON.stringify(datosCliente),
-				  }
-				)
-				  .then((response) => response.json())
-				  .then(result => console.log(result))
-				  .catch((error) => {
-					console.log("El error", error);
-				  });
-			  },
-
-			//Editar un Cliente
-			
 
 			//Registrar un cuidador
 			setDatosFormularioCuidador: (datosCuidador) => {
@@ -127,6 +108,91 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch((error) => console.log("error", error));
 				
 			  },
+
+//-------------------------------//FETCH CLIENTES---------------------------------
+			//Registrar un cliente
+			setDatosFormularioCliente: (datosCliente) => {
+				fetch(
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datosCliente),
+				  }
+				)
+				  .then((response) => response.json())
+				  .then(result => console.log(result))
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
+
+			//Ver todos los Clientes
+			obtenerClientes: async () => {
+				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/clientes")
+					.then(response => response.json())
+					.then(data => setStore({ clientes: data }))
+					.catch(error => console.log("error", error));
+			},
+
+			 //Ver un Cliente
+			 detalleCliente: async id => {
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente/${id}`)
+					.then(response => response.json())
+					.then(data => {
+						setStore({ detalleCliente: data })
+					})
+					.catch(error => console.log("error", error));
+			},
+
+			//Editar un Cliente
+			updateCliente: (dataToEdit, id) => {
+				fetch(
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCliente/${id}`,
+				  {
+					method: "PUT",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(dataToEdit),
+				  }
+				)
+				  .then((response) => response.json())
+				  .then(result => console.log(result))
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
+			
+			//Eliminar un cliente
+			deleteCliente: async id  => {
+				await fetch(
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente/${id}`,
+					{
+						method: "DELETE",
+						headers: {
+						  "Content-Type": "application/json",
+						}
+					  }
+				)
+				  .then((response) => response.json())
+				  .catch((error) => {
+					console.log("El error", error);
+				  });
+			  },
+
+			//FAVORITOS Cliente
+			favoritesCliente: async id => {
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/favorito/${id}`)
+					.then(response => response.json())
+					.then(data => {
+						setStore({ favoritosCliente: data })
+					})
+					.catch(error => console.log("error", error));
+			},
+			
 
 //----------//FETCH API EXTERNA-----------------------------------------------------------------
 

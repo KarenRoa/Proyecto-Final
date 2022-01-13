@@ -61,7 +61,7 @@ export const EditarCliente = () => {
     actions.updateCliente(dataToEdit, id)
 
     alert("Datos modificados con Éxito")
-    history.push(`/perfilPrivado/${id}`)
+    history.push(`/perfilCliente/${id}`)
 
   };
 
@@ -161,18 +161,6 @@ export const EditarCliente = () => {
                     placeholder="+56912345678"
                     value={dataToEdit.telefono}
                     name="telefono"
-                    onChange={handleForm}
-                  ></input>
-                </div>
-                <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
-                  <label htmlFor="redes sociales" className="form-label">Red Social</label>
-                  <input
-                    type="text"
-                    className="form-control form-control-sm"
-                    id="redes sociales"
-                    placeholder="Redes Sociales"
-                    value={dataToEdit.rrss}
-                    name="rrss"
                     onChange={handleForm}
                   ></input>
                 </div>

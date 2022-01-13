@@ -13,13 +13,13 @@ export const PerfilCliente = () => {
   
   
   useEffect(() => {
-    actions.detalleCuidador(id);
+    actions.detalleCliente(id);
   }, []);
 
   const confirmar = () => {
     if(confirm("Esta seguro que eliminar su perfil?"))
 	{
-	   eliminarCuidador(id)
+	   eliminarCliente(id)
      history.push('/')
 	}
 	else
@@ -28,8 +28,8 @@ export const PerfilCliente = () => {
 	}
   }
 
-  const eliminarCuidador = (id) =>{
-    actions.deleteCuidador(id)
+  const eliminarCliente = (id) =>{
+    actions.deleteCliente(id)
   }
   
   return (
@@ -37,10 +37,10 @@ export const PerfilCliente = () => {
     <div className="container bg-dark text-light text-center w-50 my-4 p-4">
       <div className="row d-flex justify-content-between align-items-center">
         <div className=" col-12 col-md-8">
-          <h2 className="display-5">{store.detalleCuidador.nombre} {store.detalleCuidador.apellido}</h2>
+          <h2 className="display-5">{store.detalleCliente.nombre} {store.detalleCliente.apellido}</h2>
         </div>
         <div className="col-12 col-md-4">
-          <Link to={`/editarCuidador/${id}`} 
+          <Link to={`/editarCliente/${id}`} 
                 className="text-white">
                 <span className="fs-5"><i className="fas fa-edit me-4"></i></span>
           </Link>
@@ -48,7 +48,7 @@ export const PerfilCliente = () => {
             <span className="fs-5"><i className="fas fa-trash-alt me-4" onClick={()=> confirmar()}></i></span>
           </Link>
 
-          <Link to={`/todoscuidadores`} 
+          <Link to={`/`} 
                 className="text-white">
                   <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
           </Link>
@@ -59,7 +59,7 @@ export const PerfilCliente = () => {
           <img src={fotoPerfil} className="rounded-circle p-2 img-fluid"/>
         </div>
         <div className="col-12 col-md-8">
-          <p>"{store.detalleCuidador.descripcion}"</p>
+          <p>"{store.detalleCliente.descripcion}"</p>
         </div>
       </div>
       <div className="row">
@@ -68,16 +68,12 @@ export const PerfilCliente = () => {
       <div className="row">
         <div className="col-sm-4">
           <span><i className="fas fa-map-marker-alt"></i> Zona de Atención</span>
-          <p>{store.detalleCuidador.comuna}</p>
+          <p>{store.detalleCliente.comuna}</p>
         
         </div>
         <div className="col-sm-4">
-          <span><i className="fab fa-instagram"></i> Instagram</span>
-          <p>{store.detalleCuidador.rrss}</p>
-        </div>
-        <div className="col-sm-4">
           <span><i className="fab fa-whatsapp"></i> WhatsApp</span>
-          <p>{store.detalleCuidador.telefono}</p>
+          <p>{store.detalleCliente.telefono}</p>
         </div>
       </div>
     </div>
