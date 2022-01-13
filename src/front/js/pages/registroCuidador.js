@@ -368,11 +368,11 @@ const RegistroCuidador = () => {
                 </div>
               </div>
               <div>
-                <div className="my-4">
-                  <Modal></Modal>
+                <div className=" col- 12 my-4">
+                  <Modal/>
                 </div>
               </div>
-              <div className="d-grid gap-2 col-6 mx-auto my-4">
+              <div className="d-grid gap-2 col-10 mx-auto my-4">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>

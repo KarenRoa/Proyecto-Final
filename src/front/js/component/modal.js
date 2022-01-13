@@ -8,7 +8,7 @@ const Modal = () => {
         <div className="mx-2">
           <button
             type="button"
-            className="btn btn-outline-dark"
+            className="btn btn-outline-dark btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
