@@ -1,57 +1,73 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory, Link } from "react-router-dom";
+import fotoPerfil from "../../img/avatarstandar.png";
 
 const Todosloscuidadores = () => {
   const { store, actions } = useContext(Context);
   const history = useHistory();
-  useEffect(()=>{
-    window.scrollTo(0,0)
-    },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     actions.obtenerCuidadores();
   }, []);
 
   return (
-    <div className="container">
-      <div className="row mt-4">
-        <div className="col">
-          <h1 className="display-6 fw-light text-center text-uppercase">
-            Todos Nuestros Cuidadores
-          </h1>
+    <div className="container bg-light bg-opacity-50 p-4 text-uppercase">
+      <div className="container bg-light bg-opacity-75 my-4 pt-4 shadow rounded-3">
+        <div className="row mt-4">
+          <div className="col">
+            <h2 className="display-6 fw-light text-center ">
+              Todos Nuestros Cuidadores
+            </h2>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <p className="col fs-5 fw-light text-center">
+              Si quieres saber más sobre nuestros <span className="text-warning">cuidadores</span> haz click en Ver
+              más...
+            </p>
+          </div>
         </div>
       </div>
-
-      <div className="row">
-        <div className="col">
-          <p className="col fs-4 fw-light text-center">
-            Si quieres saber mas sobre nuestros cuidadores haz click en ver
-            más...
-          </p>
-        </div>
-      </div>
-
+      {/*Cards------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
       <div className="row">
         {store.cuidadores.map((el, index) => {
           return (
-            <div className="col-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
-              <div className="p-3 bg-light rounded-3 shadow-lg mb-3">
-                <img
-                  src="https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/articulos/canguros_mascotas_paseador_perros.jpg"
-                  className="img-fluid"
-                ></img>
-                <h3 className="fw-light mt-3">
-                  {el.nombre} {el.apellido}
-                </h3>
-                <hr className="my-2" />
-                <p className="fw-light">
-                  <small>{el.descripcion}</small>
-                </p>
-                <Link to={`/perfilPrivado/${el.id}`}>
-                <button className="btn btn-dark btn-sm fw-light shadow-lg">
-                  VER MÁS...
-                </button>
+            <div className="col-sm-6 col-md-6 col-lg-3 mb-4 text-center text-uppercase">
+              <div className="h-100 p-3 bg-light rounded-3 shadow d-flex flex-column justify-content-between">
+                <div className="imagen">
+                  <img src={fotoPerfil} className="img-fluid rounded-3 w-100" />
+                </div>
+                <div className="titulo">
+                  <hr size="2" className="my-3" />
+                  <h5 className="fw-normal">
+                    {el.nombre} {el.apellido}
+                  </h5>
+                  <hr size="2" className="my-2" />
+                </div>
+                <div className="h-100 d-flex justify-content-center align-items-center">
+                  <p className="my-4 fw-light">
+                    <small>"{el.descripcion}"</small>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-center text-muted">
+                  <span className="my-3 fs-5">
+                    <i className="fas fa-map-marker-alt pt-2"></i>
+                  </span>
+
+                  <p className="my-3 pt-2 px-2">
+                    <small>{el.comuna}</small>
+                  </p>
+                </div>
+                <Link to={`/perfilCuidadorPublico/${el.id}`}>
+                  <button className="btn btn-dark btn-sm fw-light shadow-lg">
+                    VER MÁS...
+                  </button>
                 </Link>
               </div>
             </div>
