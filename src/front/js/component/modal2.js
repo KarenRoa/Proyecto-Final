@@ -60,7 +60,7 @@ const Modal2 = () => {
                 </li>
                 <li>
                   Haré entrega al cuidador de bolsas para recoger las heces de
-                  mi mascota y agua con su bebedero para la hidratacion.
+                  mi mascota y agua con su bebedero para la hidratación.
                 </li>
                 <li>
                   Si mi mascota usa protesis de algun tipo, debo verificar que
