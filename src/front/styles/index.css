@@ -7,3 +7,6 @@ body {
   background-size: cover;
   font-family: "Roboto", sans-serif;
 }
+.boxed{
+  height: 800px;
+}

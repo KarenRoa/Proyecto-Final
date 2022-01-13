@@ -62,8 +62,8 @@ export const EditarCliente = () => {
   //FORMULARIO DE CLIENTE/DUENO
 
   return (
-    <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto rounded-2">
+    <div className="container my-4 bg-light bg-opacity-50 p-5 rounded-3 boxed">
+      <div className="col-12 col-md-8 col-lg-6 bg-light text-dark mt-5 mx-auto rounded-3 shadow-lg">
         <div className="row">
           <h1 className="col-12 text-center my-4">Editar Mi Perfil</h1>
         </div>
@@ -189,11 +189,11 @@ export const EditarCliente = () => {
               <div className="row">
                 <div className="col-12 my-4 d-flex justify-content-center">
                 <Link to={`/#`} 
-                      className="text-white">
+                      className="text-dark">
                   <span className="fs-3"><i className="far fa-check-square me-4"></i></span>
                 </Link>
                 <Link to={`/perfilCliente/${id}`} 
-                      className="text-white">
+                      className="text-dark">
                   <span className="fs-3"><i className="fas fa-arrow-left"></i></span>
                 </Link>
                 </div>

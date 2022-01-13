@@ -40,7 +40,7 @@ export const Login = () => {
 
   return (
     <>
-      <div className="container my-4 bg-light bg-opacity-50 p-5">
+      <div className="container  bg-lightmy-4 bg-opacity-50 p-5 boxed">
         <div className="col-12 col-md-8 col-lg-6 mx-auto bg-opacity-75 bg-light shadow-lg">
           <h2 className="text-center p-4">Inicio de Sesión</h2>
           <div className="row">
