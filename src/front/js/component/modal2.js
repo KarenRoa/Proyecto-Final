@@ -48,7 +48,7 @@ const Modal2 = () => {
                 ></button>
               </div>
               <div className="modal-body text-light bg-dark">
-                Yo, ………………………………. En mi calidad de dueño de .............. me
+                Yo, .................... En mi calidad de dueño de .............. me
                 comprometo a través de este documento a que al momento de
                 entregar el cuidado de mi mascota al cuidador, le comunicaré a
                 este sobre cualquier medida o atencion especial que se deba tener
