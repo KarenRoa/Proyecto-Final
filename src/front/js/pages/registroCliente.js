@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory, Link } from "react-router-dom";
+import Modal2 from "../component/modal2";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
@@ -237,6 +238,11 @@ const RegistroCliente = () => {
                     name="descripcion"
                     onChange={handleForm}
                   ></textarea>
+                </div>
+              </div>
+              <div>
+                <div className="my-4">
+                  <Modal2></Modal2>
                 </div>
               </div>
 
