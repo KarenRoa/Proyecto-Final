@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = () => {
+const Modal2 = () => {
   return (
     <div>
       <div className="box-mayor d-flex justify-content-center">
@@ -48,54 +48,44 @@ const Modal = () => {
                 ></button>
               </div>
               <div className="modal-body text-light bg-dark">
-                Yo, ………………………………. Me comprometo a través de este documento a
-                prestar los servicios de paseador de perros; a cuidar y darle
-                amor a las mascotas que estén a mi cargo y procurar que tengan
-                un paseo agradable para luego volver con sus respectivos dueños
-                en las mismas condiciones en que me fue entregado, asi mismo, me
+                Yo, .................... En mi calidad de dueño de .............. me
+                comprometo a través de este documento a que al momento de
+                entregar el cuidado de mi mascota al cuidador, le comunicaré a
+                este sobre cualquier medida o atencion especial que se deba tener
+                al momento de salir oon ella a la calle, asi mismo, me
                 comprometo a:
-                <li>Recoger las heces de la mascota cuidando el entorno.</li>
                 <li>
-                  Dar al perrito la hidratacion necesaria mientras dure el
-                  paseo.
+                  Entregar mi mascota al cuidador en las mejores condiciones
+                  posibles.
                 </li>
                 <li>
-                  Seguir las indicaciones especiales que informe el dueño de la
-                  mascota previo al paseo.
+                  Haré entrega al cuidador de bolsas para recoger las heces de
+                  mi mascota y agua con su bebedero para la hidratación.
                 </li>
                 <li>
-                  No pasear mas de 04 (cuatro) perros a la vez por motivos de
-                  seguridad.
+                  Si mi mascota usa protesis de algun tipo, debo verificar que
+                  esta funcione de manera optima.
                 </li>
                 <li>
-                  En caso de ser necesario comunicar al dueño la cancelacion del
-                  paseo con un minimo de 24 horas antes de la hora acordada
+                  En caso de ser necesario comunicar al paseador la cancelacion
+                  del paseo con un minimo de 24 horas antes de la hora acordada
                 </li>
-                Además de ello tomo conocimiento de que en caso de existir algún
-                tipo de maltrato podrían aplicarse las sanciones que indica la{" "}
-                <a href="https://www.bcn.cl/leychile/navegar?idNorma=1106037">
-                  Ley de Tenencia Responsable
-                </a>
-                ley de tenencia responsable, las cuales corresponden a:
+                Además de ello tomo conocimiento de que:
                 <li>
-                  <b>Daño a un animal:</b> pena de presidio menor en su grado
-                  mínimo a medio y multa de 10 a 30 UTM, además de la
-                  inhabilidad absoluta perpetua para la tenencia de cualquier
-                  tipo de animal.
+                  Segun indica la{" "}
+                  <a href="https://www.bcn.cl/leychile/navegar?idNorma=1106037">
+                    Ley de Tenencia Responsable 
+                  </a>
+                   en caso de fiscalizacion es mi responsabilidad que mi mascota esté debidamente inscrita en el {" "}
+                  <a href="https://www.chileatiende.gob.cl/fichas/53562-inscripcion-en-el-registro-nacional-de-mascotas-o-animales-de-compania ">
+                    Registro Nacional de Mascotas
+                  </a>
                 </li>
                 <li>
-                  {" "}
-                  <b>
-                    Lesiones graves en la integridad física o muerte del animal:
-                  </b>{" "}
-                  pena de presidio menor en su grado medio y multa de 20 a 30
-                  UTM, además de la inhabilidad absoluta perpetua para la
-                  tenencia de cualquier tipo de animal.
+                 Responderé civilmente por los daños que mi mascota pueda causar.
                 </li>
                 Al aceptar los Términos y Condiciones confirmo además que los
-                datos que he entregado en esta página son verídicos y cualquier
-                accidente que pueda tener la mascota será de mi completa
-                responsabilidad.
+                datos que he entregado en esta página son verídicos.
               </div>
               <div className="modal-footer bg-dark">
                 <button
@@ -117,4 +107,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default Modal2;
