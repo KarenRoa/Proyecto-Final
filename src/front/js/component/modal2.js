@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Modal = () => {
+const Modal2 = () => {
   return (
     <div>
       <div className="box-mayor d-flex justify-content-center">
@@ -115,4 +115,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default Modal2;
