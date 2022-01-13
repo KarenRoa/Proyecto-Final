@@ -18,6 +18,7 @@ import Todoscuidadores from "./pages/todoscuidadores";
 import { PerfilCliente } from "./pages/perfilCliente";
 import { EditarCliente } from "./pages/editarCliente";
 import { PerfilCuidadorPublico } from "./pages/perfilCuidadorPublico";
+import Galeria from "./pages/galeria";
 
 
 //create your first component
@@ -46,6 +47,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/galeria">
+              <Galeria/>
             </Route>
             <Route exact path="/registroCuidador">
               <RegistroCuidador />

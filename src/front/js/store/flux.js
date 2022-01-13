@@ -3,7 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			cuidadores:[],
 			detalleCuidador:{},
-			message: null,
+			razas: {},
+			Imagenes:{}
+			//message: null,
 			
 		},
 		actions: {
@@ -125,7 +127,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch((error) => console.log("error", error));
 				
 			  },
+
+//----------//FETCH API EXTERNA-----------------------------------------------------------------
+
+			getApiGlobal: async () => {
+				var requestOptions = {
+					method: 'GET',
+					redirect: 'follow'
+				  };
+				  await fetch("https://dog.ceo/api/breeds/list/all", requestOptions)
+					.then(response => response.json())
+					.then(data => {
+						setStore({ razas: data.message})
+					})
+					.catch(error => console.log('error', error));
+			},
 			
+			getApiImagen: async(datosRaza) => {
+
+				console.log(datosRaza)
+				var requestOptions = {
+					method: 'GET',
+					redirect: 'follow'
+				  };
+				  
+				 await fetch(`https://dog.ceo/api/breed/${datosRaza}/images`, requestOptions)
+					.then(response => response.json())
+					.then(data =>{
+						console.log(data)
+						setStore({ Imagenes: data.message})
+					})
+					.catch(error => console.log('error', error));
+			}
 		}
 	};
 };
