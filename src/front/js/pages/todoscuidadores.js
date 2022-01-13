@@ -19,15 +19,15 @@ const Todosloscuidadores = () => {
       <div className="container bg-light bg-opacity-75 my-4 pt-4 shadow rounded-3">
         <div className="row mt-4">
           <div className="col">
-            <h1 className="display-6 fw-light text-center ">
+            <h2 className="display-6 fw-light text-center ">
               Todos Nuestros Cuidadores
-            </h1>
+            </h2>
           </div>
         </div>
 
         <div className="row">
           <div className="col">
-            <p className="col fs-4 fw-light text-center">
+            <p className="col fs-5 fw-light text-center">
               Si quieres saber más sobre nuestros <span className="text-warning">cuidadores</span> haz click en Ver
               más...
             </p>
