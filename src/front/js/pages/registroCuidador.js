@@ -35,6 +35,7 @@ const RegistroCuidador = () => {
   const [validacion, setValidacion] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   const [error, setError] = useState("");
+  console.log(datosCuidador)
 
   //MANEJADORES
   //Funcion que limpia el formulario
