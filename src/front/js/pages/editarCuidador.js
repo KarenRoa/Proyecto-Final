@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams, useHistory } from "react-router-dom";
-import "../../styles/editarCuidador.css";
+import "../../styles/editarBtn.css";
 
 const EditarCuidador = () => {
   const { store, actions } = useContext(Context);
