@@ -111,7 +111,7 @@ def update_cliente(id):
     return 'Datos Actualizados'
 
 #Ruta para eliminar un cliente
-@api.route('/cuidador/<id>', methods=['DELETE'])
+@api.route('/cliente/<id>', methods=['DELETE'])
 def delete_cliente(id):
     Cliente_id = Cliente.query.get(id)
     db.session.delete(Cliente_id)

@@ -1,25 +1,31 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import injectContext from "./store/appContext";
 
+//Componentes
+import ScrollToTop from "./component/scrollToTop";
+import { Navbar } from "./component/navbar";
+import { Footer } from "./component/footer";
+
+//Views
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Login } from "./pages/login";
-import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-import RegistroCuidador from "./pages/registroCuidador";
-import EditarCuidador from "./pages/editarCuidador";
-import RegistroCliente from "./pages/registroCliente";
-import { PerfilPrivado } from "./pages/perfilPrivado";
-import Todoscuidadores from "./pages/todoscuidadores";
-import { PerfilCliente } from "./pages/perfilCliente";
-import { EditarCliente } from "./pages/editarCliente";
-import { PerfilCuidadorPublico } from "./pages/perfilCuidadorPublico";
 import Galeria from "./pages/galeria";
 
+//Vistas Cuidador
+import RegistroCuidador from "./pages/registroCuidador";
+import { PerfilPrivado } from "./pages/perfilPrivado";
+import EditarCuidador from "./pages/editarCuidador";
+import { PerfilCuidadorPublico } from "./pages/perfilCuidadorPublico";
+
+import Todoscuidadores from "./pages/todoscuidadores";
+
+//Vistas Cliente/Dueño
+import RegistroCliente from "./pages/registroCliente";
+import { PerfilCliente } from "./pages/perfilCliente";
+import { EditarCliente } from "./pages/editarCliente";
 
 //create your first component
 const Layout = () => {
