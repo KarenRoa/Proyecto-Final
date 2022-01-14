@@ -1,15 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams, useHistory } from "react-router-dom";
+import "../../styles/editarBtn.css";
 
 const EditarCuidador = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
-  const history = useHistory()
+  const history = useHistory();
 
-  
   //VARIABLES DE ESTADOS
-  
+
   const [datosCuidador, setDatosCuidador] = useState({
     nombre: "",
     apellido: "",
@@ -19,15 +19,14 @@ const EditarCuidador = () => {
     rrss: "",
     descripcion: "",
   });
-  
-  const datos = store.detalleCuidador
-    
-  
+
+  const datos = store.detalleCuidador;
+
   //Variables de estados
-  const [dataToEdit, setDataToEdit] = useState(datos)
-  const [validacion, setValidacion] = useState(false)
+  const [dataToEdit, setDataToEdit] = useState(datos);
+  const [validacion, setValidacion] = useState(false);
   const [error, setError] = useState("");
-  
+
   useEffect(() => {
     actions.detalleCuidador(id);
   }, []);
@@ -35,22 +34,17 @@ const EditarCuidador = () => {
   //MANEJADORES
   const handleForm = (event) => {
     const { name, value } = event.target;
-    
+
     setDataToEdit((prevDatosCuidador) => ({
       ...prevDatosCuidador,
       [name]: value,
     }));
-    
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(dataToEdit)
-    if (
-      !dataToEdit.nombre ||
-      !dataToEdit.apellido ||
-      !dataToEdit.email
-    ) {
+    console.log(dataToEdit);
+    if (!dataToEdit.nombre || !dataToEdit.apellido || !dataToEdit.email) {
       setValidacion(true);
       setError("campo obligatorio");
       return;
@@ -58,19 +52,17 @@ const EditarCuidador = () => {
 
     setValidacion(false);
 
-    actions.updateCuidador(dataToEdit, id)
+    actions.updateCuidador(dataToEdit, id);
 
-    alert("Datos modificados con Éxito")
-    history.push(`/perfilPrivado/${id}`)
-
+    alert("Datos modificados con Éxito");
+    history.push(`/perfilPrivado/${id}`);
   };
 
   //FORMULARIO DE CUIDADOR
 
   return (
-
-    <div className="container">
-      <div className="col-12 col-md-8 col-lg-6 bg-dark text-light mt-5 mx-auto mb-4 rounded-2">
+    <div className="container my-4 bg-light bg-opacity-50 p-5 rounded-3 boxed">
+      <div className="col-12 col-md-8 col-lg-6 bg-light text-dark mt-5 mx-auto mb-4 rounded-3 shadow-lg">
         <div className="row">
           <h1 className="col-12 text-center my-4">Editar Mi Perfil</h1>
         </div>
@@ -134,7 +126,7 @@ const EditarCuidador = () => {
                 </div>
               </div>
               <p></p>
-              
+
               <div className="row">
                 <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
                   <label htmlFor="comuna" className="form-label">
@@ -165,7 +157,9 @@ const EditarCuidador = () => {
                   ></input>
                 </div>
                 <div className="col-12 col-sm-4 col-md-4 d-flex flex-column">
-                  <label htmlFor="redes sociales" className="form-label">Red Social</label>
+                  <label htmlFor="redes sociales" className="form-label">
+                    Red Social
+                  </label>
                   <input
                     type="text"
                     className="form-control form-control-sm"
@@ -180,7 +174,9 @@ const EditarCuidador = () => {
               <p></p>
               <div className="row">
                 <div className="col-12 col-sm-12 col-md-12 d-flex flex-column">
-                  <label htmlFor="descripcion" className="form-label">Algo sobre ti</label>
+                  <label htmlFor="descripcion" className="form-label">
+                    Algo sobre ti
+                  </label>
                   <textarea
                     type="text"
                     className="form-control form-control-sm"
@@ -195,14 +191,16 @@ const EditarCuidador = () => {
               <p></p>
               <div className="row">
                 <div className="col-12 my-4 d-flex justify-content-center">
-                <button className="btn btn-outline-light me-3 px-3">
-                  <span className="fs-5"><i className="fas fa-check"></i></span>
-                </button>
-                <Link to={`/perfilPrivado/${id}`}>
-                  <button className="btn btn-outline-light px-3">
-                    <span className="fs-5"><i className="fas fa-arrow-left"></i></span>
+                  <button className="boton btn btn-transparent">
+                    
+                      <i className="fas fa-check fs-4 mx-2"></i>
+                   
                   </button>
-                </Link>
+                  <Link to={`/perfilPrivado/${id}`} className="text-dark">
+                    <span className="fs-3">
+                      <i className="fas fa-arrow-left"></i>
+                    </span>
+                  </Link>
                 </div>
               </div>
               <p></p>
@@ -212,7 +210,7 @@ const EditarCuidador = () => {
       </div>
     </div>
     // <div className="container d-flex justify-content-center bg-dark w-50 text-light mt-5 ">
-      
+
     //   <form className="form d-flex justify-content-center flex-column" onSubmit={handleSubmit}>
     //   <h1 className="text-center my-2">Editar Mi Perfil</h1>
     //     <div className="nombre d-flex flex-column m-auto">
@@ -256,8 +254,6 @@ const EditarCuidador = () => {
     //     {!datosCuidador.email ? (
     //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
     //     ) : null}
-
-        
 
     //     <div className="comuna d-flex flex-column">
     //       <label htmlFor="">Comuna</label>
