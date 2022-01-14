@@ -13,7 +13,7 @@ export const Card = () => {
     actions.detalleCuidador(id);
   }, []);
 
-  const cuidador = store.cuidadores.splice(0, 4);
+  const cuidador = store.cuidadores.slice(0, 4);
   console.log(cuidador)
 
   return (
@@ -31,23 +31,23 @@ export const Card = () => {
                   <img src={fotoPerfil} className="img-fluid rounded-3 w-100" />
                 </div>
                 <div className="titulo">
-                  <hr size="2" className="my-3" />
+                  <hr size="2" className="my-2" />
                   <h5 className="fw-normal">
                     {item.nombre} {item.apellido}
                   </h5>
                   <hr size="2" className="my-2" />
                 </div>
                 <div className="h-100 d-flex justify-content-center align-items-center">
-                  <p className="my-4 fw-light">
+                  <p className="my-2 fw-light">
                     <small>"{item.descripcion}"</small>
                   </p>
                 </div>
                 {/*Comuna------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/}
                 
                 <div className="d-flex justify-content-center text-muted">
-                  <span className="my-3 fs-5"><i className="fas fa-map-marker-alt pt-2"></i></span>
+                  <span className="my-2 fs-5"><i className="fas fa-map-marker-alt pt-2"></i></span>
 
-                  <p className="my-3 pt-2 px-2">
+                  <p className="my-2 pt-2 px-2">
                     <small>{item.comuna}</small>
                   </p>
                 </div>

@@ -34,6 +34,14 @@ const RegistroCliente = () => {
   const [error, setError] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
 
+  const [check, setChecked] = useState("")
+
+  const handleChange = (e) =>{
+    setChecked(e.target.checked)
+  }
+  
+  console.log(check);
+
   //MANEJADORES
   //Funcion que limpia el formulario
   const handleReset = () => {
@@ -75,12 +83,22 @@ const RegistroCliente = () => {
     setErrorPassword(false);
     //setError("Usuario registrado exitosamente");
 
-    actions.setDatosFormularioCliente(datosCliente);
+    if (check){
 
-    handleReset();
+      actions.setDatosFormularioCliente(datosCliente);
+      alert("Te has registrado exitosamente");
+      history.push(`/`);
+      handleReset();
+    }else{
+      alert("Debes Aceptar los Terminos y Condiciones")
+    }
 
-    alert("Te has registrado exitosamente");
-    history.push(`/`);
+
+
+
+
+    
+
   };
 
   //FORMULARIO DE CLIENTE
@@ -242,7 +260,7 @@ const RegistroCliente = () => {
               </div>
               <div>
                 <div className="my-4">
-                  <Modal2></Modal2>
+                  <Modal2 handleChange={handleChange}/>
                 </div>
               </div>
 
