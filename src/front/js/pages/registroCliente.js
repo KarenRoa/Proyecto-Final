@@ -89,7 +89,7 @@ const RegistroCliente = () => {
     <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-4">
       <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mx-auto p-4 rounded-3 shadow-lg mt-4">
         <div className="row">
-        <div className="col d-flex justify-content-end me-2">
+          <div className="col d-flex justify-content-end me-2">
             <Link to={`/`} className="text-dark">
               <span className="fs-4">
                 <i className="fas fa-arrow-left"></i>
@@ -252,7 +252,6 @@ const RegistroCliente = () => {
             </form>
           </div>
         </div>
-       
       </div>
     </div>
 
