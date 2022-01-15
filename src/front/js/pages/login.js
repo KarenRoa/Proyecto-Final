@@ -40,8 +40,8 @@ export const Login = () => {
 
   return (
     <>
-      <div className="container  bg-lightmy-4 bg-opacity-50 p-5 boxed">
-        <div className="col-12 col-md-8 col-lg-6 mx-auto bg-opacity-75 bg-light shadow-lg">
+      <div className="container bg-light my-4 bg-opacity-50 p-5 rounded-3 boxed">
+        <div className="col-12 col-md-8 col-lg-6 mx-auto my-auto bg-opacity-75 bg-light rounded-3 shadow-lg">
           <h2 className="text-center p-4">Inicio de Sesión</h2>
           <div className="row">
             <form onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ export const Login = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-4">
+              <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-5">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>

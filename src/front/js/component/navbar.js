@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import perro from "../../img/perro2.png";
 import "../../styles/navbar.css";
+import "../../styles/editarBtn.css";
 
 import { AnchorInicio } from "./navbar/inicio";
 import { AnchorQS } from "./navbar/quienes-somos";
@@ -40,20 +41,60 @@ export const Navbar = () => {
               <AnchorInicio />
               <AnchorQS />
               <li className="nav-item">
-                <Link to={'/galeria'} className="nav-link"  href="#">
+                <Link to={"/galeria"} className="nav-link" href="#">
                   GALERIA
                 </Link>
               </li>
               <AnchorContact />
             </ul>
 
-            <Link to={"/registroCliente"}>
+            <div className="DropDown">
+              <div className="dropdown">
+                <button
+                  className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton2"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  REGÍSTRATE
+                </button>
+                <ul
+                  className="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="dropdownMenuButton2"
+                >
+                  <li>
+                    <Link
+                      to={"/registroCliente"}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <a className="dropdown-item fw-lighter" href="#">
+                        CLIENTE
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link to={"/registroCuidador"} style={{ textDecoration: "none" }}>
+                      <a className="dropdown-item fw-lighter" href="#">
+                        CUIDADOR
+                      </a>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* <Link to={"/registroCliente"}>
               <div className="mx-2">
                 <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
                   REGÍSTRATE
                 </button>
               </div>
-            </Link>
+            </Link> */}
             <hr className="my-1" />
 
             <Link to={"/login"}>
