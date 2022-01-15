@@ -14,7 +14,7 @@ export const Home = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase">
+    <div className="bg-light bg-opacity-50 p-4 rounded-3 ">
       <div className="container py-5 bg-light bg-opacity-75 rounded-3 mt-4">
         {/*Banner -  ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
         <Banner />

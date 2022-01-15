@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Banner = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid text-uppercase">
       <div className="text-center">
         <h1 className="display-6 fw-lighter">
           ¿Estás Ocupado o con poco tiempo?

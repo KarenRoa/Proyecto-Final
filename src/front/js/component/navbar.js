@@ -42,7 +42,7 @@ export const Navbar = () => {
               <AnchorQS />
               <li className="nav-item">
                 <Link to={"/galeria"} className="nav-link" href="#">
-                  GALERIA
+                  GALERÍA
                 </Link>
               </li>
               <AnchorContact />

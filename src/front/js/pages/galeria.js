@@ -33,13 +33,13 @@ const Galeria = () => {
               ¿Alguna raza que quieras conocer?
             </h1>
             <p className="col fs-4 fw-light text-center">
-              Encuentra y descubre en esta galeria una infinidad de{" "}
+              Encuentra y descubre en esta galería una infinidad de{" "}
               <span className="text-warning fw-bolder">razas perrunas</span> !
             </p>
           </div>
         </div>
         <div className="col-10 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
-          <h2 className="text-center">Galeria</h2>
+          <h2 className="text-center">Galería</h2>
           <div className="row">
             <form onSubmit={handleSubmit}>
               <div className="col-12 col-md-8 col-lg-4 mx-auto">
@@ -48,7 +48,7 @@ const Galeria = () => {
                   aria-label="Default select example"
                   onChange={handleChange}
                 >
-                  <option>Seleccione una Raza</option>
+                  <option>Seleccione una raza</option>
                   {raza.map((el, index) => {
                     return (
                       <option value={el[0]} key={index}>
