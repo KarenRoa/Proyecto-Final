@@ -27,8 +27,8 @@ export const PerfilPrivado = () => {
   };
 
   return (
-    <div className="container my-4 bg-light bg-opacity-50 text-dark p-4 rounded-3 boxed">
-      <div className="container my-4 bg-light  text-dark text-center w-75 my-4 p-4 rounded-3 shadow-lg">
+    <div className="container mt-4 bg-light bg-opacity-50 text-dark p-4 rounded-3 boxed">
+      <div className="container mt-4 bg-light  text-dark text-center w-75 my-4 p-4 rounded-3 shadow-lg">
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-8">
             <h2 className="display-5">
