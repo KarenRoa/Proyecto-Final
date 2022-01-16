@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Registrar un cuidador
 			setDatosFormularioCuidador: (datosCuidador) => {
 				fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador",
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador",
 				  {
 					method: "POST",
 					headers: {
@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Editar un cuidador
 			updateCuidador: (dataToEdit, id) => {
 				fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCuidador/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/editarCuidador/${id}`,
 				  {
 					method: "PUT",
 					headers: {
@@ -54,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Ver todos los cuidadores
 			obtenerCuidadores: async () => {
-				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidadores")
+				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadores")
 					.then(response => response.json())
 					.then(data => setStore({ cuidadores: data }))
 					.catch(error => console.log("error", error));
@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Eliminar un cuidador
 			deleteCuidador: async id  => {
 				await fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`,
 					{
 						method: "DELETE",
 						headers: {
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  
 			//Ver el detalle de un cuidador
 			detalleCuidador: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidador/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ detalleCuidador: data })
@@ -90,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Crear token cuidador
 			setLogin: async (datoslogin) => {
 				await fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cuidadorlogin",
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorlogin",
 				  {
 					method: "POST",
 					headers: {
@@ -113,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Registrar un cliente
 			setDatosFormularioCliente: (datosCliente) => {
 				fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente",
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente",
 				  {
 					method: "POST",
 					headers: {
@@ -131,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Ver todos los Clientes
 			obtenerClientes: async () => {
-				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/clientes")
+				await fetch("https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/clientes")
 					.then(response => response.json())
 					.then(data => setStore({ clientes: data }))
 					.catch(error => console.log("error", error));
@@ -139,7 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			 //Ver un Cliente
 			 detalleCliente: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ detalleCliente: data })
@@ -150,7 +150,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Editar un Cliente
 			updateCliente: (dataToEdit, id) => {
 				fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/editarCliente/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/editarCliente/${id}`,
 				  {
 					method: "PUT",
 					headers: {
@@ -169,7 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Eliminar un cliente
 			deleteCliente: async id  => {
 				await fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/cliente/${id}`,
+					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
 					{
 						method: "DELETE",
 						headers: {
@@ -185,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//FAVORITOS Cliente
 			favoritesCliente: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us25.gitpod.io/api/favorito/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/favorito/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ favoritosCliente: data })
@@ -210,13 +210,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			getApiImagen: async(datosRaza) => {
-
 				console.log(datosRaza)
 				var requestOptions = {
 					method: 'GET',
 					redirect: 'follow'
 				  };
-				  
 				 await fetch(`https://dog.ceo/api/breed/${datosRaza}/images`, requestOptions)
 					.then(response => response.json())
 					.then(data =>{

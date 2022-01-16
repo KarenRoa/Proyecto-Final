@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory, Link } from "react-router-dom";
 import Modal from "../component/modal";
+import { check } from "prettier";
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
@@ -35,9 +36,16 @@ const RegistroCuidador = () => {
   const [validacion, setValidacion] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   const [error, setError] = useState("");
-  console.log(datosCuidador)
+
+  const [checkedC, setCheckedC] = useState("")
+
+  const handleChange = (e) =>{
+    setCheckedC(e.target.checked)
+  }
+  
 
   //MANEJADORES
+
   //Funcion que limpia el formulario
   const handleReset = () => {
     setDatosCuidador(formInicial);
@@ -77,119 +85,22 @@ const RegistroCuidador = () => {
     }
     setErrorPassword(false);
 
-    actions.setDatosFormularioCuidador(datosCuidador);
+    if(checkedC){
+      actions.setDatosFormularioCuidador(datosCuidador);
+      alert("Te has registrado exitosamente");
+      history.push("/");
+      handleReset();
+    }else{
+      alert("Debes Aceptar los Terminos y Condiciones")
+    }
 
-    handleReset();
-
-    alert("Te has registrado exitosamente");
-    history.push("/");
   };
 
   //FORMULARIO DE CUIDADOR
   return (
-    // <div className="container d-flex justify-content-center bg-dark w-50 text-light mt-5 ">
-
-    //   <form className="form d-flex justify-content-center flex-column" onSubmit={handleSubmit}>
-    //   <h1 className="text-center my-2">Registro Cuidador</h1>
-    //     <div className="nombre d-flex flex-column m-auto">
-    //       <label htmlFor="">Nombre *</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.nombre}
-    //         name="nombre"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.nombre ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="apellido d-flex flex-column m-auto">
-    //       <label htmlFor="">Apellido *</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.apellido}
-    //         name="apellido"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.apellido ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="email d-flex flex-column">
-    //       <label htmlFor="">Email *</label>
-    //       <input
-    //         type="email"
-    //         value={datosCuidador.email}
-    //         name="email"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.email ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="password d-flex flex-column">
-    //       <label htmlFor="">Contraseña *</label>
-    //       <input
-    //         type="password"
-    //         value={datosCuidador.password}
-    //         name="password"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.password ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="password2 d-flex flex-column">
-    //       <label htmlFor="">Repetir Contraseña *</label>
-    //       <input
-    //         type="password"
-    //         value={datosCuidador.password2}
-    //         name="password2"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.password2 ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="comuna d-flex flex-column">
-    //       <label htmlFor="">Comuna</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.comuna}
-    //         name="comuna"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-    //     <div className="telefono d-flex flex-column">
-    //       <label htmlFor="">Teléfono</label>
-    //       <input
-    //         type="tel"
-    //         value={datosCuidador.telefono}
-    //         name="telefono"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     <div className="rrss d-flex flex-column">
-    //       <label htmlFor="">Red Social</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.rrss}
-    //         name="rrss"
-    //         onChange={handleForm}
-    //       ></input>
+    
     <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-5">
-      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-5">
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark  mx-auto p-4 rounded-3 shadow-lg my-5">
         <div className="row">
           <div className="col d-flex justify-content-end me-2">
           <Link to={`/`} 
@@ -368,11 +279,11 @@ const RegistroCuidador = () => {
                 </div>
               </div>
               <div>
-                <div className="my-4">
-                  <Modal></Modal>
+                <div className=" col- 12 my-4">
+                  <Modal handleChange={handleChange}/>
                 </div>
               </div>
-              <div className="d-grid gap-2 col-6 mx-auto my-4">
+              <div className="d-grid gap-2 col-10 mx-auto my-4">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>
@@ -382,5 +293,4 @@ const RegistroCuidador = () => {
     </div>
   );
 };
-
 export default RegistroCuidador;

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Modal2 = () => {
+const Modal2 = ({ handleChange}) => {
+
+  
+
   return (
     <div>
       <div className="box-mayor d-flex justify-content-center">
         <div className="mx-2">
           <button
             type="button"
-            className="btn btn-outline-dark"
+            className="btn btn-outline-dark btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
@@ -20,8 +23,10 @@ const Modal2 = () => {
             className="form-check-input my-auto"
             type="checkbox"
             id="checkboxNoLabel"
-            value=""
+          
             aria-label="..."
+            onChange={(e)=>{
+              handleChange(e)}}
           />
         </div>
       </div>

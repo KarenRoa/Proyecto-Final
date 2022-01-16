@@ -15,9 +15,6 @@ export const PerfilCuidadorPublico = () => {
     actions.detalleCuidador(id);
   }, []);
 
-
-
-
   return (
     <div className="bg-light bg-opacity-50 p-4 rounded-3 text-uppercase text-center">
       <div className="container bg-light bg-opacity-75 text-dark text-center my-4 p-4 rounded-3 shadow-lg">
@@ -31,7 +28,7 @@ export const PerfilCuidadorPublico = () => {
 
            {/*Boton Atrás ----------->>>>>>>>>>>>>>>>>>>>>>>>>>*/}
           <div className="col-4 col-sm-4 col-md-1">
-            <Link to={`/`} className="text-dark">
+            <Link to={`/todoscuidadores`} className="text-dark">
               <span className="fs-3">
                 <i className="fas fa-arrow-left"></i>
               </span>
