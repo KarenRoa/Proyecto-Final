@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import injectContext from "./store/appContext";
 
 //Componentes
@@ -38,54 +38,23 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/demo">
-              <Demo />
-            </Route>
-            <Route exact path="/single/:theid">
-              <Single />
-            </Route>
-            <Route exact path="/todoscuidadores">
-              <Todoscuidadores />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/galeria">
-              <Galeria/>
-            </Route>
-            <Route exact path="/registroCuidador">
-              <RegistroCuidador />
-            </Route>
-            <Route exact path="/editarCuidador/:id">
-              <EditarCuidador />
-            </Route>
-            <Route exact path="/registroCliente">
-              <RegistroCliente />
-            </Route>
-            <Route exact path="/perfilCuidadorPublico/:id">
-              <PerfilCuidadorPublico />
-            </Route>
-            <Route exact path="/perfilPrivado/:id">
-              <PerfilPrivado />
-            </Route>
-            <Route exact path="/registroCliente">
-              <RegistroCliente />
-            </Route>
-            <Route exact path="/perfilCliente/:id">
-              <PerfilCliente />
-            </Route>
-            <Route exact path="/editarCliente/:id">
-              <EditarCliente />
-            </Route>
-
-            <Route>
+          <Routes>
+            <Route exact path="/" element={<Home />}/>
+            <Route exact path="/todoscuidadores"   element={<Todoscuidadores />}/>   
+            <Route exact path="/login" element={<Login />}/>
+            <Route exact path="/galeria" element={<Galeria />}/>
+            <Route exact path="/registroCuidador"   element={<RegistroCuidador />}/>
+            <Route exact path="/editarCuidador/:id"element={<EditarCuidador />}/>
+            <Route exact path="/registroCliente"element={<RegistroCliente />}/>
+            <Route exact path="/perfilCuidadorPublico/:id"element={<PerfilCuidadorPublico />}/>
+            <Route exact path="/perfilPrivado/:id"element={<PerfilPrivado />}/>
+            <Route exact path="/registroCliente"  element={<RegistroCliente />}/>
+            <Route exact path="/perfilCliente/:id" element={<PerfilCliente />}/>
+            <Route exact path="/editarCliente/:id" element={<EditarCliente />}/>
+            {/* <Route>
               <h1>Not found!</h1>
-            </Route>
-          </Switch>
+            </Route> */}
+          </Routes>
           <Footer />
         </ScrollToTop>
       </BrowserRouter>

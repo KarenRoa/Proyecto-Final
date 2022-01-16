@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Modal2 from "../component/modal2";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
 
   const formInicial = {
     nombre: "",

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
 
   const { id } = useParams();
 

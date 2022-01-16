@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import fotoPerfil from "../../img/avatarstandar.png";
 
 const Todosloscuidadores = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,7 +38,7 @@ const Todosloscuidadores = () => {
       <div className="row">
         {store.cuidadores.map((el, index) => {
           return (
-            <div className="col-sm-6 col-md-6 col-lg-3 mb-4 text-center text-uppercase">
+            <div key={index} className="col-sm-6 col-md-6 col-lg-3 mb-4 text-center text-uppercase">
               <div className="h-100 p-3 bg-light rounded-3 shadow d-flex flex-column justify-content-between">
                 <div className="imagen">
                   <img src={fotoPerfil} className="img-fluid rounded-3 w-100" />

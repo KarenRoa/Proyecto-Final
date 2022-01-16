@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "../../styles/editarBtn.css";
 
 const EditarCuidador = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   //VARIABLES DE ESTADOS
 

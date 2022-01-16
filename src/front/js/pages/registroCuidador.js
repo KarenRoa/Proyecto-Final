@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Modal from "../component/modal";
 import { check } from "prettier";
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
 
   const formInicial = {
     nombre: "",
