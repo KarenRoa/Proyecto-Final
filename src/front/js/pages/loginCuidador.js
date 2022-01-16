@@ -1,0 +1,89 @@
+import React, { useState } from "react";
+import { Context } from "../store/appContext";
+import "../../styles/home.css";
+import "../../styles/login.css";
+
+export const LoginCuidador = () => {
+  const formInicial = { email: "", password: "" };
+
+  const [dataLoginCuidador, setDataLoginCuidador] = useState({
+    email: "",
+    password: "",
+  });
+  const [validacion, setValidacion] = useState(false);
+  const [error, setError] = useState("");
+
+
+  const handleReset = () => {
+    setDatosLogin(formInicial);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setDataLoginCuidador((prevCuidador) => ({
+      ...prevCuidador,
+      [name]: value,
+    }));
+    console.log(dataLoginCuidador);
+  };
+
+  const submit = (event) => {
+    event.preventDefault();
+
+    if (!dataLoginCuidador.email || !dataLoginCuidador.password) {
+      setValidacion(true);
+      setError("Campo Obligatorio");
+      return;
+    } else {
+      setError("");
+      setValidacion(false);
+
+      handleReset();
+    }
+  };
+
+  return (
+    <div className="container bg-light my-4 bg-opacity-50 p-5 rounded-3 boxed">
+      <div className="col-12 col-md-8 col-lg-6 mx-auto my-auto bg-opacity-75 bg-light rounded-3 shadow-lg">
+        <h2 className="text-center p-4">Inicio de Sesión Cuidador</h2>
+        <div className="row">
+          <form onSubmit={submit}>
+            <div className="row">
+              <div className="col-10 col-md-8 mx-auto">
+                <label className="form-label">Correo Electrónico</label>
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control form-control-sm"
+                  onChange={handleChange}
+                  value={dataLoginCuidador.email}
+                />
+                {!dataLoginCuidador.email ? (
+                  <p className="text-center text-danger mt-1">{error}</p>
+                ) : null}
+              </div>
+            </div>
+            <div className="row my-3">
+              <div className="col-10 col-md-8 mx-auto">
+                <label className="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control form-control-sm"
+                  onChange={handleChange}
+                  value={dataLoginCuidador.password}
+                />
+                {!dataLoginCuidador.password ? (
+                  <p className="text-center text-danger mt-1">{error}</p>
+                ) : null}
+              </div>
+            </div>
+            <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-5">
+              <button className="btn btn-outline-dark btn-sm">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};

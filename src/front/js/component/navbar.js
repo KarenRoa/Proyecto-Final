@@ -48,43 +48,48 @@ export const Navbar = () => {
               <AnchorContact />
             </ul>
 
-            <div className="DropDown">
-              <div className="dropdown">
-                <button
-                  className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton2"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  REGÍSTRATE
-                </button>
-                <ul
-                  className="dropdown-menu dropdown-menu-dark"
-                  aria-labelledby="dropdownMenuButton2"
-                >
-                  <li>
-                    <Link
-                      to={"/registroCliente"}
-                      style={{ textDecoration: "none" }}
-                    >
-                      {" "}
-                      <a className="dropdown-item fw-lighter" href="#">
-                        CLIENTE
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link to={"/registroCuidador"} style={{ textDecoration: "none" }}>
-                      <a className="dropdown-item fw-lighter" href="#">
-                        CUIDADOR
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
+            <div className="botonRegistrate me-3">
+              <div className="DropDown">
+                <div className="dropdown">
+                  <button
+                    className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    REGÍSTRATE
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark"
+                    aria-labelledby="dropdownMenuButton2"
+                  >
+                    <li>
+                      <Link
+                        to={"/registroCliente"}
+                        style={{ textDecoration: "none" }}
+                      >
+                        {" "}
+                        <a className="dropdown-item fw-lighter" href="#">
+                          CLIENTE
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <Link
+                        to={"/registroCuidador"}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <a className="dropdown-item fw-lighter" href="#">
+                          CUIDADOR
+                        </a>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -97,13 +102,55 @@ export const Navbar = () => {
             </Link> */}
             <hr className="my-1" />
 
-            <Link to={"/login"}>
+            <div className="botonIngresar me-5">
+              <div className="DropDown">
+                <div className="dropdown">
+                  <button
+                    className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    INGRESAR
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-dark"
+                    aria-labelledby="dropdownMenuButton2"
+                  >
+                    <li>
+                      <Link to={"/login"} style={{ textDecoration: "none" }}>
+                        {" "}
+                        <a className="dropdown-item fw-lighter" href="#">
+                          CLIENTE
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <Link
+                        to={"/loginCuidador"}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <a className="dropdown-item fw-lighter" href="#">
+                          CUIDADOR
+                        </a>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* <Link to={"/login"}>
               <div className="mx-2">
                 <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
                   INGRESA
                 </button>
               </div>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </nav>
