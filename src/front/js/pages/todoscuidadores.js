@@ -43,24 +43,24 @@ const Todosloscuidadores = () => {
                 <div className="imagen">
                   <img src={fotoPerfil} className="img-fluid rounded-3 w-100" />
                 </div>
-                <div className="titulo">
-                  <hr size="2" className="my-3" />
+                <div className="titulo mt-3">
+                  {/* <hr size="2" className="my-2" /> */}
                   <h5 className="fw-normal">
                     {el.nombre} {el.apellido}
                   </h5>
-                  <hr size="2" className="my-2" />
+                  {/* <hr size="2" className="my-2" /> */}
                 </div>
                 <div className="h-100 d-flex justify-content-center align-items-center">
-                  <p className="my-4 fw-light">
+                  <p className="my-3 fw-light">
                     <small>"{el.descripcion}"</small>
                   </p>
                 </div>
                 <div className="d-flex justify-content-center text-muted">
-                  <span className="my-3 fs-5">
+                  <span className="my-2 fs-5">
                     <i className="fas fa-map-marker-alt pt-2"></i>
                   </span>
 
-                  <p className="my-3 pt-2 px-2">
+                  <p className="my-2 pt-2 px-2">
                     <small>{el.comuna}</small>
                   </p>
                 </div>

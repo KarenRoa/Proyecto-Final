@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = () => {
+const Modal = ({handleChange}) => {
   return (
     <div>
       <div className="box-mayor d-flex justify-content-center">
@@ -22,6 +22,8 @@ const Modal = () => {
             id="checkboxNoLabel"
             value=""
             aria-label="..."
+            onChange={(e)=>{
+              handleChange(e)}}
           />
         </div>
       </div>
@@ -30,7 +32,7 @@ const Modal = () => {
         <div
           className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
