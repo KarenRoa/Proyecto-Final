@@ -89,6 +89,7 @@ def get_clientes():
 
 #Ruta para ver un cliente
 @api.route('/cliente/<int:id>', methods=['GET'])
+@jwt_required()
 def get_cliente(id):
     Cliente_id = Cliente.query.get(id)
 

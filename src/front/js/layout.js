@@ -25,6 +25,7 @@ import Todoscuidadores from "./pages/todoscuidadores";
 import RegistroCliente from "./pages/registroCliente";
 import { PerfilCliente } from "./pages/perfilCliente";
 import { EditarCliente } from "./pages/editarCliente";
+import PrivateRoute from "./Routes/PrivateRoute";
 
 //create your first component
 const Layout = () => {
@@ -38,23 +39,58 @@ const Layout = () => {
         <ScrollToTop>
           <Navbar />
           <Routes>
-
             {/* Rutas Publicas */}
-            <Route exact path="/" element={<Home />}/>
-            <Route exact path="/todoscuidadores"   element={<Todoscuidadores />}/>   
-            <Route exact path="/perfilCuidadorPublico/:id"element={<PerfilCuidadorPublico />}/>
-            <Route exact path="/galeria" element={<Galeria />}/>
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/todoscuidadores"
+              element={<Todoscuidadores />}
+            />
+            <Route
+              exact
+              path="/perfilCuidadorPublico/:id"
+              element={<PerfilCuidadorPublico />}
+            />
+            <Route exact path="/galeria" element={<Galeria />} />
             {/* Rutas para Login */}
-            <Route exact path="/login" element={<Login />}/>
-            <Route exact path="/loginCuidador" element={<LoginCuidador />}/>
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/loginCuidador" element={<LoginCuidador />} />
             {/* Rutas de Registro */}
-            <Route exact path="/registroCuidador"   element={<RegistroCuidador />}/>
-            <Route exact path="/registroCliente"element={<RegistroCliente />}/>
+            <Route
+              exact
+              path="/registroCuidador"
+              element={<RegistroCuidador />}
+            />
+            <Route
+              exact
+              path="/registroCliente"
+              element={<RegistroCliente />}
+            />
             {/* Rutas Privadas */}
-            <Route exact path="/perfilPrivado/:id"element={<PerfilPrivado />}/>
-            <Route exact path="/editarCuidador/:id"element={<EditarCuidador />}/>
-            <Route exact path="/perfilCliente/:id" element={<PerfilCliente />}/>
-            <Route exact path="/editarCliente/:id" element={<EditarCliente />}/>
+            <Route
+              exact
+              path="/perfilPrivado/:id"
+              element={<PerfilPrivado />}
+            />
+            <Route
+              exact
+              path="/editarCuidador/:id"
+              element={<EditarCuidador />}
+            />
+            <Route
+              exact
+              path="/perfilCliente/:id"
+              element={
+                <PrivateRoute>
+                  <PerfilCliente />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              exact
+              path="/editarCliente/:id"
+              element={<EditarCliente />}
+            />
 
             {/* <Route>
               <h1>Not found!</h1>

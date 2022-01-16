@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "../../styles/home.css";
 import "../../styles/login.css";
 
@@ -11,6 +11,7 @@ export const Login = () => {
   const [datoslogin, setDatosLogin] = useState({ email: "", password: "" });
   const [validacion, setValidacion] = useState(false);
   const [error, setError] = useState("");
+
 
   const handleReset = () => {
     setDatosLogin(formInicial);
@@ -78,6 +79,7 @@ export const Login = () => {
               <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-5">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
+              {store.datosTokenCliente ? <Navigate to={`/perfilCliente/${store.datosTokenCliente.info_user.id}`} /> : null}
             </form>
           </div>
         </div>

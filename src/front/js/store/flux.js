@@ -7,8 +7,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clientes:[],
 			detalleCliente:{},
 			razas: {},
-			Imagenes:{}
-			//message: null,
+			Imagenes:{},
+
+			datosTokenCliente: null,
+			datosCliente: {},
+			
 			
 		},
 		actions: {
@@ -145,21 +148,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			
 			//Eliminar un cliente
-			deleteCliente: async id  => {
-				await fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
-					{
-						method: "DELETE",
-						headers: {
-						  "Content-Type": "application/json",
-						}
-					  }
-				)
-				  .then((response) => response.json())
-				  .catch((error) => {
-					console.log("El error", error);
-				  });
-			  },
+			// deleteCliente: async id  => {
+			// 	await fetch(
+			// 		`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
+			// 		{
+			// 			method: "DELETE",
+			// 			headers: {
+			// 			  "Content-Type": "application/json",
+			// 			}
+			// 		  }
+			// 	)
+			// 	  .then((response) => response.json())
+			// 	  .catch((error) => {
+			// 		console.log("El error", error);
+			// 	  });
+			//   },
 
 			//FAVORITOS Cliente
 			favoritesCliente: async id => {
@@ -216,9 +219,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				  .then((resp) => resp.json())
 				  .then(data => {
-					
 					sessionStorage.setItem("token", data.token)
-					setStore({ datos: data })
+					setStore({ datosTokenCuidador: data })
 				  })
 				  .catch((error) => console.log("error", error));
 				
@@ -238,12 +240,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				  .then((resp) => resp.json())
 				  .then(data => {
-					
 					sessionStorage.setItem("token", data.token)
-					setStore({ datos: data })
+					setStore({ datosTokenCliente: data })
 				  })
 				  .catch((error) => console.log("error", error));
 				
+			  },
+
+			  //Ver Datos Privado de un Cliente
+			  detalleCliente: async (id) => {
+				try {
+				const store = getStore()
+				await fetch(
+				  `https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
+				  {
+					method: "GET",
+					headers: {
+					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datosTokenCliente?.token}`
+					}
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					  console.log(data)
+					setStore({ datosCliente: data })
+					
+				  }) 
+				} catch (error) {
+				  console.log("error", error)
+				}
+			  },
+
+			  logout: () =>{
+				sessionStorage.removeItem("token")
+				  setStore({ datosTokenCliente: null });
 			  },
 
 			  
