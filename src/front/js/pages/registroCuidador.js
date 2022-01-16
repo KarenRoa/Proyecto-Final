@@ -110,7 +110,7 @@ const RegistroCuidador = () => {
           </div>
         </div>
         <div className="row">
-          <h2 className="col-12 text-center mb-3">Registro Paseador</h2>
+          <h2 className="col-12 text-center mb-3">Registro Cuidador</h2>
         </div>
         <div className="row">
           <div className="col-10 mx-auto">

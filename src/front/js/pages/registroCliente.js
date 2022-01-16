@@ -101,7 +101,11 @@ const RegistroCliente = () => {
 
   return (
     <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-4">
+<<<<<<< HEAD
+      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-4">
+=======
       <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mx-auto p-4 rounded-3 shadow-lg my-5">
+>>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
         <div className="row">
           <div className="col d-flex justify-content-end me-2">
             <Link to={`/`} className="text-dark">
@@ -111,14 +115,18 @@ const RegistroCliente = () => {
             </Link>
           </div>
         </div>
-        <h2 className="text-dark text-center p-3">Registro de Cliente</h2>
+        <h2 className="col-12 text-center mb-3">Registro Cliente</h2>
         <div className="row">
           <div className="col-10 mx-auto">
+<<<<<<< HEAD
+            <form className="form" onSubmit={handleSubmit}>
+=======
             <form onSubmit={handleSubmit}>
+>>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
               <div className="row">
-                <div className="col-12 col-sm-6 col-md-6">
+                <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
                   <label htmlFor="nombre" className="form-label">
-                    Nombre
+                    Nombre*
                   </label>
                   <input
                     type="text"
@@ -135,7 +143,7 @@ const RegistroCliente = () => {
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
                   <label htmlFor="apellido" className="form-label">
-                    Apellido
+                    Apellido*
                   </label>
                   <input
                     type="text"
@@ -154,7 +162,7 @@ const RegistroCliente = () => {
               <div className="row mt-3">
                 <div className="col-12">
                   <label htmlFor="email" className="form-label">
-                    Email
+                    Email*
                   </label>
                   <input
                     type="email"
@@ -173,7 +181,7 @@ const RegistroCliente = () => {
               <div className="row mt-3">
                 <div className="col-12 col-sm-6 col-md-6">
                   <label htmlFor="password" className="form-label">
-                    Contraseña
+                    Contraseña*
                   </label>
                   <input
                     type="password"
@@ -190,7 +198,7 @@ const RegistroCliente = () => {
                 </div>
                 <div className="col-12 col-sm-6 col-md-6 mt-3 mt-md-0">
                   <label htmlFor="password2" className="form-label">
-                    Repita Contraseña
+                    Repita Contraseña*
                   </label>
                   <input
                     type="password"
@@ -255,12 +263,21 @@ const RegistroCliente = () => {
                 </div>
               </div>
               <div>
+<<<<<<< HEAD
+                <div className="my-4">
+                  <Modal2></Modal2>
+                </div>
+              </div>
+
+              <div className="d-grid gap-2 col-6 mx-auto my-4 ">
+=======
                 <div className="col- 12 my-4">
                 <Modal2 handleChange={handleChange}/>
                 </div>
               </div>
 
               <div className="d-grid gap-2 col-10 mx-auto my-4 ">
+>>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>

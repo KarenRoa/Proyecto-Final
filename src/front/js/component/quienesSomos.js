@@ -2,7 +2,7 @@ import React from "react";
 
 export const QuienesSomos = () => {
   return (
-    <div id="quienes-somos" className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 shadow-lg text-center">
+    <div id="quienes-somos" className="container-fluid py-5 bg-light bg-opacity-75 rounded-3 shadow-lg text-center text-uppercase">
       <div className="titulo">
         <h2 className="text-uppercase">Quienes Somos</h2>
       </div>

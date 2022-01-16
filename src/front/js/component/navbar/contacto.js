@@ -6,9 +6,9 @@ const { Link } = Anchor;
 
 export const AnchorContact = () => {
     return(
-        <Anchor affix={false} targetOffset="65">
-            <li className="nav-item">
-                <Link href="#contacto" title="CONTACTO" className="nav-link" />
+        <Anchor affix={false} targetOffset="65" >
+            <li className="nav-item" >
+                <Link  href="#contacto" title="CONTACTO" className="nav-link" />
             </li>
         </Anchor>
     );
