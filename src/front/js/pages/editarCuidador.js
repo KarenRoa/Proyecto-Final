@@ -184,6 +184,7 @@ const EditarCuidador = () => {
                     placeholder="Descripción"
                     value={dataToEdit.descripcion}
                     name="descripcion"
+                    style={{ resize: "none" }}
                     onChange={handleForm}
                   ></textarea>
                 </div>

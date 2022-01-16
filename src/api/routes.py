@@ -180,3 +180,30 @@ def setCuidador_login():
             return { 'message': 'Clave Invalida'}
     else:
         return "No existe Usuario con ese correo"
+
+#Ruta para crear token del cuidador
+@api.route('/clientelogin', methods=['POST'])
+def setCliente_login():
+    datos = request.get_json()
+    if (datos is None):
+        return 'Falta información'
+    if ('email' not in datos):
+        return 'Falta email'
+    if ('password' not in datos):
+        return 'Falta Password'
+    cliente_login = Cliente.query.filter_by(email = datos['email']).first()
+    if (cliente_login):
+        if(cliente_login.password == datos['password']):
+            expira = datetime.timedelta(minutes=1)
+            access_token = create_access_token(identity = cliente_login.email, expires_delta = expira) 
+            data_token = {
+                "info_user": cliente_login.serialize(),
+                "token": access_token,
+                "expires": expira.total_seconds(),
+                "status": True 
+            }
+            return jsonify(data_token)     
+        else:
+            return { 'message': 'Clave Invalida'}
+    else:
+        return "No existe Usuario con ese correo"

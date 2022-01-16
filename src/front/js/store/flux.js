@@ -87,28 +87,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
-			//Crear token cuidador
-			setLogin: async (datoslogin) => {
-				await fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorlogin",
-				  {
-					method: "POST",
-					headers: {
-					  "Content-Type": "application/json",
-					},
-					body: JSON.stringify(datoslogin),
-				  }
-				)
-				  .then((resp) => resp.json())
-				  .then(data => {
-					
-					sessionStorage.setItem("token", data.token)
-					setStore({ datos: data })
-				  })
-				  .catch((error) => console.log("error", error));
-				
-			  },
-
 //-------------------------------//FETCH CLIENTES---------------------------------
 			//Registrar un cliente
 			setDatosFormularioCliente: (datosCliente) => {
@@ -222,7 +200,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ Imagenes: data.message})
 					})
 					.catch(error => console.log('error', error));
-			}
+			},
+
+			//Crear token cuidador
+			setLogin: async (datoslogin) => {
+				await fetch(
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorlogin",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datoslogin),
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					
+					sessionStorage.setItem("token", data.token)
+					setStore({ datos: data })
+				  })
+				  .catch((error) => console.log("error", error));
+				
+			  },
+
+			  //Crear token cliente
+			setLoginCliente: async (datoslogin) => {
+				await fetch(
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/clientelogin",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datoslogin),
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					
+					sessionStorage.setItem("token", data.token)
+					setStore({ datos: data })
+				  })
+				  .catch((error) => console.log("error", error));
+				
+			  },
+
+			  
 		}
 	};
 };
