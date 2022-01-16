@@ -151,6 +151,9 @@ def get_favoritos(id):
 
     return jsonify(Favorito), 200
 
+
+
+#-------------- JWT TOKEN y LOGIN------------------------------------------------------------
 #Ruta para crear token del cuidador
 @api.route('/cuidadorlogin', methods=['POST'])
 def setCuidador_login():
