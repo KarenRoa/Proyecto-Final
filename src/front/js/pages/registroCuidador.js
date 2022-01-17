@@ -6,7 +6,7 @@ import { check } from "prettier";
 
 const RegistroCuidador = () => {
   const { store, actions } = useContext(Context);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const formInicial = {
     nombre: "",
@@ -88,7 +88,7 @@ const RegistroCuidador = () => {
     if(checkedC){
       actions.setDatosFormularioCuidador(datosCuidador);
       alert("Te has registrado exitosamente");
-      history.push("/");
+      navigate(`/`)
       handleReset();
     }else{
       alert("Debes Aceptar los Terminos y Condiciones")

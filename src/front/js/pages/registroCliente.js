@@ -5,7 +5,7 @@ import Modal2 from "../component/modal2";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const formInicial = {
     nombre: "",
@@ -87,7 +87,7 @@ const RegistroCliente = () => {
 
       actions.setDatosFormularioCliente(datosCliente);
       alert("Te has registrado exitosamente");
-      history.push(`/`);
+      navigate(`/`)
       handleReset();
     }else{
       alert("Debes Aceptar los Terminos y Condiciones")
