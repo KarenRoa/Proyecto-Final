@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import perro from "../../img/perro2.png";
 import "../../styles/navbar.css";
@@ -9,6 +10,7 @@ import { AnchorQS } from "./navbar/quienes-somos";
 import { AnchorContact } from "./navbar/contacto";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -47,110 +49,114 @@ export const Navbar = () => {
               </li>
               <AnchorContact />
             </ul>
-
-            <div className="botonRegistrate me-3">
-              <div className="DropDown">
-                <div className="dropdown">
-                  <button
-                    className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    REGÍSTRATE
-                  </button>
-                  <ul
-                    className="dropdown-menu dropdown-menu-dark"
-                    aria-labelledby="dropdownMenuButton2"
-                  >
-                    <li>
-                      <Link
-                        to={"/registroCliente"}
-                        style={{ textDecoration: "none" }}
+            
+            {store.datosTokenCuidador?.token ? (
+             
+              <>
+                <Link to={`/perfilPrivado/${store.datosTokenCuidador.info_user.id}`}>
+                  <button className="btn btn-outline-light btn-sm me-2">Mi Perfil</button>
+                </Link>
+                
+                  <button className="btn btn-outline-light btn-sm" onClick={() => {
+                  actions.logout() }}>Cerrar Sesión</button>
+                
+              </>
+              
+            
+            ) : (
+              <>
+                <div className="botonRegistrate me-3">
+                  <div className="DropDown">
+                    <div className="dropdown">
+                      <button
+                        className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                       >
-                        {" "}
-                        <a className="dropdown-item fw-lighter" href="#">
-                          CLIENTE
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/registroCuidador"}
-                        style={{ textDecoration: "none" }}
+                        REGÍSTRATE
+                      </button>
+                      <ul
+                        className="dropdown-menu dropdown-menu-dark"
+                        aria-labelledby="dropdownMenuButton2"
                       >
-                        <a className="dropdown-item fw-lighter" href="#">
-                          CUIDADOR
-                        </a>
-                      </Link>
-                    </li>
-                  </ul>
+                        <li>
+                          <Link
+                            to={"/registroCliente"}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {" "}
+                            <a className="dropdown-item fw-lighter" href="#">
+                              CLIENTE
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <Link
+                            to={"/registroCuidador"}
+                            style={{ textDecoration: "none" }}
+                          >
+                            <a className="dropdown-item fw-lighter" href="#">
+                              CUIDADOR
+                            </a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+                <hr className="my-1" />
 
-            {/* <Link to={"/registroCliente"}>
-              <div className="mx-2">
-                <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
-                  REGÍSTRATE
-                </button>
-              </div>
-            </Link> */}
-            <hr className="my-1" />
-
-            <div className="botonIngresar me-5">
-              <div className="DropDown">
-                <div className="dropdown">
-                  <button
-                    className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    INGRESAR
-                  </button>
-                  <ul
-                    className="dropdown-menu dropdown-menu-dark"
-                    aria-labelledby="dropdownMenuButton2"
-                  >
-                    <li>
-                      <Link to={"/login"} style={{ textDecoration: "none" }}>
-                        {" "}
-                        <a className="dropdown-item fw-lighter" href="#">
-                          CLIENTE
-                        </a>
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <Link
-                        to={"/loginCuidador"}
-                        style={{ textDecoration: "none" }}
+                <div className="botonIngresar me-5">
+                  <div className="DropDown">
+                    <div className="dropdown">
+                      <button
+                        className="btn btn-outline-light btn-sm me-2 fw-lighter dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
                       >
-                        <a className="dropdown-item fw-lighter" href="#">
-                          CUIDADOR
-                        </a>
-                      </Link>
-                    </li>
-                  </ul>
+                        INGRESAR
+                      </button>
+                      <ul
+                        className="dropdown-menu dropdown-menu-dark"
+                        aria-labelledby="dropdownMenuButton2"
+                      >
+                        <li>
+                          <Link
+                            to={"/login"}
+                            style={{ textDecoration: "none" }}
+                          >
+                            {" "}
+                            <a className="dropdown-item fw-lighter" href="#">
+                              CLIENTE
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                          <Link
+                            to={"/loginCuidador"}
+                            style={{ textDecoration: "none" }}
+                          >
+                            <a className="dropdown-item fw-lighter" href="#">
+                              CUIDADOR
+                            </a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* <Link to={"/login"}>
-              <div className="mx-2">
-                <button className="btn btn-outline-light btn-sm me-2 fw-lighter">
-                  INGRESA
-                </button>
-              </div>
-            </Link> */}
+              </>
+            )}
           </div>
         </div>
       </nav>

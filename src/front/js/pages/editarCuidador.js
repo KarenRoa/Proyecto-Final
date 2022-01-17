@@ -6,7 +6,7 @@ import "../../styles/editarBtn.css";
 const EditarCuidador = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   //VARIABLES DE ESTADOS
 
@@ -20,7 +20,7 @@ const EditarCuidador = () => {
     descripcion: "",
   });
 
-  const datos = store.detalleCuidador;
+  const datos = store.datosCuidador;
 
   //Variables de estados
   const [dataToEdit, setDataToEdit] = useState(datos);
@@ -28,7 +28,7 @@ const EditarCuidador = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    actions.detalleCuidador(id);
+    actions.detalleCuidadorP(id);
   }, []);
 
   //MANEJADORES
@@ -55,7 +55,7 @@ const EditarCuidador = () => {
     actions.updateCuidador(dataToEdit, id);
 
     alert("Datos modificados con Éxito");
-    history.push(`/perfilPrivado/${id}`);
+    navigate(`/perfilPrivado/${id}`)
   };
 
   //FORMULARIO DE CUIDADOR
@@ -68,7 +68,7 @@ const EditarCuidador = () => {
         </div>
         <div className="row">
           <div className="col-10 mx-auto">
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} >
               <div className="row">
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
                   <label htmlFor="nombre" className="form-label">

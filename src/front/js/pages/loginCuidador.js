@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link, Navigate } from "react-router-dom";
 import "../../styles/home.css";
 import "../../styles/login.css";
 
@@ -10,6 +11,8 @@ export const LoginCuidador = () => {
   const [datoslogin, setDatosLogin] = useState({ email: "", password: "" });
   const [validacion, setValidacion] = useState(false);
   const [error, setError] = useState("");
+
+  
 
   const handleReset = () => {
     setDatosLogin(formInicial);
@@ -77,6 +80,7 @@ export const LoginCuidador = () => {
               <div className="d-grid gap-2 col-10 col-md-8 mx-auto my-5">
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
+              {store.datosTokenCuidador ? <Navigate to={`/perfilPrivado/${store.datosTokenCuidador.info_user.id}`} /> : null}
             </form>
           </div>
         </div>

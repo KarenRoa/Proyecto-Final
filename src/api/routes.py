@@ -18,9 +18,17 @@ def get_cuidadores():
 
     return jsonify(Cuidadores), 200
 
-#Ruta para ver un cuidador
+#Ruta privada cuidador
 @api.route('/cuidador/<int:id>', methods=['GET'])
+@jwt_required()
 def get_cuidador(id):
+    Cuidador_id = Cuidador.query.get(id)
+
+    return jsonify(Cuidador_id.serialize())
+
+#Ruta privada cuidador
+@api.route('/cuidadorPublico/<int:id>', methods=['GET'])
+def get_cuidadorP(id):
     Cuidador_id = Cuidador.query.get(id)
 
     return jsonify(Cuidador_id.serialize())
@@ -98,6 +106,7 @@ def get_cliente(id):
 
 #Ruta para editar un cliente
 @api.route('/editarCliente/<id>', methods=['PUT'])
+@jwt_required()
 def update_cliente(id):
     cliente = Cliente.query.get(id)
     datos = request.get_json()
@@ -168,7 +177,7 @@ def setCuidador_login():
     cuidador_login = Cuidador.query.filter_by(email = datos['email']).first()
     if (cuidador_login):
         if(cuidador_login.password == datos['password']):
-            expira = datetime.timedelta(minutes=1)
+            expira = datetime.timedelta(minutes=10)
             access_token = create_access_token(identity = cuidador_login.email, expires_delta = expira) 
             data_token = {
                 "info_user": cuidador_login.serialize(),
@@ -195,7 +204,7 @@ def setCliente_login():
     cliente_login = Cliente.query.filter_by(email = datos['email']).first()
     if (cliente_login):
         if(cliente_login.password == datos['password']):
-            expira = datetime.timedelta(minutes=1)
+            expira = datetime.timedelta(minutes=10)
             access_token = create_access_token(identity = cliente_login.email, expires_delta = expira) 
             data_token = {
                 "info_user": cliente_login.serialize(),

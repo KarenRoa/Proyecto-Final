@@ -9,12 +9,12 @@ export const Card = () => {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    actions.detalleCuidador(id);
-  }, []);
+  // useEffect(() => {
+  //   actions.detalleCuidador(id);
+  // }, []);
 
   const cuidador = store.cuidadores.slice(0, 4);
-  console.log(cuidador)
+
 
   return (
     <>

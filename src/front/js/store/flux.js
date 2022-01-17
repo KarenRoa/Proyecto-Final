@@ -10,7 +10,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			Imagenes:{},
 
 			datosTokenCliente: null,
+			datosTokenCuidador: null,
+			datosCuidador: {},
 			datosCliente: {},
+			datos: null
 			
 			
 		},
@@ -82,7 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  
 			//Ver el detalle de un cuidador
 			detalleCuidador: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorPublico/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ detalleCuidador: data })
@@ -119,14 +122,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			 //Ver un Cliente
-			 detalleCliente: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`)
-					.then(response => response.json())
-					.then(data => {
-						setStore({ detalleCliente: data })
-					})
-					.catch(error => console.log("error", error));
-			},
+			//  detalleCliente: async id => {
+			// 	await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`)
+			// 		.then(response => response.json())
+			// 		.then(data => {
+			// 			setStore({ detalleCliente: data })
+			// 		})
+			// 		.catch(error => console.log("error", error));
+			// },
 
 			//Editar un Cliente
 			updateCliente: (dataToEdit, id) => {
@@ -136,6 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					headers: {
 					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datos}`
 					},
 					body: JSON.stringify(dataToEdit),
 				  }
@@ -226,6 +230,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			  },
 
+			  //Ver Datos Privado de un Cuidador
+			  detalleCuidadorP: async (id) => {
+				try {
+				const store = getStore()
+				await fetch(
+				  `https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`,
+				  {
+					method: "GET",
+					headers: {
+					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datosTokenCuidador?.token}`
+					}
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					setStore({ datosCuidador: data });
+					
+				  }) 
+				} catch (error) {
+				  console.log("error", error)
+				}
+			  },
+
 			  //Crear token cliente
 			setLoginCliente: async (datoslogin) => {
 				await fetch(
@@ -274,7 +302,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			  logout: () =>{
 				sessionStorage.removeItem("token")
-				  setStore({ datosTokenCliente: null });
+				  setStore({ datosTokenCuidador: null });
+			  },
+
+			  getTokenSessionStorage: () =>{
+				const token = sessionStorage.getItem("token")
+				if(token && token !=="" && token !== undefined){
+				  setStore({ datos: token })
+				}
 			  },
 
 			  

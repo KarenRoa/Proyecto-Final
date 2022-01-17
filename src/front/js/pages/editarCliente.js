@@ -20,7 +20,9 @@ export const EditarCliente = () => {
     descripcion: "",
   });
 
-  const datos = store.detalleCliente;
+  const datos = store.datosCliente;
+
+  console.log(datos)
 
   //Variables de estados
   const [dataToEdit, setDataToEdit] = useState(datos);
@@ -55,7 +57,7 @@ export const EditarCliente = () => {
     actions.updateCliente(dataToEdit, id);
 
     alert("Datos modificados con Éxito");
-    history.push(`/perfilCliente/${id}`);
+    <Navigate to={`/perfilCliente/${id}`}/>
   };
 
   //FORMULARIO DE Cliente
@@ -183,7 +185,7 @@ export const EditarCliente = () => {
                       <i className="fas fa-check fs-4 mx-2"></i>
                     </span>
                   </button>
-                  <Link to={`/perfilPrivado/${id}`} className="text-dark">
+                  <Link to={`/perfilCliente/${id}`} className="text-dark">
                     <span className="fs-3">
                       <i className="fas fa-arrow-left"></i>
                     </span>

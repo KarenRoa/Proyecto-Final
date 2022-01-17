@@ -70,7 +70,9 @@ const Layout = () => {
             <Route
               exact
               path="/perfilPrivado/:id"
-              element={<PerfilPrivado />}
+              element={<PrivateRoute>
+                <PerfilPrivado />
+              </PrivateRoute>}
             />
             <Route
               exact
@@ -89,7 +91,9 @@ const Layout = () => {
             <Route
               exact
               path="/editarCliente/:id"
-              element={<EditarCliente />}
+              element={<PrivateRoute>
+                <EditarCliente />
+              </PrivateRoute>}
             />
 
             {/* <Route>
