@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilPrivado = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
 
   const { id } = useParams();
 
   useEffect(() => {
-    actions.detalleCuidador(id);
+    actions.detalleCuidadorP(id);
   }, []);
 
+  console.log(store.datosCuidador)
+  
   const confirmar = () => {
     if (confirm("Esta seguro que eliminar su perfil?")) {
       eliminarCuidador(id);
@@ -27,12 +29,12 @@ export const PerfilPrivado = () => {
   };
 
   return (
-    <div className="container my-4 bg-light bg-opacity-50 text-dark p-4 rounded-3 boxed">
-      <div className="container my-4 bg-light  text-dark text-center w-75 my-4 p-4 rounded-3 shadow-lg">
+    <div className="container mt-4 bg-light bg-opacity-50 text-dark p-4 rounded-3 boxed">
+      <div className="container mt-4 bg-light  text-dark text-center w-75 my-4 p-4 rounded-3 shadow-lg">
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-8">
             <h2 className="display-5">
-              {store.detalleCuidador.nombre} {store.detalleCuidador.apellido}
+              {store.datosCuidador.nombre} {store.datosCuidador.apellido}
             </h2>
           </div>
           <div className="col-12 col-md-4">
@@ -62,7 +64,7 @@ export const PerfilPrivado = () => {
             <img src={fotoPerfil} className="rounded-circle p-2 img-fluid" />
           </div>
           <div className="col-12 col-md-8">
-            <p>"{store.detalleCuidador.descripcion}"</p>
+            <p>"{store.datosCuidador.descripcion}"</p>
           </div>
         </div>
         <div className="row">
@@ -75,19 +77,19 @@ export const PerfilPrivado = () => {
             <span>
               <i className="fas fa-map-marker-alt"></i> Zona de Atención
             </span>
-            <p>{store.detalleCuidador.comuna}</p>
+            <p>{store.datosCuidador.comuna}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-instagram"></i> Instagram
             </span>
-            <p>{store.detalleCuidador.rrss}</p>
+            <p>{store.datosCuidador.rrss}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-whatsapp"></i> WhatsApp
             </span>
-            <p>{store.detalleCuidador.telefono}</p>
+            <p>{store.datosCuidador.telefono}</p>
           </div>
         </div>
       </div>

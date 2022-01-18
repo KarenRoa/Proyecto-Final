@@ -7,8 +7,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clientes:[],
 			detalleCliente:{},
 			razas: {},
-			Imagenes:{}
-			//message: null,
+			Imagenes:{},
+
+			datosTokenCliente: null,
+			datosTokenCuidador: null,
+			datosCuidador: {},
+			datosCliente: {},
+			datos: null
+			
 			
 		},
 		actions: {
@@ -79,35 +85,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  
 			//Ver el detalle de un cuidador
 			detalleCuidador: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`)
+				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorPublico/${id}`)
 					.then(response => response.json())
 					.then(data => {
 						setStore({ detalleCuidador: data })
 					})
 					.catch(error => console.log("error", error));
 			},
-
-			//Crear token cuidador
-			setLogin: async (datoslogin) => {
-				await fetch(
-				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorlogin",
-				  {
-					method: "POST",
-					headers: {
-					  "Content-Type": "application/json",
-					},
-					body: JSON.stringify(datoslogin),
-				  }
-				)
-				  .then((resp) => resp.json())
-				  .then(data => {
-					
-					sessionStorage.setItem("token", data.token)
-					setStore({ datos: data })
-				  })
-				  .catch((error) => console.log("error", error));
-				
-			  },
 
 //-------------------------------//FETCH CLIENTES---------------------------------
 			//Registrar un cliente
@@ -138,14 +122,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			 //Ver un Cliente
-			 detalleCliente: async id => {
-				await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`)
-					.then(response => response.json())
-					.then(data => {
-						setStore({ detalleCliente: data })
-					})
-					.catch(error => console.log("error", error));
-			},
+			//  detalleCliente: async id => {
+			// 	await fetch(`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`)
+			// 		.then(response => response.json())
+			// 		.then(data => {
+			// 			setStore({ detalleCliente: data })
+			// 		})
+			// 		.catch(error => console.log("error", error));
+			// },
 
 			//Editar un Cliente
 			updateCliente: (dataToEdit, id) => {
@@ -155,6 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "PUT",
 					headers: {
 					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datos}`
 					},
 					body: JSON.stringify(dataToEdit),
 				  }
@@ -167,21 +152,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			
 			//Eliminar un cliente
-			deleteCliente: async id  => {
-				await fetch(
-					`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
-					{
-						method: "DELETE",
-						headers: {
-						  "Content-Type": "application/json",
-						}
-					  }
-				)
-				  .then((response) => response.json())
-				  .catch((error) => {
-					console.log("El error", error);
-				  });
-			  },
+			// deleteCliente: async id  => {
+			// 	await fetch(
+			// 		`https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
+			// 		{
+			// 			method: "DELETE",
+			// 			headers: {
+			// 			  "Content-Type": "application/json",
+			// 			}
+			// 		  }
+			// 	)
+			// 	  .then((response) => response.json())
+			// 	  .catch((error) => {
+			// 		console.log("El error", error);
+			// 	  });
+			//   },
 
 			//FAVORITOS Cliente
 			favoritesCliente: async id => {
@@ -222,7 +207,112 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ Imagenes: data.message})
 					})
 					.catch(error => console.log('error', error));
-			}
+			},
+
+			//Crear token cuidador
+			setLogin: async (datoslogin) => {
+				await fetch(
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidadorlogin",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datoslogin),
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					sessionStorage.setItem("token", data.token)
+					setStore({ datosTokenCuidador: data })
+				  })
+				  .catch((error) => console.log("error", error));
+				
+			  },
+
+			  //Ver Datos Privado de un Cuidador
+			  detalleCuidadorP: async (id) => {
+				try {
+				const store = getStore()
+				await fetch(
+				  `https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cuidador/${id}`,
+				  {
+					method: "GET",
+					headers: {
+					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datosTokenCuidador?.token}`
+					}
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					setStore({ datosCuidador: data });
+					
+				  }) 
+				} catch (error) {
+				  console.log("error", error)
+				}
+			  },
+
+			  //Crear token cliente
+			setLoginCliente: async (datoslogin) => {
+				await fetch(
+				  "https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/clientelogin",
+				  {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(datoslogin),
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					sessionStorage.setItem("token", data.token)
+					setStore({ datosTokenCliente: data })
+				  })
+				  .catch((error) => console.log("error", error));
+				
+			  },
+
+			  //Ver Datos Privado de un Cliente
+			  detalleCliente: async (id) => {
+				try {
+				const store = getStore()
+				await fetch(
+				  `https://3001-yellow-tarantula-nr4wr9if.ws-us27.gitpod.io/api/cliente/${id}`,
+				  {
+					method: "GET",
+					headers: {
+					  "Content-Type": "application/json",
+					  'Authorization': `Bearer ${store.datosTokenCliente?.token}`
+					}
+				  }
+				)
+				  .then((resp) => resp.json())
+				  .then(data => {
+					  console.log(data)
+					setStore({ datosCliente: data })
+					
+				  }) 
+				} catch (error) {
+				  console.log("error", error)
+				}
+			  },
+
+			  logout: () =>{
+				sessionStorage.removeItem("token")
+				  setStore({ datosTokenCuidador: null });
+			  },
+
+			  getTokenSessionStorage: () =>{
+				const token = sessionStorage.getItem("token")
+				if(token && token !=="" && token !== undefined){
+				  setStore({ datos: token })
+				}
+			  },
+
+			  
 		}
 	};
 };

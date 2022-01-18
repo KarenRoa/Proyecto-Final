@@ -1,17 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fotoPerfil from "../../img/user.jpg";
 
 export const PerfilCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
+
+  console.log(store.datosCliente)
 
   const { id } = useParams();
 
   useEffect(() => {
     actions.detalleCliente(id);
   }, []);
+
+
 
   const confirmar = () => {
     if (confirm("Esta seguro que eliminar su perfil?")) {
@@ -32,7 +36,7 @@ export const PerfilCliente = () => {
         <div className="row d-flex justify-content-between align-items-center">
           <div className=" col-12 col-md-8">
             <h2 className="display-5">
-              {store.detalleCliente.nombre} {store.detalleCliente.apellido}
+              {store.datosCliente.nombre} {store.datosCliente.apellido}
             </h2>
           </div>
           <div className="col-12 col-md-4">
@@ -62,7 +66,7 @@ export const PerfilCliente = () => {
             <img src={fotoPerfil} className="rounded-circle p-2 img-fluid" />
           </div>
           <div className="col-12 col-md-8">
-            <p>"{store.detalleCliente.descripcion}"</p>
+            <p>"{store.datosCliente.descripcion}"</p>
           </div>
         </div>
         <div className="row">
@@ -75,19 +79,19 @@ export const PerfilCliente = () => {
             <span>
               <i className="fas fa-map-marker-alt"></i> Zona de Atención
             </span>
-            <p>{store.detalleCliente.comuna}</p>
+            <p>{store.datosCliente.comuna}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-instagram"></i> Instagram
             </span>
-            <p>{store.detalleCliente.rrss}</p>
+            <p>{store.datosCliente.rrss}</p>
           </div>
           <div className="col-sm-4">
             <span>
               <i className="fab fa-whatsapp"></i> WhatsApp
             </span>
-            <p>{store.detalleCliente.telefono}</p>
+            <p>{store.datosCliente.telefono}</p>
           </div>
         </div>
       </div>

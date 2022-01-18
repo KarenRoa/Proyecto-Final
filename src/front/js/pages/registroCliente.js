@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Modal2 from "../component/modal2";
 
 const RegistroCliente = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const formInicial = {
     nombre: "",
@@ -87,7 +87,7 @@ const RegistroCliente = () => {
 
       actions.setDatosFormularioCliente(datosCliente);
       alert("Te has registrado exitosamente");
-      history.push(`/`);
+      navigate(`/`)
       handleReset();
     }else{
       alert("Debes Aceptar los Terminos y Condiciones")
@@ -101,11 +101,8 @@ const RegistroCliente = () => {
 
   return (
     <div className="container bg-light bg-opacity-75 rounded-3 p-4 mt-4">
-<<<<<<< HEAD
-      <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-4">
-=======
+      {/* <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mt-5 mx-auto p-4 rounded-3 shadow-lg my-4"> */}
       <div className="col-12 col-md-8 col-lg-6 bg-light bg-opacity-75 text-dark mx-auto p-4 rounded-3 shadow-lg my-5">
->>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
         <div className="row">
           <div className="col d-flex justify-content-end me-2">
             <Link to={`/`} className="text-dark">
@@ -118,11 +115,7 @@ const RegistroCliente = () => {
         <h2 className="col-12 text-center mb-3">Registro Cliente</h2>
         <div className="row">
           <div className="col-10 mx-auto">
-<<<<<<< HEAD
             <form className="form" onSubmit={handleSubmit}>
-=======
-            <form onSubmit={handleSubmit}>
->>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
               <div className="row">
                 <div className="col-12 col-sm-6 col-md-6 d-flex flex-column">
                   <label htmlFor="nombre" className="form-label">
@@ -262,22 +255,14 @@ const RegistroCliente = () => {
                   ></textarea>
                 </div>
               </div>
-              <div>
-<<<<<<< HEAD
-                <div className="my-4">
-                  <Modal2></Modal2>
-                </div>
-              </div>
 
-              <div className="d-grid gap-2 col-6 mx-auto my-4 ">
-=======
+              <div className="">
                 <div className="col- 12 my-4">
                 <Modal2 handleChange={handleChange}/>
                 </div>
               </div>
 
               <div className="d-grid gap-2 col-10 mx-auto my-4 ">
->>>>>>> 7eb0aa40fbff1372a29b73722348c891f6101cb8
                 <button className="btn btn-outline-dark btn-sm">Enviar</button>
               </div>
             </form>

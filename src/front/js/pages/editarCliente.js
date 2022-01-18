@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "../../styles/editarBtn.css";
 
 export const EditarCliente = () => {
   const { store, actions } = useContext(Context);
   const { id } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   //VARIABLES DE ESTADOS
 
@@ -20,7 +20,9 @@ export const EditarCliente = () => {
     descripcion: "",
   });
 
-  const datos = store.detalleCliente;
+  const datos = store.datosCliente;
+
+  console.log(datos)
 
   //Variables de estados
   const [dataToEdit, setDataToEdit] = useState(datos);
@@ -55,7 +57,7 @@ export const EditarCliente = () => {
     actions.updateCliente(dataToEdit, id);
 
     alert("Datos modificados con Éxito");
-    history.push(`/perfilCliente/${id}`);
+    <Navigate to={`/perfilCliente/${id}`}/>
   };
 
   //FORMULARIO DE Cliente
@@ -183,7 +185,7 @@ export const EditarCliente = () => {
                       <i className="fas fa-check fs-4 mx-2"></i>
                     </span>
                   </button>
-                  <Link to={`/perfilPrivado/${id}`} className="text-dark">
+                  <Link to={`/perfilCliente/${id}`} className="text-dark">
                     <span className="fs-3">
                       <i className="fas fa-arrow-left"></i>
                     </span>
@@ -196,91 +198,5 @@ export const EditarCliente = () => {
         </div>
       </div>
     </div>
-    // <div className="container d-flex justify-content-center bg-dark w-50 text-light mt-5 ">
-
-    //   <form className="form d-flex justify-content-center flex-column" onSubmit={handleSubmit}>
-    //   <h1 className="text-center my-2">Editar Mi Perfil</h1>
-    //     <div className="nombre d-flex flex-column m-auto">
-    //       <label htmlFor="">Nombre *</label>
-    //       <input
-    //         type="text"
-    //         value={dataToEdit.nombre}
-    //         name="nombre"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.nombre ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="apellido d-flex flex-column m-auto">
-    //       <label htmlFor="">Apellido *</label>
-    //       <input
-    //         type="text"
-    //         value={dataToEdit.apellido}
-    //         name="apellido"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.apellido ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="email d-flex flex-column">
-    //       <label htmlFor="">Email *</label>
-    //       <input
-    //         type="email"
-    //         value={dataToEdit.email}
-    //         name="email"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     {!datosCuidador.email ? (
-    //       <p style={{ color: "red", textAlign: "center" }}>{error}</p>
-    //     ) : null}
-
-    //     <div className="comuna d-flex flex-column">
-    //       <label htmlFor="">Comuna</label>
-    //       <input
-    //         type="text"
-    //         value={dataToEdit.comuna}
-    //         name="comuna"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-    //     <div className="telefono d-flex flex-column">
-    //       <label htmlFor="">Teléfono</label>
-    //       <input
-    //         type="tel"
-    //         value={dataToEdit.telefono}
-    //         name="telefono"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-
-    //     <div className="rrss d-flex flex-column">
-    //       <label htmlFor="">Red Social</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.rrss}
-    //         name="rrss"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-    //     <div className="descripcion d-flex flex-column">
-    //       <label htmlFor="">Algo sobre ti</label>
-    //       <input
-    //         type="text"
-    //         value={datosCuidador.descripcion}
-    //         name="descripcion"
-    //         onChange={handleForm}
-    //       ></input>
-    //     </div>
-    //     <button className="enviar my-2">Enviar</button>
-    //   </form>
-    // </div>
   );
 };

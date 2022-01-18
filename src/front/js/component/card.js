@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import fotoPerfil from "../../img/avatarstandar.png";
 
 export const Card = () => {
   const { store, actions } = useContext(Context);
-  const history = useHistory();
+  const history = useNavigate();
 
   const { id } = useParams();
 
-  useEffect(() => {
-    actions.detalleCuidador(id);
-  }, []);
+  // useEffect(() => {
+  //   actions.detalleCuidador(id);
+  // }, []);
 
   const cuidador = store.cuidadores.slice(0, 4);
-  console.log(cuidador)
+
 
   return (
     <>
