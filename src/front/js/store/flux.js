@@ -209,6 +209,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log('error', error));
 			},
 
+//-----------------------JWT-------------------------------------------------------------------
+
 			//Crear token cuidador
 			setLogin: async (datoslogin) => {
 				await fetch(
@@ -225,6 +227,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .then(data => {
 					sessionStorage.setItem("token", data.token)
 					setStore({ datosTokenCuidador: data })
+					console.log("Desde Flux", data )
 				  })
 				  .catch((error) => console.log("error", error));
 				
