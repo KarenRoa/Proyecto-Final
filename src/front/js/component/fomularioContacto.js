@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 export const FormularioContacto = () => {
   const [usuario, setUsuario] = useState({
     nombre: "",
@@ -9,6 +9,8 @@ export const FormularioContacto = () => {
   });
   const [validacion, setValidacion] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
 
   const handleFormContacto = (event) => {
     const { name, value } = event.target;
@@ -26,6 +28,15 @@ export const FormularioContacto = () => {
     } else {
       setError("");
       setValidacion(false);
+      alert("Mensaje Enviado con Éxito")
+      
+
+      setUsuario({
+        nombre: "",
+        email: "",
+        asunto:"",
+        mensaje: "",
+      })
     }
   };
 
