@@ -44,7 +44,7 @@ const Galeria = () => {
             <form onSubmit={handleSubmit}>
               <div className="col-12 col-md-8 col-lg-4 mx-auto">
                 <select
-                  className="form-select"
+                  className="form-select text-uppercase"
                   aria-label="Default select example"
                   onChange={handleChange}
                 >
