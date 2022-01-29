@@ -6,7 +6,7 @@ const PrivateRoute  = ({ children }) =>{
   const { store, actions } = useContext(Context)
   
 
-    return store.datosTokenCuidador?.token ? children : <Navigate to="/" />
+    return store.datosTokenCuidador?.token || store.datosTokenCliente?.token ? children : <Navigate to="/" />
 
 }
 

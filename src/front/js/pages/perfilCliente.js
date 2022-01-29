@@ -7,14 +7,14 @@ export const PerfilCliente = () => {
   const { store, actions } = useContext(Context);
   const history = useNavigate();
 
-  console.log(store.datosCliente)
-
+  
   const { id } = useParams();
-
+  
   useEffect(() => {
     actions.detalleCliente(id);
   }, []);
-
+  
+  console.log(store.datosCliente)
 
 
   const confirmar = () => {

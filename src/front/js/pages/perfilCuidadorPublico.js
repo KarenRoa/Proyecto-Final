@@ -7,9 +7,7 @@ export const PerfilCuidadorPublico = () => {
   const { store, actions } = useContext(Context);
   const history = useNavigate()
   
-  
   const { id } = useParams();
-  
 
   useEffect(() => {
     actions.detalleCuidador(id);
