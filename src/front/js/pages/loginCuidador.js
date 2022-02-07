@@ -11,7 +11,7 @@ export const LoginCuidador = () => {
   const [datoslogin, setDatosLogin] = useState({ email: "", password: "" });
   const [validacion, setValidacion] = useState(false);
   const [error, setError] = useState("");
-  const [errorValidadcion, setErrorValidacion] = useState(false);
+  const [errorValidacion, setErrorValidacion] = useState(false);
   
 
   const handleReset = () => {
@@ -50,7 +50,7 @@ export const LoginCuidador = () => {
       <div className="container bg-light my-4 bg-opacity-50 p-5 rounded-3 boxed">
         <div className="col-12 col-md-8 col-lg-6 mx-auto my-auto bg-opacity-75 bg-light rounded-3 shadow-lg">
           <h2 className="text-center p-4">Inicio de Sesión Cuidador</h2>
-          {errorValidadcion ? (
+          {errorValidacion ? (
             <div className="text-center">
               <p className="text-center text-danger mt-1">
             Email o Contraseñas Ingresados son Incorrectos
