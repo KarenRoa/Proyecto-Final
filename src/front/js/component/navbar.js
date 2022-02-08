@@ -9,8 +9,13 @@ import { AnchorInicio } from "./navbar/inicio";
 import { AnchorQS } from "./navbar/quienes-somos";
 import { AnchorContact } from "./navbar/contacto";
 
+
 export const Navbar = () => {
-  const { store, actions } = useContext(Context);
+
+    
+    const { store, actions } = useContext(Context);
+
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -49,20 +54,51 @@ export const Navbar = () => {
               </li>
               <AnchorContact />
             </ul>
-            
-            {store.datosTokenCuidador?.token ? (
-             
-              <>
-                <Link to={`/perfilPrivado/${store.datosTokenCuidador.info_user.id}`}>
-                  <button className="btn btn-outline-light btn-sm me-2">Mi Perfil</button>
-                </Link>
-                
-                  <button className="btn btn-outline-light btn-sm" onClick={() => {
-                  actions.logout() }}>Cerrar Sesión</button>
-                
-              </>
+
+            {store.datosTokenCuidador?.token ||
+            store.datosTokenCliente?.token ? (
               
-            
+              store.datosTokenCuidador? (
+                <>
+                <Link
+                  to={`/perfilPrivado/${store.datosTokenCuidador?.info_user.id}`}
+                >
+                  <button className="btn btn-outline-light btn-sm me-2">
+                    Mi Perfil
+                  </button>
+                </Link>
+
+                <button
+                  className="btn btn-outline-light btn-sm"
+                  onClick={() => {
+                    actions.logout();
+                  }}
+                >
+                  Cerrar Sesión
+                </button>
+              </>
+              )
+              : (
+                <>
+                <Link
+                  to={`/perfilCliente/${store.datosTokenCliente?.info_user.id}`}
+                >
+                  <button className="btn btn-outline-light btn-sm me-2">
+                    Mi Perfil
+                  </button>
+                </Link>
+
+                <button
+                  className="btn btn-outline-light btn-sm"
+                  onClick={() => {
+                    actions.logoutC();
+                  }}
+                >
+                  Cerrar Sesión
+                </button>
+              </>
+              )
+              
             ) : (
               <>
                 <div className="botonRegistrate me-3">
