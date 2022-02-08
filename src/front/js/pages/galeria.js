@@ -60,7 +60,7 @@ const Galeria = () => {
 
                 <div className="d-grid gap-2 mt-2">
                   <button className="btn btn-outline-dark btn-sm">
-                    Enviar
+                    Buscar
                   </button>
                 </div>
               </div>
